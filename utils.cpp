@@ -5,8 +5,9 @@
 // TODO: Include exceptions, function overloading.
 // TODO: include exception catching!!
 
+#include "Audiofile/Audiofile.h"
 // Function declarations
-void ReadFile(std::string fileName){};
+void ReadFile(std::string fileName);
 
 // Read data from file
 
