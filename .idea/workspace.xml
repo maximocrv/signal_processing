@@ -20,7 +20,7 @@
   </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="Project" targetName="utils" />
+      <config projectName="Project" targetName="ex_1" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
@@ -96,7 +96,7 @@
       <updated>1606066973699</updated>
       <workItem from="1606066975079" duration="2332000" />
       <workItem from="1606118814029" duration="1699000" />
-      <workItem from="1606460854372" duration="9713000" />
+      <workItem from="1606460854372" duration="10022000" />
     </task>
     <task id="LOCAL-00001" summary="adding the submodule">
       <created>1606122525610</created>
