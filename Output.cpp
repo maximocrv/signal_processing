@@ -5,7 +5,6 @@
 #include "Output.h"
 #include <typeinfo>
 #include <fstream>
-#include "qcustomplot.h"
 //Constructor
 using namespace std;
 Output::Output() {}
@@ -32,10 +31,4 @@ void Output::SaveFile(vector<float> freq,vector<float> intensity, string filenam
         {
             cout<<"File is not open!";
         }
-}
-
-void Output::Plot(vector<float> freq,vector<float> intensity) const {
-    QCustomPlot *customPlot;    // Объявляем графическое полотно
-    QCPGraph *graphic;          // Объявляем график
-
 }

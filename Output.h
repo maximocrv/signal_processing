@@ -14,6 +14,5 @@ public:
     Output();
     void Print(std::vector<float> freq,std::vector<float> intensity) const;
     void SaveFile(std::vector<float> freq,std::vector<float> intensity, std::string filename) const;
-    void Plot(std::vector<float> freq,std::vector<float> intensity) const;
 };
 #endif //FIRST_PROJECT_PCSC_OUTPIT_H
