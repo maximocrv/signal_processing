@@ -1,5 +1,5 @@
 //
-// Created by Maximo Cravero on 29/11/2020.
+// Created by Sergei Kliavinek & Maximo Cravero on 30/11/2020.
 //
 
 
@@ -8,6 +8,10 @@
 
 #include <complex>
 #include <vector>
+#include <stack>
+
+using namespace std;
+typedef complex<double> comp;
 
 class FourierTransform {
 public:
@@ -16,11 +20,15 @@ public:
     ~FourierTransform();
 
     // Methods
-    void FastFourierTransform(std::vector<std::complex<double>>* signal, bool invert);
-    std::vector<double> InverseFastFourierTransform();
+    void FastFourierTransform(vector<comp>* signal, bool invert);
+    vector<double> InverseFastFourierTransform();
 
 private:
-    std::vector<std::complex<double>> mFourierSignal;
+    vector<comp> mFourierSignal;
+
+    void butterfly(vector<comp> &array, comp w);
+    unsigned int backwards(unsigned int x, int length);
+    void reposition(vector<comp> &array);
 
 };
 

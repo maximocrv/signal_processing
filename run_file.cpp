@@ -12,7 +12,7 @@
 #include <fstream>
 
 #include "AudioFile/AudioFile.h"
-#include "SignalProcesser.h"
+#include "SignalProcesser.hpp"
 
 int main(){
     AudioFile<double> audioFile;

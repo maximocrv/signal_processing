@@ -17,6 +17,7 @@ void Output::Print(vector<float> freq,vector<float> intensity) const
             cout << freq[i] << " "<<intensity[i]<<'\n';
         cout << std::endl;
 }
+
 void Output::SaveFile(vector<float> freq,vector<float> intensity, string filename) const {
         std::ofstream out;
         out.open(filename);

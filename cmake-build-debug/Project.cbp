@@ -82,10 +82,19 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/Maximocravero/EPFL/MATH-458/signal-processing/Output.cpp">
+		<Unit filename="/Users/Maximocravero/EPFL/MATH-458/signal-processing/FourierTransform.cpp">
 			<Option target="ex_1"/>
 		</Unit>
-		<Unit filename="/Users/Maximocravero/EPFL/MATH-458/signal-processing/Output.h">
+		<Unit filename="/Users/Maximocravero/EPFL/MATH-458/signal-processing/FourierTransform.hpp">
+			<Option target="ex_1"/>
+		</Unit>
+		<Unit filename="/Users/Maximocravero/EPFL/MATH-458/signal-processing/SignalProcesser.cpp">
+			<Option target="ex_1"/>
+		</Unit>
+		<Unit filename="/Users/Maximocravero/EPFL/MATH-458/signal-processing/SignalProcesser.hpp">
+			<Option target="ex_1"/>
+		</Unit>
+		<Unit filename="/Users/Maximocravero/EPFL/MATH-458/signal-processing/run_file.cpp">
 			<Option target="ex_1"/>
 		</Unit>
 		<Unit filename="/Users/Maximocravero/EPFL/MATH-458/signal-processing/CMakeLists.txt">

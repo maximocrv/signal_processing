@@ -143,32 +143,86 @@ ex_1/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex_1.dir/build.make CMakeFiles/ex_1.dir/build
 .PHONY : ex_1/fast
 
-Output.o: Output.cpp.o
+FourierTransform.o: FourierTransform.cpp.o
 
-.PHONY : Output.o
+.PHONY : FourierTransform.o
 
 # target to build an object file
-Output.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex_1.dir/build.make CMakeFiles/ex_1.dir/Output.cpp.o
-.PHONY : Output.cpp.o
+FourierTransform.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex_1.dir/build.make CMakeFiles/ex_1.dir/FourierTransform.cpp.o
+.PHONY : FourierTransform.cpp.o
 
-Output.i: Output.cpp.i
+FourierTransform.i: FourierTransform.cpp.i
 
-.PHONY : Output.i
+.PHONY : FourierTransform.i
 
 # target to preprocess a source file
-Output.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex_1.dir/build.make CMakeFiles/ex_1.dir/Output.cpp.i
-.PHONY : Output.cpp.i
+FourierTransform.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex_1.dir/build.make CMakeFiles/ex_1.dir/FourierTransform.cpp.i
+.PHONY : FourierTransform.cpp.i
 
-Output.s: Output.cpp.s
+FourierTransform.s: FourierTransform.cpp.s
 
-.PHONY : Output.s
+.PHONY : FourierTransform.s
 
 # target to generate assembly for a file
-Output.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex_1.dir/build.make CMakeFiles/ex_1.dir/Output.cpp.s
-.PHONY : Output.cpp.s
+FourierTransform.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex_1.dir/build.make CMakeFiles/ex_1.dir/FourierTransform.cpp.s
+.PHONY : FourierTransform.cpp.s
+
+SignalProcesser.o: SignalProcesser.cpp.o
+
+.PHONY : SignalProcesser.o
+
+# target to build an object file
+SignalProcesser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex_1.dir/build.make CMakeFiles/ex_1.dir/SignalProcesser.cpp.o
+.PHONY : SignalProcesser.cpp.o
+
+SignalProcesser.i: SignalProcesser.cpp.i
+
+.PHONY : SignalProcesser.i
+
+# target to preprocess a source file
+SignalProcesser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex_1.dir/build.make CMakeFiles/ex_1.dir/SignalProcesser.cpp.i
+.PHONY : SignalProcesser.cpp.i
+
+SignalProcesser.s: SignalProcesser.cpp.s
+
+.PHONY : SignalProcesser.s
+
+# target to generate assembly for a file
+SignalProcesser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex_1.dir/build.make CMakeFiles/ex_1.dir/SignalProcesser.cpp.s
+.PHONY : SignalProcesser.cpp.s
+
+run_file.o: run_file.cpp.o
+
+.PHONY : run_file.o
+
+# target to build an object file
+run_file.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex_1.dir/build.make CMakeFiles/ex_1.dir/run_file.cpp.o
+.PHONY : run_file.cpp.o
+
+run_file.i: run_file.cpp.i
+
+.PHONY : run_file.i
+
+# target to preprocess a source file
+run_file.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex_1.dir/build.make CMakeFiles/ex_1.dir/run_file.cpp.i
+.PHONY : run_file.cpp.i
+
+run_file.s: run_file.cpp.s
+
+.PHONY : run_file.s
+
+# target to generate assembly for a file
+run_file.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex_1.dir/build.make CMakeFiles/ex_1.dir/run_file.cpp.s
+.PHONY : run_file.cpp.s
 
 # Help Target
 help:
@@ -179,9 +233,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... ex_1"
-	@echo "... Output.o"
-	@echo "... Output.i"
-	@echo "... Output.s"
+	@echo "... FourierTransform.o"
+	@echo "... FourierTransform.i"
+	@echo "... FourierTransform.s"
+	@echo "... SignalProcesser.o"
+	@echo "... SignalProcesser.i"
+	@echo "... SignalProcesser.s"
+	@echo "... run_file.o"
+	@echo "... run_file.i"
+	@echo "... run_file.s"
 .PHONY : help
 
 

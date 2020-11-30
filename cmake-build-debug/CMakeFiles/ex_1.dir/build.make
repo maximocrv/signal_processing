@@ -77,30 +77,60 @@ include CMakeFiles/ex_1.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/ex_1.dir/flags.make
 
-CMakeFiles/ex_1.dir/Output.cpp.o: CMakeFiles/ex_1.dir/flags.make
-CMakeFiles/ex_1.dir/Output.cpp.o: ../Output.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Maximocravero/EPFL/MATH-458/signal-processing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ex_1.dir/Output.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ex_1.dir/Output.cpp.o -c /Users/Maximocravero/EPFL/MATH-458/signal-processing/Output.cpp
+CMakeFiles/ex_1.dir/run_file.cpp.o: CMakeFiles/ex_1.dir/flags.make
+CMakeFiles/ex_1.dir/run_file.cpp.o: ../run_file.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Maximocravero/EPFL/MATH-458/signal-processing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ex_1.dir/run_file.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ex_1.dir/run_file.cpp.o -c /Users/Maximocravero/EPFL/MATH-458/signal-processing/run_file.cpp
 
-CMakeFiles/ex_1.dir/Output.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ex_1.dir/Output.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Maximocravero/EPFL/MATH-458/signal-processing/Output.cpp > CMakeFiles/ex_1.dir/Output.cpp.i
+CMakeFiles/ex_1.dir/run_file.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ex_1.dir/run_file.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Maximocravero/EPFL/MATH-458/signal-processing/run_file.cpp > CMakeFiles/ex_1.dir/run_file.cpp.i
 
-CMakeFiles/ex_1.dir/Output.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ex_1.dir/Output.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Maximocravero/EPFL/MATH-458/signal-processing/Output.cpp -o CMakeFiles/ex_1.dir/Output.cpp.s
+CMakeFiles/ex_1.dir/run_file.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ex_1.dir/run_file.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Maximocravero/EPFL/MATH-458/signal-processing/run_file.cpp -o CMakeFiles/ex_1.dir/run_file.cpp.s
+
+CMakeFiles/ex_1.dir/FourierTransform.cpp.o: CMakeFiles/ex_1.dir/flags.make
+CMakeFiles/ex_1.dir/FourierTransform.cpp.o: ../FourierTransform.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Maximocravero/EPFL/MATH-458/signal-processing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ex_1.dir/FourierTransform.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ex_1.dir/FourierTransform.cpp.o -c /Users/Maximocravero/EPFL/MATH-458/signal-processing/FourierTransform.cpp
+
+CMakeFiles/ex_1.dir/FourierTransform.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ex_1.dir/FourierTransform.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Maximocravero/EPFL/MATH-458/signal-processing/FourierTransform.cpp > CMakeFiles/ex_1.dir/FourierTransform.cpp.i
+
+CMakeFiles/ex_1.dir/FourierTransform.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ex_1.dir/FourierTransform.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Maximocravero/EPFL/MATH-458/signal-processing/FourierTransform.cpp -o CMakeFiles/ex_1.dir/FourierTransform.cpp.s
+
+CMakeFiles/ex_1.dir/SignalProcesser.cpp.o: CMakeFiles/ex_1.dir/flags.make
+CMakeFiles/ex_1.dir/SignalProcesser.cpp.o: ../SignalProcesser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Maximocravero/EPFL/MATH-458/signal-processing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ex_1.dir/SignalProcesser.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ex_1.dir/SignalProcesser.cpp.o -c /Users/Maximocravero/EPFL/MATH-458/signal-processing/SignalProcesser.cpp
+
+CMakeFiles/ex_1.dir/SignalProcesser.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ex_1.dir/SignalProcesser.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Maximocravero/EPFL/MATH-458/signal-processing/SignalProcesser.cpp > CMakeFiles/ex_1.dir/SignalProcesser.cpp.i
+
+CMakeFiles/ex_1.dir/SignalProcesser.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ex_1.dir/SignalProcesser.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Maximocravero/EPFL/MATH-458/signal-processing/SignalProcesser.cpp -o CMakeFiles/ex_1.dir/SignalProcesser.cpp.s
 
 # Object files for target ex_1
 ex_1_OBJECTS = \
-"CMakeFiles/ex_1.dir/Output.cpp.o"
+"CMakeFiles/ex_1.dir/run_file.cpp.o" \
+"CMakeFiles/ex_1.dir/FourierTransform.cpp.o" \
+"CMakeFiles/ex_1.dir/SignalProcesser.cpp.o"
 
 # External object files for target ex_1
 ex_1_EXTERNAL_OBJECTS =
 
-ex_1: CMakeFiles/ex_1.dir/Output.cpp.o
+ex_1: CMakeFiles/ex_1.dir/run_file.cpp.o
+ex_1: CMakeFiles/ex_1.dir/FourierTransform.cpp.o
+ex_1: CMakeFiles/ex_1.dir/SignalProcesser.cpp.o
 ex_1: CMakeFiles/ex_1.dir/build.make
 ex_1: CMakeFiles/ex_1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/Maximocravero/EPFL/MATH-458/signal-processing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ex_1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/Maximocravero/EPFL/MATH-458/signal-processing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable ex_1"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ex_1.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

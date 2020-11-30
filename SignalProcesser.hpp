@@ -3,8 +3,9 @@
 //
 
 #include <vector>
-
 #include "AudioFile/AudioFile.h"
+
+using namespace std;
 
 #ifndef SIGNAL_PROCESSING_SIGNALPROCESSER_H
 #define SIGNAL_PROCESSING_SIGNALPROCESSER_H
@@ -18,10 +19,12 @@ public:
     ~SignalProcesser();
 
     // set methods
-    void SetSignal(std::vector<double>& signal);
+    void SetSignal(vector<double>& signal);
     // set ft via fft
     // set noise removed signal
     void RemoveNoise(int window);
+
+
 
     // get methods (const)
     // get
@@ -30,9 +33,9 @@ public:
     // Signal.to_file(asjdlfkasjdf)
 
 private:
-    std::vector<double> mSignal;
-    std::vector<double> mFFTSignal;
-    std::vector<double> mNoiseRemovedSignal;
+    vector<double> mSignal;
+    vector<double> mFFTSignal;
+    vector<double> mNoiseRemovedSignal;
 };
 
 

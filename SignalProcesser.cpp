@@ -3,7 +3,7 @@
 //
 
 #include <numeric>
-#include "SignalProcesser.h"
+#include "SignalProcesser.hpp"
 
 
 // Default constructor
