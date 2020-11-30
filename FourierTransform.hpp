@@ -16,7 +16,7 @@ public:
     ~FourierTransform();
 
     // Methods
-    void FastFourierTransform(std::vector<double>* time_signal);
+    void FastFourierTransform(std::vector<std::complex<double>>* signal, bool invert);
     std::vector<double> InverseFastFourierTransform();
 
 private:
