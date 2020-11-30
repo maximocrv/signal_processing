@@ -1,4 +1,6 @@
 .idea*
+.DS_Store
+.idea
 *.o
 *~
 *CMakeFiles
@@ -8,3 +10,4 @@ cmake_install.cmake
 .project
 .cproject
 cmake-build-debug
+
