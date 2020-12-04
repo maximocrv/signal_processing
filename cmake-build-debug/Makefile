@@ -170,32 +170,32 @@ FourierTransform.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex_1.dir/build.make CMakeFiles/ex_1.dir/FourierTransform.cpp.s
 .PHONY : FourierTransform.cpp.s
 
-SignalProcesser.o: SignalProcesser.cpp.o
+SignalProcessor.o: SignalProcessor.cpp.o
 
-.PHONY : SignalProcesser.o
+.PHONY : SignalProcessor.o
 
 # target to build an object file
-SignalProcesser.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex_1.dir/build.make CMakeFiles/ex_1.dir/SignalProcesser.cpp.o
-.PHONY : SignalProcesser.cpp.o
+SignalProcessor.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex_1.dir/build.make CMakeFiles/ex_1.dir/SignalProcessor.cpp.o
+.PHONY : SignalProcessor.cpp.o
 
-SignalProcesser.i: SignalProcesser.cpp.i
+SignalProcessor.i: SignalProcessor.cpp.i
 
-.PHONY : SignalProcesser.i
+.PHONY : SignalProcessor.i
 
 # target to preprocess a source file
-SignalProcesser.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex_1.dir/build.make CMakeFiles/ex_1.dir/SignalProcesser.cpp.i
-.PHONY : SignalProcesser.cpp.i
+SignalProcessor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex_1.dir/build.make CMakeFiles/ex_1.dir/SignalProcessor.cpp.i
+.PHONY : SignalProcessor.cpp.i
 
-SignalProcesser.s: SignalProcesser.cpp.s
+SignalProcessor.s: SignalProcessor.cpp.s
 
-.PHONY : SignalProcesser.s
+.PHONY : SignalProcessor.s
 
 # target to generate assembly for a file
-SignalProcesser.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex_1.dir/build.make CMakeFiles/ex_1.dir/SignalProcesser.cpp.s
-.PHONY : SignalProcesser.cpp.s
+SignalProcessor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex_1.dir/build.make CMakeFiles/ex_1.dir/SignalProcessor.cpp.s
+.PHONY : SignalProcessor.cpp.s
 
 run_file.o: run_file.cpp.o
 
@@ -236,9 +236,9 @@ help:
 	@echo "... FourierTransform.o"
 	@echo "... FourierTransform.i"
 	@echo "... FourierTransform.s"
-	@echo "... SignalProcesser.o"
-	@echo "... SignalProcesser.i"
-	@echo "... SignalProcesser.s"
+	@echo "... SignalProcessor.o"
+	@echo "... SignalProcessor.i"
+	@echo "... SignalProcessor.s"
 	@echo "... run_file.o"
 	@echo "... run_file.i"
 	@echo "... run_file.s"

@@ -12,23 +12,27 @@
 #include <fstream>
 
 #include "AudioFile/AudioFile.h"
-#include "SignalProcesser.hpp"
+#include "SignalProcessor.hpp"
 
 int main(){
     AudioFile<double> audioFile;
 
-    audioFile.load("../tone.wav");
+    audioFile.load("tone.wav");
 
     audioFile.printSummary();
 
-    SignalProcesser cheese(audioFile);
+    SignalProcessor test_file(audioFile);
 
     int window = 10;
-    cheese.RemoveNoise(window);
+    test_file.RemoveNoise(window);
 
-    cheese.getNoiseRemovedSignal();
+    test_file.GenerateHistogram(10);
 
-//    cheese.getNoiseRemovedSignal();
+//    test_file.getNoiseRemovedSignal();
+
+
+
+//    test_file.getNoiseRemovedSignal();
 
 //    int channel = 0;
 //    int numSamples = audioFile.getNumSamplesPerChannel();

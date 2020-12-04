@@ -88,10 +88,10 @@
 		<Unit filename="/Users/Maximocravero/EPFL/MATH-458/signal-processing/FourierTransform.hpp">
 			<Option target="ex_1"/>
 		</Unit>
-		<Unit filename="/Users/Maximocravero/EPFL/MATH-458/signal-processing/SignalProcesser.cpp">
+		<Unit filename="/Users/Maximocravero/EPFL/MATH-458/signal-processing/SignalProcessor.cpp">
 			<Option target="ex_1"/>
 		</Unit>
-		<Unit filename="/Users/Maximocravero/EPFL/MATH-458/signal-processing/SignalProcesser.hpp">
+		<Unit filename="/Users/Maximocravero/EPFL/MATH-458/signal-processing/SignalProcessor.hpp">
 			<Option target="ex_1"/>
 		</Unit>
 		<Unit filename="/Users/Maximocravero/EPFL/MATH-458/signal-processing/run_file.cpp">
