@@ -22,16 +22,13 @@ public:
 
     // set methods
     void SetSignal(vector<double>& signal);
-    // set ft via fft
-
-    // set noise removed signal
     void RemoveNoise(int window);
 
     void GenerateHistogram(int n_bins);
 
     // get methods (const)
     // get
-    void getRawSignal();
+    vector<double> getRawSignal();
     void getNoiseRemovedSignal();
 
     // Signal.to_file(asjdlfkasjdf)

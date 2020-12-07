@@ -29,10 +29,8 @@ SignalProcessor::~SignalProcessor() {
 
 
 /* Get raw signal */
-void SignalProcessor::getRawSignal() {
-    for (double& c : mSignal){
-        std::cout << c << "\n";
-    }
+std::vector<double> SignalProcessor::getRawSignal() {
+    return mSignal;
 }
 
 /* Get noise removed signal */

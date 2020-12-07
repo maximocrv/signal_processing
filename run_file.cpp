@@ -10,9 +10,11 @@
 
 #include <iostream>
 #include <fstream>
+#include <vector>
 
 #include "AudioFile/AudioFile.h"
 #include "SignalProcessor.hpp"
+#include "FourierTransform.hpp"
 
 int main(){
     AudioFile<double> audioFile;
@@ -23,10 +25,23 @@ int main(){
 
     SignalProcessor test_file(audioFile);
 
-    int window = 10;
-    test_file.RemoveNoise(window);
+    std::vector<double> raw_signal = test_file.getRawSignal();
 
-    test_file.GenerateHistogram(10);
+//    std::cout << raw_signal.size() << "\n";
+    auto* signal_cut = new std::vector<double>;
+
+    *signal_cut = std::vector<double>(raw_signal.begin(), raw_signal.begin() + pow(2, 18));
+
+//    std::cout << signal_cut.size();
+
+    FourierTransform fourier_instance;
+
+    fourier_instance.FastFourierTransform(*signal_cut, false);
+
+    int window = 10;
+//    test_file.RemoveNoise(window);
+
+//    test_file.GenerateHistogram(10);
 
 //    test_file.getNoiseRemovedSignal();
 

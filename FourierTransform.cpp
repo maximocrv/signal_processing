@@ -76,7 +76,7 @@ void FourierTransform::reposition(vector<comp> &signal)
 /*
  * Computes the Fourier transform using FFT with some auxiliary functions defined above.
  */
-void FourierTransform::FastFourierTransform(vector<comp>* signal, bool invert) {
+void FourierTransform::FastFourierTransform(vector<comp>* signal, bool invert = false) {
     int N = signal->size();
 
     reposition(*signal);

@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/Maximocravero/EPFL/MATH-458/signal-processing/SignalProcessor.cpp" "/Users/Maximocravero/EPFL/MATH-458/signal-processing/cmake-build-debug/CMakeFiles/ex_1.dir/SignalProcessor.cpp.o"
   "/Users/Maximocravero/EPFL/MATH-458/signal-processing/run_file.cpp" "/Users/Maximocravero/EPFL/MATH-458/signal-processing/cmake-build-debug/CMakeFiles/ex_1.dir/run_file.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "Clang")
+set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

@@ -21,6 +21,7 @@ public:
 
     // Methods
     void FastFourierTransform(vector<comp>* signal, bool invert);
+
     vector<double> InverseFastFourierTransform();
 
 private:
