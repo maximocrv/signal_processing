@@ -23,8 +23,8 @@ public:
     ~FourierTransform();
 
     // Methods
-    void FastFourierTransform(vector<comp>* signal, bool invert);
-    void FFT_filter(vector <comp>& signal, double percentage);
+    void FastFourierTransform(vector<double>* signals, vector<comp>* signal, bool invert);
+    void FFT_filter(vector<double>& signals, double percentage);
 
     vector<double> InverseFastFourierTransform();
 

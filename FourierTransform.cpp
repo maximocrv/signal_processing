@@ -76,9 +76,11 @@ void FourierTransform::reposition(vector<comp> &signal)
 /*
  * Computes the Fourier transform using FFT with some auxiliary functions defined above.
  */
-void FourierTransform::FastFourierTransform(vector<comp>* signal, bool invert = false) {
+void FourierTransform::FastFourierTransform(vector<double>* signals,vector<comp>* signal, bool invert = false) {
     int N = signal->size();
-
+    for (int i=0; i<signals->size(); i++){
+        signal->push_back(((*signals)[i], 0));
+    }
     reposition(*signal);
 
     comp w = exp(comp(0.0, 2.0 * PI / N));
@@ -110,8 +112,9 @@ bool FourierTransform::pairCompare(const pair<double, int>& firstElem, const pai
     return firstElem.first > secondElem.first;
 
 }
-void FourierTransform::FFT_filter(vector <comp>& signal, double percentage){
-    FastFourierTransform(&signal, false);
+void FourierTransform::FFT_filter(vector<double>& signals, double percentage){
+    vector <comp> signal;
+    FastFourierTransform(&signals, &signal, false);
     vector <double> amplitudes(signal.size());
     vector<pair<double,int>> res;
     if (percentage<0){
@@ -133,13 +136,13 @@ void FourierTransform::FFT_filter(vector <comp>& signal, double percentage){
     double sum = accumulate(amplitudes.begin(), amplitudes.end(), 0.0);
     double sum_final = 0;
     for (int i=0; i<signal.size(); i++){
-        signal[i]=0;
+        signals[i]=0;
     }
     int i=0;
-    while ((((sum_final+res[i].first)/sum)< (percentage/100))&&(i<signal.size())){
+    while ((((sum_final+res[i].first)/sum)< (percentage/100))&&(i<signals.size())){
         sum_final +=res[i].first;
-        signal[res[i].second]=res[i].first;
+        signals[res[i].second]=res[i].first;
         i+=1;
     }
-    InverseFastFourierTransform(*signal);
+    //InverseFastFourierTransform(signal);
 }
