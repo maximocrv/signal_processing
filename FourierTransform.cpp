@@ -97,7 +97,7 @@ void FourierTransform::FastFourierTransform(vector<comp>* signal, bool invert = 
     }
 
     mFourierSignal = *signal;
-};
+}
 
 /*
  * Computes the inverse Fourier transform using FFT with some auxiliary functions defined above.
@@ -105,4 +105,41 @@ void FourierTransform::FastFourierTransform(vector<comp>* signal, bool invert = 
 vector<double> FourierTransform::InverseFastFourierTransform(){
     vector<double> a = {1.0, 2.0, 3.0};
     return a;
-};
+}
+bool FourierTransform::pairCompare(const pair<double, int>& firstElem, const pair<double, int>& secondElem) {
+    return firstElem.first > secondElem.first;
+
+}
+void FourierTransform::FFT_filter(vector <comp>& signal, double percentage){
+    FastFourierTransform(&signal, false);
+    vector <double> amplitudes(signal.size());
+    vector<pair<double,int>> res;
+    if (percentage<0){
+        percentage=0;
+    }
+    else if (percentage>100){
+        percentage=100;
+    }
+    // compute the amplitudes for each frequency
+    for (int i=0; i<signal.size(); i++){
+        double real_squad = (double)signal[i].real()*(double)signal[i].real();
+        double image_squad=(double)signal[i].imag()*(double)signal[i].imag();
+        amplitudes[i] =sqrt(real_squad+image_squad);
+        auto p = make_pair(amplitudes[i], i);
+        res.push_back(p);
+    }
+    //sorting frequency numbers by amplitude
+    sort(res.begin(), res.end(), pairCompare);
+    double sum = accumulate(amplitudes.begin(), amplitudes.end(), 0.0);
+    double sum_final = 0;
+    for (int i=0; i<signal.size(); i++){
+        signal[i]=0;
+    }
+    int i=0;
+    while ((((sum_final+res[i].first)/sum)< (percentage/100))&&(i<signal.size())){
+        sum_final +=res[i].first;
+        signal[res[i].second]=res[i].first;
+        i+=1;
+    }
+    InverseFastFourierTransform(*signal);
+}

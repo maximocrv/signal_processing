@@ -9,7 +9,10 @@
 #include <complex>
 #include <vector>
 #include <stack>
-
+#include <cmath>
+#include <numeric>
+#include <algorithm>
+#include <iostream>
 using namespace std;
 typedef complex<double> comp;
 
@@ -21,12 +24,13 @@ public:
 
     // Methods
     void FastFourierTransform(vector<comp>* signal, bool invert);
+    void FFT_filter(vector <comp>& signal, double percentage);
 
     vector<double> InverseFastFourierTransform();
 
 private:
     vector<comp> mFourierSignal;
-
+    static bool pairCompare(const pair<double, int>& firstElem, const pair<double, int>& secondElem);
     void butterfly(vector<comp> &array, comp w);
     unsigned int backwards(unsigned int x, int length);
     void reposition(vector<comp> &array);
