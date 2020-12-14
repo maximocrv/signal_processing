@@ -25,8 +25,7 @@ public:
     // Methods
     void FastFourierTransform(vector<double>* signals, vector<comp>* signal, bool invert);
     void FFT_filter(vector<double>& signals, double percentage);
-
-    vector<double> InverseFastFourierTransform();
+    void inverse_fourier_transform(vector<double>* signals, vector<comp>* signal);
 
 private:
     vector<comp> mFourierSignal;
@@ -34,6 +33,7 @@ private:
     void butterfly(vector<comp> &array, comp w);
     unsigned int backwards(unsigned int x, int length);
     void reposition(vector<comp> &array);
+    static void conjugate(vector<comp> &signal);
 
 };
 

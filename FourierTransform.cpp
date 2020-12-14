@@ -7,6 +7,8 @@
 using namespace std;
 const double PI = acos(-1);
 
+void conjugate(vector<comp> vector);
+
 /* Default constructor */
 FourierTransform::FourierTransform(){};
 
@@ -77,12 +79,13 @@ void FourierTransform::reposition(vector<comp> &signal)
  * Computes the Fourier transform using FFT with some auxiliary functions defined above.
  */
 void FourierTransform::FastFourierTransform(vector<double>* signals,vector<comp>* signal, bool invert = false) {
-    int N = signal->size();
-    for (int i=0; i<signals->size(); i++){
-        signal->push_back(((*signals)[i], 0));
+    if(signal->empty()) {
+        for (int i = 0; i < signals->size(); i++) {
+            signal->push_back(((*signals)[i], 0.0));
+        }
     }
     reposition(*signal);
-
+    int N = signal->size();
     comp w = exp(comp(0.0, 2.0 * PI / N));
     stack<comp> ws;
     for (int step = N; step != 1; step /= 2) {
@@ -104,10 +107,30 @@ void FourierTransform::FastFourierTransform(vector<double>* signals,vector<comp>
 /*
  * Computes the inverse Fourier transform using FFT with some auxiliary functions defined above.
  */
-vector<double> FourierTransform::InverseFastFourierTransform(){
-    vector<double> a = {1.0, 2.0, 3.0};
-    return a;
+void FourierTransform::inverse_fourier_transform(vector<double>* signals, vector<comp>* signal)
+{
+    for (int i=0; i<signals->size(); i++){
+        signal->push_back(((*signals)[i], 0.0));
+    }
+    conjugate(*signal);
+    FastFourierTransform(signals, signal, false);
+    conjugate(*signal);
+    int size = signal->size();
+    for(int i = 0; i < size; i++)
+        (*signal)[i] = (*signal)[i] / (double)size;
 }
+
+
+/*
+ * Replaces every element of the vector by its complex conjugate.
+ */
+void FourierTransform::conjugate(vector<comp> &signal)
+{
+    int size = signal.size();
+    for(int i = 0; i < size; i++)
+        signal[i] = conj(signal[i]);
+}
+
 bool FourierTransform::pairCompare(const pair<double, int>& firstElem, const pair<double, int>& secondElem) {
     return firstElem.first > secondElem.first;
 
