@@ -36,12 +36,12 @@ int main(){
 
     FourierTransform fourier_instance;
 
-    fourier_instance.FastFourierTransform(*signal_cut, false);
+//    fourier_instance.FastFourierTransform(*signal_cut, false);
 
     int window = 10;
 //    test_file.RemoveNoise(window);
 
-//    test_file.GenerateHistogram(10);
+    test_file.GenerateHistogram(10);
 
 //    test_file.getNoiseRemovedSignal();
 

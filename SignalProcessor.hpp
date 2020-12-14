@@ -21,8 +21,9 @@ public:
     ~SignalProcessor();
 
     // set methods
-    void SetSignal(vector<double>& signal);
-    void RemoveNoise(int window);
+    template<typename T>
+    void SetSignal(const T& signal);
+    void RemoveNoise(int window, string flag, double m = 0.5);
 
     void GenerateHistogram(int n_bins);
 
@@ -35,9 +36,7 @@ public:
 
 private:
     vector<double> mSignal;
-    vector<double> mFFTSignal;
     vector<double> mNoiseRemovedSignal;
-    vector<double> mSortedSignal;
 };
 
 
