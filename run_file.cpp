@@ -27,21 +27,27 @@ int main(){
 
     std::vector<double> raw_signal = test_file.getRawSignal();
 
-//    std::cout << raw_signal.size() << "\n";
+    std::cout << raw_signal.size() << "\n";
     auto* signal_cut = new std::vector<double>;
 
-    *signal_cut = std::vector<double>(raw_signal.begin(), raw_signal.begin() + pow(2, 18));
+    *signal_cut = std::vector<double>(raw_signal.begin(), raw_signal.begin() + pow(2, 14));
 
 //    std::cout << signal_cut.size();
 
     FourierTransform fourier_instance;
 
+    fourier_instance.FastFourierTransform(signal_cut, false);
+
+    auto test = fourier_instance.getFTSignal();
+
+
+
 //    fourier_instance.FastFourierTransform(*signal_cut, false);
 
-    int window = 10;
+//    int window = 10;
 //    test_file.RemoveNoise(window);
 
-    test_file.GenerateHistogram(10);
+//    test_file.GenerateHistogram(10);
 
 //    test_file.getNoiseRemovedSignal();
 
