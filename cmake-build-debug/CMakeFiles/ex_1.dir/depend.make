@@ -9,6 +9,7 @@ CMakeFiles/ex_1.dir/SignalProcessor.cpp.o: ../SignalProcessor.cpp
 CMakeFiles/ex_1.dir/SignalProcessor.cpp.o: ../SignalProcessor.hpp
 
 CMakeFiles/ex_1.dir/run_file.cpp.o: ../AudioFile/AudioFile.h
+CMakeFiles/ex_1.dir/run_file.cpp.o: ../FourierTransform.hpp
 CMakeFiles/ex_1.dir/run_file.cpp.o: ../SignalProcessor.hpp
 CMakeFiles/ex_1.dir/run_file.cpp.o: ../run_file.cpp
 

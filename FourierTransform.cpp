@@ -9,6 +9,7 @@ using namespace std;
 const double PI = acos(-1);
 
 void conjugate(vector<comp> vector);
+typedef complex<double> comp;
 
 /** Default constructor */
 FourierTransform::FourierTransform(){};
@@ -93,7 +94,8 @@ void FourierTransform::reposition(vector<comp> &signal)
 /**
  * Computes the Fourier transform using FFT with some auxiliary functions defined above.
  */
-void FourierTransform::FastFourierTransform(vector<double>* signals,vector<comp>* signal, bool invert = false) {
+
+void FourierTransform::FastFourierTransform(vector<double>* signals,vector<comp>* signal, bool invert) {
     if(signal->empty()) {
         for (int i = 0; i < signals->size(); i++) {
             signal->push_back(((*signals)[i], 0.0));
@@ -120,7 +122,7 @@ void FourierTransform::FastFourierTransform(vector<double>* signals,vector<comp>
             }
         }
 
-        mFourierSignal = *signal;
+        mFourierSignal = signal;
     }
 }
 
@@ -145,7 +147,7 @@ void FourierTransform::inverse_fourier_transform(vector<double>* signals, vector
         for (int i = 0; i < size; i++)
             (*signal)[i] = (*signal)[i] / (double) size;
 
-        mFourierSignal = *signal;
+        mFourierSignal = signal;
     }
 }
 
@@ -164,9 +166,11 @@ bool FourierTransform::pairCompare(const pair<double, int>& firstElem, const pai
     return firstElem.first > secondElem.first;
 
 }
+
+
 void FourierTransform::FFT_filter(vector<double>& signals, double percentage){
     vector <comp> signal;
-    FastFourierTransform(&signals, &signal, false);
+    FastFourierTransform(&signals, &signal);
     vector <double> amplitudes(signal.size());
     vector<pair<double,int>> res;
     if (percentage<0){
@@ -205,8 +209,8 @@ void FourierTransform::FFT_filter(vector<double>& signals, double percentage){
  */
 void FourierTransform::Print() {
     cout<<'Frequency'<<' '<<'Intensity';
-    for (int i=0; i<mFourierSignal.size(); i++)
-        cout << i << " "<<mFourierSignal[i]<<'\n';
+    for (int i=0; i<mFourierSignal->size(); i++)
+        cout << i << " "<<(*mFourierSignal)[i]<<'\n';
     cout << std::endl;
 }
 
@@ -218,8 +222,8 @@ void FourierTransform::Savefile(string filename) {
     out.open(filename);
     if (out.is_open()){
         cout<<'Frequency'<<' '<<'Intensity';
-        for (int i=0; i<mFourierSignal.size(); i++)
-            out << mFourierSignal[i] << " "<<mFourierSignal[i]<<'\n';
+        for (int i=0; i<mFourierSignal->size(); i++)
+            out << i << " "<<mFourierSignal[i]<<'\n';
         cout << std::endl;
         out.close();
     }
