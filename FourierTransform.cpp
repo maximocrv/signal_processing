@@ -2,6 +2,7 @@
 // Created by Sergei Kliavinek & Maximo Cravero on 30/11/2020.
 //
 
+#include <fstream>
 #include "FourierTransform.hpp"
 
 using namespace std;
@@ -9,13 +10,27 @@ const double PI = acos(-1);
 
 void conjugate(vector<comp> vector);
 
-/* Default constructor */
+/** Default constructor */
 FourierTransform::FourierTransform(){};
 
-/* Destructor */
+/** Destructor */
 FourierTransform::~FourierTransform(){};
 
-/*A set of butterfly transformations that occur during a Fourier transform.
+/** Test for the number that it is a power of 2*/
+bool isPower2(int n)
+{
+    if (n>1)
+    {
+        return (double)((int)log2(n)) == log2(n);
+    }
+    else
+    {
+        return false;
+    }
+}
+
+
+/** A set of butterfly transformations that occur during a Fourier transform.
  * parameters: vector <comp> array - the vector in which we perform permutations
  *             comp w - turning factor
  * return: vector <comp> array, which has already been converted.
@@ -34,7 +49,7 @@ void FourierTransform::butterfly(vector<comp> &signal, comp w)
     }
 }
 
-/*
+/**
  * Given a number ``x'' returns the number which has the same bits as ``x'',
  * but in the reverse order
  * parameters: unsigned int x - number in decimal number system
@@ -57,7 +72,7 @@ unsigned int FourierTransform::backwards(unsigned int x, int length)
     return result;
 }
 
-/*
+/**
  * Permutes elements in an array using the "backward" function.
  * parameters: vector<comp> *signal - array, where we permut the elements
  */
@@ -75,7 +90,7 @@ void FourierTransform::reposition(vector<comp> &signal)
     }
 }
 
-/*
+/**
  * Computes the Fourier transform using FFT with some auxiliary functions defined above.
  */
 void FourierTransform::FastFourierTransform(vector<double>* signals,vector<comp>* signal, bool invert = false) {
@@ -84,44 +99,58 @@ void FourierTransform::FastFourierTransform(vector<double>* signals,vector<comp>
             signal->push_back(((*signals)[i], 0.0));
         }
     }
-    reposition(*signal);
-    int N = signal->size();
-    comp w = exp(comp(0.0, 2.0 * PI / N));
-    stack<comp> ws;
-    for (int step = N; step != 1; step /= 2) {
-        ws.push(w);
-        w *= w;
+    if (!isPower2(signal->size())) {
+        cout << "Length of input signal in not a power of 2. Change it";
     }
-
-    for (int step = 2; step <= N; step *= 2) {
-        w = ws.top();
-        ws.pop();
-        for (int i; i <= N; i *= 2) {
-            butterfly(*(signal + i), w);
+    else {
+        reposition(*signal);
+        int N = signal->size();
+        comp w = exp(comp(0.0, 2.0 * PI / N));
+        stack<comp> ws;
+        for (int step = N; step != 1; step /= 2) {
+            ws.push(w);
+            w *= w;
         }
-    }
 
-    mFourierSignal = *signal;
+        for (int step = 2; step <= N; step *= 2) {
+            w = ws.top();
+            ws.pop();
+            for (int i; i <= N; i *= 2) {
+                butterfly(*(signal + i), w);
+            }
+        }
+
+        mFourierSignal = *signal;
+    }
 }
 
-/*
+/**
  * Computes the inverse Fourier transform using FFT with some auxiliary functions defined above.
  */
 void FourierTransform::inverse_fourier_transform(vector<double>* signals, vector<comp>* signal)
 {
-    for (int i=0; i<signals->size(); i++){
-        signal->push_back(((*signals)[i], 0.0));
+    if(signal->empty()) {
+        for (int i = 0; i < signals->size(); i++) {
+            signal->push_back(((*signals)[i], 0.0));
+        }
     }
-    conjugate(*signal);
-    FastFourierTransform(signals, signal, false);
-    conjugate(*signal);
-    int size = signal->size();
-    for(int i = 0; i < size; i++)
-        (*signal)[i] = (*signal)[i] / (double)size;
+    if (!isPower2(signal->size())) {
+        cout << "Length of input signal in not a power of 2. Change it";
+    }
+    else {
+        conjugate(*signal);
+        FastFourierTransform(signals, signal, false);
+        conjugate(*signal);
+        int size = signal->size();
+        for (int i = 0; i < size; i++)
+            (*signal)[i] = (*signal)[i] / (double) size;
+
+        mFourierSignal = *signal;
+    }
 }
 
 
-/*
+/**
  * Replaces every element of the vector by its complex conjugate.
  */
 void FourierTransform::conjugate(vector<comp> &signal)
@@ -167,5 +196,35 @@ void FourierTransform::FFT_filter(vector<double>& signals, double percentage){
         signals[res[i].second]=res[i].first;
         i+=1;
     }
-    //InverseFastFourierTransform(signal);
+    inverse_fourier_transform(&signals,&signal);
+}
+
+
+/**
+ * Fucntion for ouput result on the screen
+ */
+void FourierTransform::Print() {
+    cout<<'Frequency'<<' '<<'Intensity';
+    for (int i=0; i<mFourierSignal.size(); i++)
+        cout << i << " "<<mFourierSignal[i]<<'\n';
+    cout << std::endl;
+}
+
+/**
+ * Fucntion for svae result in the separate file
+ */
+void FourierTransform::Savefile(string filename) {
+    std::ofstream out;
+    out.open(filename);
+    if (out.is_open()){
+        cout<<'Frequency'<<' '<<'Intensity';
+        for (int i=0; i<mFourierSignal.size(); i++)
+            out << mFourierSignal[i] << " "<<mFourierSignal[i]<<'\n';
+        cout << std::endl;
+        out.close();
+    }
+    else
+    {
+        cout<<"File is not open!";
+    }
 }

@@ -8,17 +8,17 @@
 #include "SignalProcessor.hpp"
 
 
-/* Default constructor */
+/** Default constructor */
 SignalProcessor::SignalProcessor() {};
 
-/* Custom constructor (automatically sets default signal when instantiating class) */
+/** Custom constructor (automatically sets default signal when instantiating class) */
 SignalProcessor::SignalProcessor(const AudioFile<double>& signal) {
     for (int i=0; i < signal.getNumSamplesPerChannel(); i++){
         mSignal.push_back(signal.samples[0][i]);
     }
 }
 
-/* Overriding default destructor */
+/** Overriding default destructor */
 SignalProcessor::~SignalProcessor() {
     mSignal.clear();
     mFFTSignal.clear();
@@ -28,19 +28,19 @@ SignalProcessor::~SignalProcessor() {
 // Set methods
 
 
-/* Get raw signal */
+/** Get raw signal */
 std::vector<double> SignalProcessor::getRawSignal() {
     return mSignal;
 }
 
-/* Get noise removed signal */
+/** Get noise removed signal */
 void SignalProcessor::getNoiseRemovedSignal() {
     for (double& c : mNoiseRemovedSignal){
         std::cout << c << "\n";
     }
 }
 
-/* Remove noise using moving average */
+/** Remove noise using moving average */
 void SignalProcessor::RemoveNoise(int window) {
     double avg = std::accumulate(mSignal.begin(), mSignal.begin() + window - 1, 0.0) / (double)mSignal.size();
     mNoiseRemovedSignal.push_back(avg);
@@ -51,7 +51,7 @@ void SignalProcessor::RemoveNoise(int window) {
     }
 }
 
-/* Method generating output file containing bin intervals and their corresponding bin frequencies for the signal
+/** Method generating output file containing bin intervals and their corresponding bin frequencies for the signal
  * intensity
  */
 void SignalProcessor::GenerateHistogram(int n_bins){

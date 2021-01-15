@@ -1,0 +1,76 @@
+\hypertarget{class_signal_processor}{}\doxysection{Signal\+Processor Class Reference}
+\label{class_signal_processor}\index{SignalProcessor@{SignalProcessor}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_signal_processor_ab9fd73561aff89c22ec1e1da3762cde5}{Signal\+Processor}} ()
+\item 
+\mbox{\hyperlink{class_signal_processor_ae56d300b90b7066043c4eb36d734871e}{Signal\+Processor}} (const Audio\+File$<$ double $>$ \&signal)
+\item 
+\mbox{\hyperlink{class_signal_processor_a12f82017806e1ec76545d8ed572abc9e}{$\sim$\+Signal\+Processor}} ()
+\item 
+\mbox{\Hypertarget{class_signal_processor_ac136ec15c293d7b37321197f8dad157b}\label{class_signal_processor_ac136ec15c293d7b37321197f8dad157b}} 
+void {\bfseries Set\+Signal} (vector$<$ double $>$ \&signal)
+\item 
+void \mbox{\hyperlink{class_signal_processor_a49e132bb50a837b4f0a97a0e733d8c17}{Remove\+Noise}} (int window)
+\item 
+void \mbox{\hyperlink{class_signal_processor_a50e7c850c4827d782d63e5cbbd2e618d}{Generate\+Histogram}} (int n\+\_\+bins)
+\item 
+vector$<$ double $>$ \mbox{\hyperlink{class_signal_processor_a2ea1a19960d257c23aeb49d5907067a3}{get\+Raw\+Signal}} ()
+\item 
+void \mbox{\hyperlink{class_signal_processor_acba1965ca2f20a68de1f7acae911a078}{get\+Noise\+Removed\+Signal}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_signal_processor_ab9fd73561aff89c22ec1e1da3762cde5}\label{class_signal_processor_ab9fd73561aff89c22ec1e1da3762cde5}} 
+\index{SignalProcessor@{SignalProcessor}!SignalProcessor@{SignalProcessor}}
+\index{SignalProcessor@{SignalProcessor}!SignalProcessor@{SignalProcessor}}
+\doxysubsubsection{\texorpdfstring{SignalProcessor()}{SignalProcessor()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Signal\+Processor\+::\+Signal\+Processor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default constructor \mbox{\Hypertarget{class_signal_processor_ae56d300b90b7066043c4eb36d734871e}\label{class_signal_processor_ae56d300b90b7066043c4eb36d734871e}} 
+\index{SignalProcessor@{SignalProcessor}!SignalProcessor@{SignalProcessor}}
+\index{SignalProcessor@{SignalProcessor}!SignalProcessor@{SignalProcessor}}
+\doxysubsubsection{\texorpdfstring{SignalProcessor()}{SignalProcessor()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Signal\+Processor\+::\+Signal\+Processor (\begin{DoxyParamCaption}\item[{const Audio\+File$<$ double $>$ \&}]{signal }\end{DoxyParamCaption})}
+
+Custom constructor (automatically sets default signal when instantiating class) \mbox{\Hypertarget{class_signal_processor_a12f82017806e1ec76545d8ed572abc9e}\label{class_signal_processor_a12f82017806e1ec76545d8ed572abc9e}} 
+\index{SignalProcessor@{SignalProcessor}!````~SignalProcessor@{$\sim$SignalProcessor}}
+\index{````~SignalProcessor@{$\sim$SignalProcessor}!SignalProcessor@{SignalProcessor}}
+\doxysubsubsection{\texorpdfstring{$\sim$SignalProcessor()}{~SignalProcessor()}}
+{\footnotesize\ttfamily Signal\+Processor\+::$\sim$\+Signal\+Processor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Overriding default destructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_signal_processor_a50e7c850c4827d782d63e5cbbd2e618d}\label{class_signal_processor_a50e7c850c4827d782d63e5cbbd2e618d}} 
+\index{SignalProcessor@{SignalProcessor}!GenerateHistogram@{GenerateHistogram}}
+\index{GenerateHistogram@{GenerateHistogram}!SignalProcessor@{SignalProcessor}}
+\doxysubsubsection{\texorpdfstring{GenerateHistogram()}{GenerateHistogram()}}
+{\footnotesize\ttfamily void Signal\+Processor\+::\+Generate\+Histogram (\begin{DoxyParamCaption}\item[{int}]{n\+\_\+bins }\end{DoxyParamCaption})}
+
+Method generating output file containing bin intervals and their corresponding bin frequencies for the signal intensity \mbox{\Hypertarget{class_signal_processor_acba1965ca2f20a68de1f7acae911a078}\label{class_signal_processor_acba1965ca2f20a68de1f7acae911a078}} 
+\index{SignalProcessor@{SignalProcessor}!getNoiseRemovedSignal@{getNoiseRemovedSignal}}
+\index{getNoiseRemovedSignal@{getNoiseRemovedSignal}!SignalProcessor@{SignalProcessor}}
+\doxysubsubsection{\texorpdfstring{getNoiseRemovedSignal()}{getNoiseRemovedSignal()}}
+{\footnotesize\ttfamily void Signal\+Processor\+::get\+Noise\+Removed\+Signal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get noise removed signal \mbox{\Hypertarget{class_signal_processor_a2ea1a19960d257c23aeb49d5907067a3}\label{class_signal_processor_a2ea1a19960d257c23aeb49d5907067a3}} 
+\index{SignalProcessor@{SignalProcessor}!getRawSignal@{getRawSignal}}
+\index{getRawSignal@{getRawSignal}!SignalProcessor@{SignalProcessor}}
+\doxysubsubsection{\texorpdfstring{getRawSignal()}{getRawSignal()}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ Signal\+Processor\+::get\+Raw\+Signal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get raw signal \mbox{\Hypertarget{class_signal_processor_a49e132bb50a837b4f0a97a0e733d8c17}\label{class_signal_processor_a49e132bb50a837b4f0a97a0e733d8c17}} 
+\index{SignalProcessor@{SignalProcessor}!RemoveNoise@{RemoveNoise}}
+\index{RemoveNoise@{RemoveNoise}!SignalProcessor@{SignalProcessor}}
+\doxysubsubsection{\texorpdfstring{RemoveNoise()}{RemoveNoise()}}
+{\footnotesize\ttfamily void Signal\+Processor\+::\+Remove\+Noise (\begin{DoxyParamCaption}\item[{int}]{window }\end{DoxyParamCaption})}
+
+Remove noise using moving average 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Signal\+Processor.\+hpp\item 
+Signal\+Processor.\+cpp\end{DoxyCompactItemize}
