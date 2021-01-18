@@ -40,7 +40,7 @@ private:
     static int backwards(unsigned int x, int length);
     static void reposition(vector<comp> &array);
     static void conjugate(vector<comp> &signal);
-    static bool isPower2(int n)
+    static void checkpower2(int n);
 
 };
 

@@ -17,22 +17,6 @@ FourierTransform::FourierTransform()= default;
 /** Default destructor of class instance */
 FourierTransform::~FourierTransform()= default;
 
-/** Test for the number that it is a power of 2. Auxiliary class function.
- * \param: int n - length of the signal
- * */
-bool FourierTransform::isPower2(int n)
-{
-    if (n>1)
-    {
-        return (double)((int)log2(n)) == log2(n);
-    }
-    else
-    {
-        return false;
-    }
-}
-
-
 /** A set of butterfly transformations that occur during a Fourier transform.
  * \param:  signal - the vector in which we perform permutations
  * \param:  w - turning factor
@@ -77,8 +61,8 @@ int FourierTransform::backwards(unsigned int x, int length)
 
 /**
  * Permutes elements in an array using the "backward" function
- * \param: signal - array, where we permut the elements
- * \return: signal - same array with permutted elements
+ * \param: signal - array, where we permute the elements
+ * \return: signal - same array with rearranged elements
  */
 void FourierTransform::reposition(vector<comp> &signal)
 {
@@ -91,6 +75,25 @@ void FourierTransform::reposition(vector<comp> &signal)
         int j = backwards(i, length);
         if(i <= j)
             swap(signal[i], signal[j]);
+    }
+}
+
+
+/** Test for the number that it is a power of 2. Auxiliary class function.
+ * \param: int n - length of the signal
+ * */
+void FourierTransform::checkpower2(int n) {
+    try {
+        if (((double) ((int) log2(n)) != log2(n))||(n<=1)){
+            throw "Length of input signal is not a power of 2. Change it";
+        }
+    }
+    catch (const string &str) {
+        int a=2;
+        while (a<n){
+            a=a*2;
+        }
+        cerr<<"Cut the length of signal to the "<<a<<" or increase to the "<<a*2;
     }
 }
 
@@ -107,29 +110,25 @@ void FourierTransform::FastFourierTransform(vector<double>* signals,vector<comp>
             signal->push_back(((*signals)[i], 0.0));
         }
     }
-    if (!isPower2(signal->size())) {
-        cout << "Length of input signal in not a power of 2. Change it";
+    checkpower2(signals->size());
+    reposition(*signal);
+    int N = signal->size();
+    comp w = exp(comp(0.0, 2.0 * PI / N));
+    stack<comp> ws;
+    for (int step = N; step != 1; step /= 2) {
+        ws.push(w);
+        w *= w;
     }
-    else {
-        reposition(*signal);
-        int N = signal->size();
-        comp w = exp(comp(0.0, 2.0 * PI / N));
-        stack<comp> ws;
-        for (int step = N; step != 1; step /= 2) {
-            ws.push(w);
-            w *= w;
-        }
 
-        for (int step = 2; step <= N; step *= 2) {
-            w = ws.top();
-            ws.pop();
-            for (int i; i <= N; i *= 2) {
-                butterfly(*(signal + i), w);
-            }
+    for (int step = 2; step <= N; step *= 2) {
+        w = ws.top();
+        ws.pop();
+        for (int i; i <= N; i *= 2) {
+            butterfly(*(signal + i), w);
         }
-
-        mFourierSignal = *signal;
     }
+
+    mFourierSignal = *signal;
 }
 
 /**
@@ -145,19 +144,15 @@ void FourierTransform::inverse_fourier_transform(vector<double>* signals, vector
             signal->push_back(((*signals)[i], 0.0));
         }
     }
-    if (!isPower2(signal->size())) {
-        cout << "Length of input signal in not a power of 2. Change it";
-    }
-    else {
-        conjugate(*signal);
-        FastFourierTransform(signals, signal);
-        conjugate(*signal);
-        int size = signal->size();
-        for (int i = 0; i < size; i++)
-            (*signal)[i] = (*signal)[i] / (double) size;
+    checkpower2(signals->size());
+    conjugate(*signal);
+    FastFourierTransform(signals, signal);
+    conjugate(*signal);
+    int size = signal->size();
+    for (int i = 0; i < size; i++)
+        (*signal)[i] = (*signal)[i] / (double) size;
 
-        mFourierSignal = *signal;
-    }
+    mFourierSignal = *signal;
 }
 
 
@@ -200,6 +195,9 @@ void FourierTransform::FFT_filter(vector<double>& signals, double percentage){
     else if (percentage>100){
         percentage=100;
     }
+    else if(percentage <1){
+        cout<<"Passband is smaller then 1 %. Do you confident, what it is right?";
+    }
     // compute the amplitudes for each frequency
     for (int i=0; i<signal.size(); i++){
         double real_squad = (double)signal[i].real()*(double)signal[i].real();
@@ -240,17 +238,17 @@ void FourierTransform::Print() {
  */
 void FourierTransform::Savefile(string filename) {
     std::ofstream out;
-    out.open(filename);
-    if (out.is_open()){
+    try {
+        out.open(filename);
         cout<<'Frequency'<<' '<<'Intensity';
         for (int i=0; i<mFourierSignal.size(); i++){
             out << i << " "<<sqrt(pow(mFourierSignal[i].imag(),2)+pow(mFourierSignal[i].real(),2))<<'\n';
         }
         cout << std::endl;
         out.close();
+        throw "File is not open!";
     }
-    else
-    {
-        cout<<"File is not open!";
+    catch (const string &str) {
+        cerr<<"A file opening error has occurred. Please try again.";
     }
 }

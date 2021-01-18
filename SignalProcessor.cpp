@@ -63,7 +63,23 @@ void SignalProcessor::getNoiseRemovedSignal() {
  * \param m: mixing parameter
  */
 void SignalProcessor::RemoveNoise(int window, string flag, double m) {
+    try {
+        if ((flag != "moving_average")&&((flag != "exponential_average"))){
+            throw -1;
+        }
+    }
+    catch (int a) {
+            cerr<<"Please input a valid flag ('moving_average', 'exponential_average')" << "\n";
+    }
     if (flag == "moving_average") {
+        try {
+            if (window<=1){
+                throw -1;
+            }
+        }
+        catch (int a) {
+                cerr<<"Window can't be smaller than 1. Increase it.";
+        }
 
         double avg = accumulate(mSignal.begin(), mSignal.begin() + window - 1, 0.0) / (double) window;
         mNoiseRemovedSignal.push_back(avg);
@@ -74,6 +90,15 @@ void SignalProcessor::RemoveNoise(int window, string flag, double m) {
             mNoiseRemovedSignal.push_back(avg);
         }
     } else if (flag == "exponential_average") {
+
+        try {
+            if ((m>1)||(m<0)){
+                throw -1;
+            }
+        }
+        catch (int a) {
+            cerr<<"Mixing factor should be between 0 and 1. Change it.";
+        }
         mNoiseRemovedSignal.push_back(mSignal[0]);
 
         for (int i = 1; i < mSignal.size(); i++) {
@@ -82,8 +107,6 @@ void SignalProcessor::RemoveNoise(int window, string flag, double m) {
         }
 
         mNoiseRemovedSignal = mSignal;
-    } else {
-        std::cout << "Please input a valid flag ('moving_average', 'exponential_average')" << "\n";
     }
 }
 
@@ -93,6 +116,14 @@ void SignalProcessor::RemoveNoise(int window, string flag, double m) {
  * \param n_bins: number of intervals into the signal
  */
 void SignalProcessor::GenerateHistogram(int n_bins) {
+    try {
+        if (n_bins<=1){
+            throw -1;
+        }
+    }
+    catch (int a) {
+        cerr<<"n_bins should be bigger than 1. Change it.";
+    }
     auto sorted_signal = new vector<double>;
     *sorted_signal = mSignal;
     std::sort(sorted_signal->begin(), sorted_signal->end());
