@@ -104,7 +104,7 @@ void FourierTransform::checkpower2(int n) {
  *              Transformed signal saved in  mFourierSignal parameter.
  */
 
-void FourierTransform::FastFourierTransform(vector<double>* signals,vector<comp>* signal) {
+void FourierTransform::FastFourierTransform(vector<double>* signals, vector<comp>* signal) {
     if(signal->empty()) {
         for (int i = 0; i < signals->size(); i++) {
             signal->push_back(((*signals)[i], 0.0));
@@ -189,13 +189,13 @@ void FourierTransform::FFT_filter(vector<double>& signals, double percentage){
     FastFourierTransform(&signals, &signal);
     vector <double> amplitudes(signal.size());
     vector<pair<double,int>> res;
-    if (percentage<0){
-        percentage=0;
+    if (percentage < 0){
+        percentage = 0;
     }
-    else if (percentage>100){
-        percentage=100;
+    else if (percentage > 100){
+        percentage = 100;
     }
-    else if(percentage <1){
+    else if(percentage < 1){
         cout<<"Passband is smaller then 1 %. Do you confident, what it is right?";
     }
     // compute the amplitudes for each frequency
@@ -240,15 +240,15 @@ void FourierTransform::Savefile(string filename) {
     std::ofstream out;
     try {
         out.open(filename);
-        cout<<'Frequency'<<' '<<'Intensity';
+        cout << "Frequency" << " " << "Intensity";
         for (int i=0; i<mFourierSignal.size(); i++){
-            out << i << " "<<sqrt(pow(mFourierSignal[i].imag(),2)+pow(mFourierSignal[i].real(),2))<<'\n';
+            out << i << " " << sqrt(pow(mFourierSignal[i].imag(),2)+pow(mFourierSignal[i].real(),2)) << '\n';
         }
         cout << std::endl;
         out.close();
         throw "File is not open!";
     }
     catch (const string &str) {
-        cerr<<"A file opening error has occurred. Please try again.";
+        cerr << "A file opening error has occurred. Please try again.";
     }
 }

@@ -13,6 +13,7 @@ using namespace std;
 /** Default constructor */
 SignalProcessor::SignalProcessor() = default;
 
+
 /** Custom constructor (automatically sets default signal when instantiating class) */
 SignalProcessor::SignalProcessor(const AudioFile<double> &signal) {
     for (int i = 0; i < signal.getNumSamplesPerChannel(); i++) {
@@ -27,6 +28,7 @@ SignalProcessor::~SignalProcessor() {
     mNoiseRemovedSignal.clear();
 }
 
+
 /**
  * Methods for signal setting (saving)
  * \param signal: input signal
@@ -38,6 +40,7 @@ void SignalProcessor::SetSignal(const T &signal) {
     }
 }
 
+
 /** Get raw signal
  * \return mSignal: saved signal
  */
@@ -45,13 +48,12 @@ std::vector<double> SignalProcessor::getRawSignal() {
     return mSignal;
 }
 
+
 /** Get noise removed signal
  * \return mNoiseRemovalSignal: saved signal
  */
-void SignalProcessor::getNoiseRemovedSignal() {
-    for (double &c : mNoiseRemovedSignal) {
-        std::cout << c << "\n";
-    }
+std::vector<double> SignalProcessor::getNoiseRemovedSignal() {
+    return mNoiseRemovedSignal;
 }
 
 
@@ -62,14 +64,14 @@ void SignalProcessor::getNoiseRemovedSignal() {
  * \param flag: type of Noise removing
  * \param m: mixing parameter
  */
-void SignalProcessor::RemoveNoise(int window, string flag, double m) {
+void SignalProcessor::RemoveNoise(int window, const string& flag, double m) {
     try {
-        if ((flag != "moving_average")&&((flag != "exponential_average"))){
+        if ((flag != "moving_average") && ((flag != "exponential_average"))){
             throw -1;
         }
     }
     catch (int a) {
-            cerr<<"Please input a valid flag ('moving_average', 'exponential_average')" << "\n";
+            cerr << "Please input a valid flag ('moving_average', 'exponential_average')" << "\n";
     }
     if (flag == "moving_average") {
         try {
@@ -78,7 +80,7 @@ void SignalProcessor::RemoveNoise(int window, string flag, double m) {
             }
         }
         catch (int a) {
-                cerr<<"Window can't be smaller than 1. Increase it.";
+                cerr << "Window can't be smaller than 1. Increase it.";
         }
 
         double avg = accumulate(mSignal.begin(), mSignal.begin() + window - 1, 0.0) / (double) window;
@@ -92,7 +94,7 @@ void SignalProcessor::RemoveNoise(int window, string flag, double m) {
     } else if (flag == "exponential_average") {
 
         try {
-            if ((m>1)||(m<0)){
+            if ((m > 1) || (m < 0)){
                 throw -1;
             }
         }
@@ -122,8 +124,9 @@ void SignalProcessor::GenerateHistogram(int n_bins) {
         }
     }
     catch (int a) {
-        cerr<<"n_bins should be bigger than 1. Change it.";
+        cerr << "n_bins should be bigger than 1. Please change it.";
     }
+
     auto sorted_signal = new vector<double>;
     *sorted_signal = mSignal;
     std::sort(sorted_signal->begin(), sorted_signal->end());
@@ -150,6 +153,7 @@ void SignalProcessor::GenerateHistogram(int n_bins) {
             counter++;
             current = sorted_signal->at(counter);
         }
+
         std::cout << "bin start: " << min + (double) bin * bin_width << "\t bin end: "
                   << min + (double) (bin + 1) * bin_width
                   << "\t bin frequency: " << bin_frequencies[bin] << "\n";
@@ -158,4 +162,21 @@ void SignalProcessor::GenerateHistogram(int n_bins) {
     std::cout << "Vector size" << sorted_signal->size() << "\t sum bin frequencies (should be equal): " <<
               accumulate(bin_frequencies.begin(), bin_frequencies.end(), 0) << "\n";
     delete sorted_signal;
+}
+
+void SignalProcessor::SaveFile(string filename) {
+    std::ofstream out;
+    try {
+        out.open(filename);
+        cout << "Frequency" << " " << "Intensity";
+        for (int i=0; i < mNoiseRemovedSignal.size(); i++){
+            out << i << " " << mNoiseRemovedSignal[i] << '\n';
+        }
+        cout << std::endl;
+        out.close();
+        throw "File is not open!";
+    }
+    catch (const string &str) {
+        cerr << "A file opening error has occurred. Please try again.";
+    }
 }

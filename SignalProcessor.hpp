@@ -27,16 +27,16 @@ public:
     // set methods
     template<typename T>
     void SetSignal(const T& signal);
-    void RemoveNoise(int window, string flag, double m = 0.5);
+    void RemoveNoise(int window, const string& flag, double m = 0.5);
 
     void GenerateHistogram(int n_bins);
 
     // get methods (const)
     // get
     vector<double> getRawSignal();
-    void getNoiseRemovedSignal();
+    vector<double> getNoiseRemovedSignal();
 
-    // Signal.to_file(asjdlfkasjdf)
+    void SaveFile(string filename);
 
 private:
     vector<double> mSignal;

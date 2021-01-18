@@ -1,1 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/c++  -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.0.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/ex_1.dir/run_file.cpp.o CMakeFiles/ex_1.dir/FourierTransform.cpp.o CMakeFiles/ex_1.dir/SignalProcessor.cpp.o  -o ex_1 
