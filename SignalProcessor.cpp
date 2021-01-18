@@ -11,7 +11,8 @@ using namespace std;
 
 
 /** Default constructor */
-SignalProcessor::SignalProcessor() {};
+SignalProcessor::SignalProcessor() = default;
+
 /** Custom constructor (automatically sets default signal when instantiating class) */
 SignalProcessor::SignalProcessor(const AudioFile<double> &signal) {
     for (int i = 0; i < signal.getNumSamplesPerChannel(); i++) {
@@ -20,14 +21,15 @@ SignalProcessor::SignalProcessor(const AudioFile<double> &signal) {
 }
 
 
-/** Overriding default destructor */
+/** Destructor, clean field mSignal and mNoiseRemovedSignal */
 SignalProcessor::~SignalProcessor() {
     mSignal.clear();
     mNoiseRemovedSignal.clear();
 }
 
-/*
- * Set methods
+/**
+ * Methods for signal setting (saving)
+ * \param signal: input signal
  */
 template<typename T>
 void SignalProcessor::SetSignal(const T &signal) {
@@ -36,12 +38,16 @@ void SignalProcessor::SetSignal(const T &signal) {
     }
 }
 
-/** Get raw signal */
+/** Get raw signal
+ * \return mSignal: saved signal
+ */
 std::vector<double> SignalProcessor::getRawSignal() {
     return mSignal;
 }
 
-/** Get noise removed signal */
+/** Get noise removed signal
+ * \return mNoiseRemovalSignal: saved signal
+ */
 void SignalProcessor::getNoiseRemovedSignal() {
     for (double &c : mNoiseRemovedSignal) {
         std::cout << c << "\n";
@@ -49,7 +55,13 @@ void SignalProcessor::getNoiseRemovedSignal() {
 }
 
 
-/** Remove noise using moving average */
+/** Function for different types of noise removing:
+ *        - moving_average: simple average of signal over a window
+ *        - exponential_average: averaging, what use mixing with previous value in signal
+ * \param window: averaging size
+ * \param flag: type of Noise removing
+ * \param m: mixing parameter
+ */
 void SignalProcessor::RemoveNoise(int window, string flag, double m) {
     if (flag == "moving_average") {
 
@@ -78,6 +90,7 @@ void SignalProcessor::RemoveNoise(int window, string flag, double m) {
 
 /** Method generating output file containing bin intervals and their corresponding bin frequencies for the signal
  * intensity
+ * \param n_bins: number of intervals into the signal
  */
 void SignalProcessor::GenerateHistogram(int n_bins) {
     auto sorted_signal = new vector<double>;

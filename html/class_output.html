@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SIgnal processing: Output Class Reference</title>
+<title>Signal Processing: Output Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,10 +21,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">SIgnal processing
-   &#160;<span id="projectnumber">0.10.1</span>
+   <div id="projectname">Signal Processing
+   &#160;<span id="projectnumber">0.5</span>
    </div>
-   <div id="projectbrief">FFT, inverse FFT, FourierFilter with some additional functions</div>
+   <div id="projectbrief">FFT and iFFT</div>
   </td>
  </tr>
  </tbody>
@@ -70,22 +70,140 @@ $(function() {
 <div class="title">Output Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_output_8h_source.html">Output.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for Output:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_output__coll__graph.png" border="0" usemap="#a_output_coll__map" alt="Collaboration graph"/></div>
+<map name="a_output_coll__map" id="a_output_coll__map">
+<area shape="rect" title=" " alt="" coords="5,5,99,127"/>
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad6adf3109c64a0fc524ffb675530aea0"><td class="memItemLeft" align="right" valign="top"><a id="ad6adf3109c64a0fc524ffb675530aea0"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Output</b> (std::string tagString, std::string probString)</td></tr>
+<tr class="memitem:ad6adf3109c64a0fc524ffb675530aea0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_output.html#ad6adf3109c64a0fc524ffb675530aea0">Output</a> (std::string tagString, std::string probString)</td></tr>
 <tr class="separator:ad6adf3109c64a0fc524ffb675530aea0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7f315ca83e73dfb5c31ba27a0ac563a"><td class="memItemLeft" align="right" valign="top"><a id="af7f315ca83e73dfb5c31ba27a0ac563a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Print</b> (std::vector&lt; float &gt; freq, std::vector&lt; float &gt; intensity) const</td></tr>
+<tr class="memitem:a428c663520336477a12f1a33504eb067"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_output.html#a428c663520336477a12f1a33504eb067">Output</a> ()</td></tr>
+<tr class="separator:a428c663520336477a12f1a33504eb067"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7f315ca83e73dfb5c31ba27a0ac563a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_output.html#af7f315ca83e73dfb5c31ba27a0ac563a">Print</a> (std::vector&lt; float &gt; freq, std::vector&lt; float &gt; intensity) const</td></tr>
 <tr class="separator:af7f315ca83e73dfb5c31ba27a0ac563a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0203d8f9faf9b6e77afc07aeb877a39f"><td class="memItemLeft" align="right" valign="top"><a id="a0203d8f9faf9b6e77afc07aeb877a39f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SaveFile</b> (std::vector&lt; float &gt; freq, std::vector&lt; float &gt; intensity, std::string filename) const</td></tr>
+<tr class="memitem:a0203d8f9faf9b6e77afc07aeb877a39f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_output.html#a0203d8f9faf9b6e77afc07aeb877a39f">SaveFile</a> (std::vector&lt; float &gt; freq, std::vector&lt; float &gt; intensity, std::string filename) const</td></tr>
 <tr class="separator:a0203d8f9faf9b6e77afc07aeb877a39f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ad6adf3109c64a0fc524ffb675530aea0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6adf3109c64a0fc524ffb675530aea0">&#9670;&nbsp;</a></span>Output() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Output::Output </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>tagString</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>probString</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a428c663520336477a12f1a33504eb067"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a428c663520336477a12f1a33504eb067">&#9670;&nbsp;</a></span>Output() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Output::Output </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="af7f315ca83e73dfb5c31ba27a0ac563a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7f315ca83e73dfb5c31ba27a0ac563a">&#9670;&nbsp;</a></span>Print()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Output::Print </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; float &gt;&#160;</td>
+          <td class="paramname"><em>freq</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; float &gt;&#160;</td>
+          <td class="paramname"><em>intensity</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0203d8f9faf9b6e77afc07aeb877a39f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0203d8f9faf9b6e77afc07aeb877a39f">&#9670;&nbsp;</a></span>SaveFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Output::SaveFile </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; float &gt;&#160;</td>
+          <td class="paramname"><em>freq</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; float &gt;&#160;</td>
+          <td class="paramname"><em>intensity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>filename</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_output_8h_source.html">Output.h</a></li>
-<li>Output.cpp</li>
+<li><a class="el" href="_output_8cpp.html">Output.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

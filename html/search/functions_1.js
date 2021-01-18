@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['generatehistogram_19',['GenerateHistogram',['../class_signal_processor.html#a50e7c850c4827d782d63e5cbbd2e618d',1,'SignalProcessor']]],
-  ['getnoiseremovedsignal_20',['getNoiseRemovedSignal',['../class_signal_processor.html#acba1965ca2f20a68de1f7acae911a078',1,'SignalProcessor']]],
-  ['getrawsignal_21',['getRawSignal',['../class_signal_processor.html#a2ea1a19960d257c23aeb49d5907067a3',1,'SignalProcessor']]]
+  ['fastfouriertransform_41',['FastFourierTransform',['../class_fourier_transform.html#a5598333ecfd14499164d91d524f511b5',1,'FourierTransform']]],
+  ['fft_5ffilter_42',['FFT_filter',['../class_fourier_transform.html#aea6397b5500fe9399574977a4fe37f17',1,'FourierTransform']]],
+  ['fouriertransform_43',['FourierTransform',['../class_fourier_transform.html#abd09d37139333d05bb4ddf26dddd7b9a',1,'FourierTransform']]]
 ];

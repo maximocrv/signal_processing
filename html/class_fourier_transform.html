@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SIgnal processing: FourierTransform Class Reference</title>
+<title>Signal Processing: FourierTransform Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,10 +21,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">SIgnal processing
-   &#160;<span id="projectnumber">0.10.1</span>
+   <div id="projectname">Signal Processing
+   &#160;<span id="projectnumber">0.5</span>
    </div>
-   <div id="projectbrief">FFT, inverse FFT, FourierFilter with some additional functions</div>
+   <div id="projectbrief">FFT and iFFT</div>
   </td>
  </tr>
  </tbody>
@@ -72,6 +72,14 @@ $(function() {
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="_fourier_transform_8hpp_source.html">FourierTransform.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for FourierTransform:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_fourier_transform__coll__graph.png" border="0" usemap="#a_fourier_transform_coll__map" alt="Collaboration graph"/></div>
+<map name="a_fourier_transform_coll__map" id="a_fourier_transform_coll__map">
+<area shape="rect" title=" " alt="" coords="5,5,195,171"/>
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -79,12 +87,11 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:abd09d37139333d05bb4ddf26dddd7b9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a107688df606cb5045099758a9f388c16"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fourier_transform.html#a107688df606cb5045099758a9f388c16">~FourierTransform</a> ()</td></tr>
 <tr class="separator:a107688df606cb5045099758a9f388c16"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34d302b340e6d559109fee87c3a7318c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fourier_transform.html#a34d302b340e6d559109fee87c3a7318c">FastFourierTransform</a> (vector&lt; double &gt; *signals, vector&lt; comp &gt; *signal, bool invert)</td></tr>
-<tr class="separator:a34d302b340e6d559109fee87c3a7318c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea6397b5500fe9399574977a4fe37f17"><td class="memItemLeft" align="right" valign="top"><a id="aea6397b5500fe9399574977a4fe37f17"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>FFT_filter</b> (vector&lt; double &gt; &amp;signals, double percentage)</td></tr>
+<tr class="memitem:a5598333ecfd14499164d91d524f511b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fourier_transform.html#a5598333ecfd14499164d91d524f511b5">FastFourierTransform</a> (vector&lt; double &gt; *signals, vector&lt; <a class="el" href="_fourier_transform_8cpp.html#a98af8d54ee0a6d3cf15fe87b208f0fa9">comp</a> &gt; *signal)</td></tr>
+<tr class="separator:a5598333ecfd14499164d91d524f511b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea6397b5500fe9399574977a4fe37f17"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fourier_transform.html#aea6397b5500fe9399574977a4fe37f17">FFT_filter</a> (vector&lt; double &gt; &amp;signals, double percentage)</td></tr>
 <tr class="separator:aea6397b5500fe9399574977a4fe37f17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e957ff5a01658650b857e492d6236ec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fourier_transform.html#a6e957ff5a01658650b857e492d6236ec">inverse_fourier_transform</a> (vector&lt; double &gt; *signals=new vector&lt; double &gt;, vector&lt; comp &gt; *signal=new vector&lt; comp &gt;)</td></tr>
+<tr class="memitem:a6e957ff5a01658650b857e492d6236ec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fourier_transform.html#a6e957ff5a01658650b857e492d6236ec">inverse_fourier_transform</a> (vector&lt; double &gt; *signals=new vector&lt; double &gt;, vector&lt; <a class="el" href="_fourier_transform_8cpp.html#a98af8d54ee0a6d3cf15fe87b208f0fa9">comp</a> &gt; *signal=new vector&lt; <a class="el" href="_fourier_transform_8cpp.html#a98af8d54ee0a6d3cf15fe87b208f0fa9">comp</a> &gt;)</td></tr>
 <tr class="separator:a6e957ff5a01658650b857e492d6236ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68980c932d1a66c414d8584293ab1ff5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fourier_transform.html#a68980c932d1a66c414d8584293ab1ff5">Print</a> ()</td></tr>
 <tr class="separator:a68980c932d1a66c414d8584293ab1ff5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -92,13 +99,21 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>FFT_filter</b> (vecto
 <tr class="separator:a877853c15748242385582fca42ea2049"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Class with all functions for Fast Fourier transformation </p>
+<div class="textblock"><p>Class with all functions for Fast Fourier transformation. Consists from main functions for FFT, iFFT and FourierFilter. Has a single private field: </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mFourierSignal</td><td>class vector&lt;comp&gt;*. </td></tr>
+  </table>
+  </dd>
+</dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="abd09d37139333d05bb4ddf26dddd7b9a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abd09d37139333d05bb4ddf26dddd7b9a">&#9670;&nbsp;</a></span>FourierTransform()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">FourierTransform::FourierTransform </td>
@@ -107,8 +122,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>FFT_filter</b> (vecto
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-<p>Default constructor </p>
+<p>Default constructor of class instance </p>
 
 </div>
 </div>
@@ -117,6 +137,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>FFT_filter</b> (vecto
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">FourierTransform::~FourierTransform </td>
@@ -125,14 +148,19 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>FFT_filter</b> (vecto
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-<p>Destructor </p>
+<p>Default destructor of class instance </p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a34d302b340e6d559109fee87c3a7318c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a34d302b340e6d559109fee87c3a7318c">&#9670;&nbsp;</a></span>FastFourierTransform()</h2>
+<a id="a5598333ecfd14499164d91d524f511b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5598333ecfd14499164d91d524f511b5">&#9670;&nbsp;</a></span>FastFourierTransform()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -146,14 +174,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>FFT_filter</b> (vecto
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">vector&lt; comp &gt; *&#160;</td>
-          <td class="paramname"><em>signal</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>invert</em> = <code>false</code>&#160;</td>
+          <td class="paramtype">vector&lt; <a class="el" href="_fourier_transform_8cpp.html#a98af8d54ee0a6d3cf15fe87b208f0fa9">comp</a> &gt; *&#160;</td>
+          <td class="paramname"><em>signal</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -162,7 +184,49 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>FFT_filter</b> (vecto
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Computes the Fourier transform using FFT with some auxiliary functions defined above. </p>
+<p>Computes the Fourier transform using FFT with some auxiliary functions defined above. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">signals</td><td>- input time-dependent signal, which the function should transform </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">signal</td><td>- output frequency-dependent signal Transformed signal saved in mFourierSignal parameter. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aea6397b5500fe9399574977a4fe37f17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea6397b5500fe9399574977a4fe37f17">&#9670;&nbsp;</a></span>FFT_filter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FourierTransform::FFT_filter </td>
+          <td>(</td>
+          <td class="paramtype">vector&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>signals</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>percentage</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Fourier filter function. Accepts a signal at the input and a percentage in amplitude to be passed through. The rest is discarded as noise. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">signal</td><td>- signal for filtration </td></tr>
+    <tr><td class="paramname">percentage</td><td>- passband </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>signal - filtered signal </dd></dl>
 
 </div>
 </div>
@@ -181,8 +245,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>FFT_filter</b> (vecto
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">vector&lt; comp &gt; *&#160;</td>
-          <td class="paramname"><em>signal</em> = <code>new&#160;vector&lt;comp&gt;</code>&#160;</td>
+          <td class="paramtype">vector&lt; <a class="el" href="_fourier_transform_8cpp.html#a98af8d54ee0a6d3cf15fe87b208f0fa9">comp</a> &gt; *&#160;</td>
+          <td class="paramname"><em>signal</em> = <code>new&#160;vector&lt;<a class="el" href="_fourier_transform_8cpp.html#a98af8d54ee0a6d3cf15fe87b208f0fa9">comp</a>&gt;</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -191,7 +255,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>FFT_filter</b> (vecto
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Computes the inverse Fourier transform using FFT with some auxiliary functions defined above. </p>
+<p>Computes the inverse Fourier transform using FFT with some auxiliary functions defined above. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">signals</td><td>- input time-dependent signal, which the function should transform </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">signal</td><td>- output time-dependent signal Transformed signal saved in mFourierSignal parameter. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -209,7 +279,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>FFT_filter</b> (vecto
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Fucntion for ouput result on the screen </p>
+<p>Function for output result on the screen </p>
 
 </div>
 </div>
@@ -228,13 +298,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>FFT_filter</b> (vecto
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Fucntion for svae result in the separate file </p>
+<p>Function for save result in the separate file </p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_fourier_transform_8hpp_source.html">FourierTransform.hpp</a></li>
-<li>FourierTransform.cpp</li>
+<li><a class="el" href="_fourier_transform_8cpp.html">FourierTransform.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

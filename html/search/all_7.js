@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['_7efouriertransform_12',['~FourierTransform',['../class_fourier_transform.html#a107688df606cb5045099758a9f388c16',1,'FourierTransform']]],
-  ['_7esignalprocessor_13',['~SignalProcessor',['../class_signal_processor.html#a12f82017806e1ec76545d8ed572abc9e',1,'SignalProcessor']]]
+  ['readme_2emd_17',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
+  ['removenoise_18',['RemoveNoise',['../class_signal_processor.html#ad3440c29a6f80f4e09b3d7924df113b7',1,'SignalProcessor']]],
+  ['run_5ffile_2ecpp_19',['run_file.cpp',['../run__file_8cpp.html',1,'']]]
 ];

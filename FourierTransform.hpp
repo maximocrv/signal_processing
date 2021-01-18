@@ -16,7 +16,9 @@
 using namespace std;
 typedef complex<double> comp;
 /**
- * Class with all functions for Fast Fourier transformation
+ * Class with all functions for Fast Fourier transformation. Consists from main functions for FFT, iFFT and FourierFilter.
+ * Has a single private field:
+ * \param mFourierSignal class vector<comp>*.
  */
 class FourierTransform {
 public:
@@ -25,20 +27,20 @@ public:
     ~FourierTransform();
 
     // Methods
-    void FastFourierTransform(vector<double>* signals,vector<comp>* signal, bool invert = false);
+    void FastFourierTransform(vector<double>* signals,vector<comp>* signal);
     void FFT_filter(vector<double>& signals, double percentage);
     void inverse_fourier_transform(vector<double>* signals = new vector<double>, vector<comp>* signal = new vector<comp>);
     void Print();
     void Savefile(string filename);
 
 private:
-    vector<comp>* mFourierSignal;
+    vector<comp> mFourierSignal;
     static bool pairCompare(const pair<double, int>& firstElem, const pair<double, int>& secondElem);
-    void butterfly(vector<comp> &array, comp w);
-    unsigned int backwards(unsigned int x, int length);
-    void reposition(vector<comp> &array);
+    static void butterfly(vector<comp> &array, comp w);
+    static int backwards(unsigned int x, int length);
+    static void reposition(vector<comp> &array);
     static void conjugate(vector<comp> &signal);
-    bool isPower2(int n)
+    static bool isPower2(int n)
 
 };
 

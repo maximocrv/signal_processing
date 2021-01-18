@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['removenoise_24',['RemoveNoise',['../class_signal_processor.html#a49e132bb50a837b4f0a97a0e733d8c17',1,'SignalProcessor']]]
+  ['main_48',['main',['../run__file_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'run_file.cpp']]]
 ];

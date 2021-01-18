@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SIgnal processing: SignalProcessor Class Reference</title>
+<title>Signal Processing: SignalProcessor Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,10 +21,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">SIgnal processing
-   &#160;<span id="projectnumber">0.10.1</span>
+   <div id="projectname">Signal Processing
+   &#160;<span id="projectnumber">0.5</span>
    </div>
-   <div id="projectbrief">FFT, inverse FFT, FourierFilter with some additional functions</div>
+   <div id="projectbrief">FFT and iFFT</div>
   </td>
  </tr>
  </tbody>
@@ -70,6 +70,16 @@ $(function() {
 <div class="title">SignalProcessor Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_signal_processor_8hpp_source.html">SignalProcessor.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for SignalProcessor:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_signal_processor__coll__graph.png" border="0" usemap="#a_signal_processor_coll__map" alt="Collaboration graph"/></div>
+<map name="a_signal_processor_coll__map" id="a_signal_processor_coll__map">
+<area shape="rect" title=" " alt="" coords="5,5,192,185"/>
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -79,11 +89,11 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae56d300b90b7066043c4eb36d734871e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12f82017806e1ec76545d8ed572abc9e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_signal_processor.html#a12f82017806e1ec76545d8ed572abc9e">~SignalProcessor</a> ()</td></tr>
 <tr class="separator:a12f82017806e1ec76545d8ed572abc9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac136ec15c293d7b37321197f8dad157b"><td class="memItemLeft" align="right" valign="top"><a id="ac136ec15c293d7b37321197f8dad157b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetSignal</b> (vector&lt; double &gt; &amp;signal)</td></tr>
-<tr class="separator:ac136ec15c293d7b37321197f8dad157b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49e132bb50a837b4f0a97a0e733d8c17"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_signal_processor.html#a49e132bb50a837b4f0a97a0e733d8c17">RemoveNoise</a> (int window)</td></tr>
-<tr class="separator:a49e132bb50a837b4f0a97a0e733d8c17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84892695043f1210bc4d9d6090c9473c"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a84892695043f1210bc4d9d6090c9473c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_signal_processor.html#a84892695043f1210bc4d9d6090c9473c">SetSignal</a> (const T &amp;signal)</td></tr>
+<tr class="separator:a84892695043f1210bc4d9d6090c9473c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3440c29a6f80f4e09b3d7924df113b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_signal_processor.html#ad3440c29a6f80f4e09b3d7924df113b7">RemoveNoise</a> (int window, string flag, double m=0.5)</td></tr>
+<tr class="separator:ad3440c29a6f80f4e09b3d7924df113b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50e7c850c4827d782d63e5cbbd2e618d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_signal_processor.html#a50e7c850c4827d782d63e5cbbd2e618d">GenerateHistogram</a> (int n_bins)</td></tr>
 <tr class="separator:a50e7c850c4827d782d63e5cbbd2e618d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ea1a19960d257c23aeb49d5907067a3"><td class="memItemLeft" align="right" valign="top">vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_signal_processor.html#a2ea1a19960d257c23aeb49d5907067a3">getRawSignal</a> ()</td></tr>
@@ -91,12 +101,23 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>SetSignal</b> (vector
 <tr class="memitem:acba1965ca2f20a68de1f7acae911a078"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_signal_processor.html#acba1965ca2f20a68de1f7acae911a078">getNoiseRemovedSignal</a> ()</td></tr>
 <tr class="separator:acba1965ca2f20a68de1f7acae911a078"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Class for signal preprocessing (noise removing and histogram building). </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mSignal</td><td>original signal </td></tr>
+    <tr><td class="paramname">mNoiseRemovedSignal</td><td>processed signal </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab9fd73561aff89c22ec1e1da3762cde5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab9fd73561aff89c22ec1e1da3762cde5">&#9670;&nbsp;</a></span>SignalProcessor() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">SignalProcessor::SignalProcessor </td>
@@ -105,6 +126,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>SetSignal</b> (vector
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>Default constructor </p>
 
@@ -143,7 +169,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>SetSignal</b> (vector
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Overriding default destructor </p>
+<p>Destructor, clean field mSignal and mNoiseRemovedSignal </p>
 
 </div>
 </div>
@@ -163,7 +189,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>SetSignal</b> (vector
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Method generating output file containing bin intervals and their corresponding bin frequencies for the signal intensity </p>
+<p>Method generating output file containing bin intervals and their corresponding bin frequencies for the signal intensity </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n_bins</td><td>number of intervals into the signal </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -181,7 +212,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>SetSignal</b> (vector
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Get noise removed signal </p>
+<p>Get noise removed signal </p><dl class="section return"><dt>Returns</dt><dd>mNoiseRemovalSignal: saved signal </dd></dl>
 
 </div>
 </div>
@@ -199,12 +230,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>SetSignal</b> (vector
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Get raw signal </p>
+<p>Get raw signal </p><dl class="section return"><dt>Returns</dt><dd>mSignal: saved signal </dd></dl>
 
 </div>
 </div>
-<a id="a49e132bb50a837b4f0a97a0e733d8c17"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a49e132bb50a837b4f0a97a0e733d8c17">&#9670;&nbsp;</a></span>RemoveNoise()</h2>
+<a id="ad3440c29a6f80f4e09b3d7924df113b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3440c29a6f80f4e09b3d7924df113b7">&#9670;&nbsp;</a></span>RemoveNoise()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -213,18 +244,71 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>SetSignal</b> (vector
           <td class="memname">void SignalProcessor::RemoveNoise </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>window</em></td><td>)</td>
+          <td class="paramname"><em>window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>flag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>m</em> = <code>0.5</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Function for different types of noise removing:</p><ul>
+<li>moving_average: simple average of signal over a window</li>
+<li>exponential_average: averaging, what use mixing with previous value in signal <dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window</td><td>averaging size </td></tr>
+    <tr><td class="paramname">flag</td><td>type of Noise removing </td></tr>
+    <tr><td class="paramname">m</td><td>mixing parameter </td></tr>
+  </table>
+  </dd>
+</dl>
+</li>
+</ul>
+
+</div>
+</div>
+<a id="a84892695043f1210bc4d9d6090c9473c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84892695043f1210bc4d9d6090c9473c">&#9670;&nbsp;</a></span>SetSignal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void SignalProcessor::SetSignal </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>signal</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Remove noise using moving average </p>
+<p>Methods for signal setting (saving) </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">signal</td><td>input signal </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_signal_processor_8hpp_source.html">SignalProcessor.hpp</a></li>
-<li>SignalProcessor.cpp</li>
+<li><a class="el" href="_signal_processor_8cpp.html">SignalProcessor.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

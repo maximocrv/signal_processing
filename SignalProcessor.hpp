@@ -12,6 +12,10 @@ using namespace std;
 #ifndef SIGNAL_PROCESSING_SIGNALPROCESSER_H
 #define SIGNAL_PROCESSING_SIGNALPROCESSER_H
 
+/** Class for signal preprocessing (noise removing and histogram building).
+ * \param mSignal: original signal
+ * \param mNoiseRemovedSignal: processed signal
+ */
 
 class SignalProcessor {
 public:

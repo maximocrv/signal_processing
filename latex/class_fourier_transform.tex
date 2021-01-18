@@ -4,6 +4,15 @@
 
 {\ttfamily \#include $<$Fourier\+Transform.\+hpp$>$}
 
+
+
+Collaboration diagram for Fourier\+Transform\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{class_fourier_transform__coll__graph}
+\end{center}
+\end{figure}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -11,12 +20,11 @@
 \item 
 \mbox{\hyperlink{class_fourier_transform_a107688df606cb5045099758a9f388c16}{$\sim$\+Fourier\+Transform}} ()
 \item 
-void \mbox{\hyperlink{class_fourier_transform_a34d302b340e6d559109fee87c3a7318c}{Fast\+Fourier\+Transform}} (vector$<$ double $>$ $\ast$signals, vector$<$ comp $>$ $\ast$signal, bool invert)
+void \mbox{\hyperlink{class_fourier_transform_a5598333ecfd14499164d91d524f511b5}{Fast\+Fourier\+Transform}} (vector$<$ double $>$ $\ast$signals, vector$<$ \mbox{\hyperlink{_fourier_transform_8cpp_a98af8d54ee0a6d3cf15fe87b208f0fa9}{comp}} $>$ $\ast$signal)
 \item 
-\mbox{\Hypertarget{class_fourier_transform_aea6397b5500fe9399574977a4fe37f17}\label{class_fourier_transform_aea6397b5500fe9399574977a4fe37f17}} 
-void {\bfseries FFT\+\_\+filter} (vector$<$ double $>$ \&signals, double percentage)
+void \mbox{\hyperlink{class_fourier_transform_aea6397b5500fe9399574977a4fe37f17}{FFT\+\_\+filter}} (vector$<$ double $>$ \&signals, double percentage)
 \item 
-void \mbox{\hyperlink{class_fourier_transform_a6e957ff5a01658650b857e492d6236ec}{inverse\+\_\+fourier\+\_\+transform}} (vector$<$ double $>$ $\ast$signals=new vector$<$ double $>$, vector$<$ comp $>$ $\ast$signal=new vector$<$ comp $>$)
+void \mbox{\hyperlink{class_fourier_transform_a6e957ff5a01658650b857e492d6236ec}{inverse\+\_\+fourier\+\_\+transform}} (vector$<$ double $>$ $\ast$signals=new vector$<$ double $>$, vector$<$ \mbox{\hyperlink{_fourier_transform_8cpp_a98af8d54ee0a6d3cf15fe87b208f0fa9}{comp}} $>$ $\ast$signal=new vector$<$ \mbox{\hyperlink{_fourier_transform_8cpp_a98af8d54ee0a6d3cf15fe87b208f0fa9}{comp}} $>$)
 \item 
 void \mbox{\hyperlink{class_fourier_transform_a68980c932d1a66c414d8584293ab1ff5}{Print}} ()
 \item 
@@ -25,51 +33,86 @@ void \mbox{\hyperlink{class_fourier_transform_a877853c15748242385582fca42ea2049}
 
 
 \doxysubsection{Detailed Description}
-Class with all functions for Fast Fourier transformation 
+Class with all functions for Fast Fourier transformation. Consists from main functions for FFT, i\+FFT and Fourier\+Filter. Has a single private field\+: 
+\begin{DoxyParams}{Parameters}
+{\em m\+Fourier\+Signal} & class vector$<$comp$>$$\ast$. \\
+\hline
+\end{DoxyParams}
+
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_fourier_transform_abd09d37139333d05bb4ddf26dddd7b9a}\label{class_fourier_transform_abd09d37139333d05bb4ddf26dddd7b9a}} 
 \index{FourierTransform@{FourierTransform}!FourierTransform@{FourierTransform}}
 \index{FourierTransform@{FourierTransform}!FourierTransform@{FourierTransform}}
 \doxysubsubsection{\texorpdfstring{FourierTransform()}{FourierTransform()}}
-{\footnotesize\ttfamily Fourier\+Transform\+::\+Fourier\+Transform (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Fourier\+Transform\+::\+Fourier\+Transform (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
 
-Default constructor \mbox{\Hypertarget{class_fourier_transform_a107688df606cb5045099758a9f388c16}\label{class_fourier_transform_a107688df606cb5045099758a9f388c16}} 
+Default constructor of class instance \mbox{\Hypertarget{class_fourier_transform_a107688df606cb5045099758a9f388c16}\label{class_fourier_transform_a107688df606cb5045099758a9f388c16}} 
 \index{FourierTransform@{FourierTransform}!````~FourierTransform@{$\sim$FourierTransform}}
 \index{````~FourierTransform@{$\sim$FourierTransform}!FourierTransform@{FourierTransform}}
 \doxysubsubsection{\texorpdfstring{$\sim$FourierTransform()}{~FourierTransform()}}
-{\footnotesize\ttfamily Fourier\+Transform\+::$\sim$\+Fourier\+Transform (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Fourier\+Transform\+::$\sim$\+Fourier\+Transform (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
 
-Destructor 
+Default destructor of class instance 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_fourier_transform_a34d302b340e6d559109fee87c3a7318c}\label{class_fourier_transform_a34d302b340e6d559109fee87c3a7318c}} 
+\mbox{\Hypertarget{class_fourier_transform_a5598333ecfd14499164d91d524f511b5}\label{class_fourier_transform_a5598333ecfd14499164d91d524f511b5}} 
 \index{FourierTransform@{FourierTransform}!FastFourierTransform@{FastFourierTransform}}
 \index{FastFourierTransform@{FastFourierTransform}!FourierTransform@{FourierTransform}}
 \doxysubsubsection{\texorpdfstring{FastFourierTransform()}{FastFourierTransform()}}
-{\footnotesize\ttfamily void Fourier\+Transform\+::\+Fast\+Fourier\+Transform (\begin{DoxyParamCaption}\item[{vector$<$ double $>$ $\ast$}]{signals,  }\item[{vector$<$ comp $>$ $\ast$}]{signal,  }\item[{bool}]{invert = {\ttfamily false} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Fourier\+Transform\+::\+Fast\+Fourier\+Transform (\begin{DoxyParamCaption}\item[{vector$<$ double $>$ $\ast$}]{signals,  }\item[{vector$<$ \mbox{\hyperlink{_fourier_transform_8cpp_a98af8d54ee0a6d3cf15fe87b208f0fa9}{comp}} $>$ $\ast$}]{signal }\end{DoxyParamCaption})}
 
-Computes the Fourier transform using FFT with some auxiliary functions defined above. \mbox{\Hypertarget{class_fourier_transform_a6e957ff5a01658650b857e492d6236ec}\label{class_fourier_transform_a6e957ff5a01658650b857e492d6236ec}} 
+Computes the Fourier transform using FFT with some auxiliary functions defined above. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em signals} & -\/ input time-\/dependent signal, which the function should transform \\
+\hline
+\mbox{\texttt{ out}}  & {\em signal} & -\/ output frequency-\/dependent signal Transformed signal saved in m\+Fourier\+Signal parameter. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_fourier_transform_aea6397b5500fe9399574977a4fe37f17}\label{class_fourier_transform_aea6397b5500fe9399574977a4fe37f17}} 
+\index{FourierTransform@{FourierTransform}!FFT\_filter@{FFT\_filter}}
+\index{FFT\_filter@{FFT\_filter}!FourierTransform@{FourierTransform}}
+\doxysubsubsection{\texorpdfstring{FFT\_filter()}{FFT\_filter()}}
+{\footnotesize\ttfamily void Fourier\+Transform\+::\+FFT\+\_\+filter (\begin{DoxyParamCaption}\item[{vector$<$ double $>$ \&}]{signals,  }\item[{double}]{percentage }\end{DoxyParamCaption})}
+
+Fourier filter function. Accepts a signal at the input and a percentage in amplitude to be passed through. The rest is discarded as noise. 
+\begin{DoxyParams}{Parameters}
+{\em signal} & -\/ signal for filtration \\
+\hline
+{\em percentage} & -\/ passband \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+signal -\/ filtered signal 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_fourier_transform_a6e957ff5a01658650b857e492d6236ec}\label{class_fourier_transform_a6e957ff5a01658650b857e492d6236ec}} 
 \index{FourierTransform@{FourierTransform}!inverse\_fourier\_transform@{inverse\_fourier\_transform}}
 \index{inverse\_fourier\_transform@{inverse\_fourier\_transform}!FourierTransform@{FourierTransform}}
 \doxysubsubsection{\texorpdfstring{inverse\_fourier\_transform()}{inverse\_fourier\_transform()}}
-{\footnotesize\ttfamily void Fourier\+Transform\+::inverse\+\_\+fourier\+\_\+transform (\begin{DoxyParamCaption}\item[{vector$<$ double $>$ $\ast$}]{signals = {\ttfamily new~vector$<$double$>$},  }\item[{vector$<$ comp $>$ $\ast$}]{signal = {\ttfamily new~vector$<$comp$>$} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Fourier\+Transform\+::inverse\+\_\+fourier\+\_\+transform (\begin{DoxyParamCaption}\item[{vector$<$ double $>$ $\ast$}]{signals = {\ttfamily new~vector$<$double$>$},  }\item[{vector$<$ \mbox{\hyperlink{_fourier_transform_8cpp_a98af8d54ee0a6d3cf15fe87b208f0fa9}{comp}} $>$ $\ast$}]{signal = {\ttfamily new~vector$<$\mbox{\hyperlink{_fourier_transform_8cpp_a98af8d54ee0a6d3cf15fe87b208f0fa9}{comp}}$>$} }\end{DoxyParamCaption})}
 
-Computes the inverse Fourier transform using FFT with some auxiliary functions defined above. \mbox{\Hypertarget{class_fourier_transform_a68980c932d1a66c414d8584293ab1ff5}\label{class_fourier_transform_a68980c932d1a66c414d8584293ab1ff5}} 
+Computes the inverse Fourier transform using FFT with some auxiliary functions defined above. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em signals} & -\/ input time-\/dependent signal, which the function should transform \\
+\hline
+\mbox{\texttt{ out}}  & {\em signal} & -\/ output time-\/dependent signal Transformed signal saved in m\+Fourier\+Signal parameter. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_fourier_transform_a68980c932d1a66c414d8584293ab1ff5}\label{class_fourier_transform_a68980c932d1a66c414d8584293ab1ff5}} 
 \index{FourierTransform@{FourierTransform}!Print@{Print}}
 \index{Print@{Print}!FourierTransform@{FourierTransform}}
 \doxysubsubsection{\texorpdfstring{Print()}{Print()}}
 {\footnotesize\ttfamily void Fourier\+Transform\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Fucntion for ouput result on the screen \mbox{\Hypertarget{class_fourier_transform_a877853c15748242385582fca42ea2049}\label{class_fourier_transform_a877853c15748242385582fca42ea2049}} 
+Function for output result on the screen \mbox{\Hypertarget{class_fourier_transform_a877853c15748242385582fca42ea2049}\label{class_fourier_transform_a877853c15748242385582fca42ea2049}} 
 \index{FourierTransform@{FourierTransform}!Savefile@{Savefile}}
 \index{Savefile@{Savefile}!FourierTransform@{FourierTransform}}
 \doxysubsubsection{\texorpdfstring{Savefile()}{Savefile()}}
 {\footnotesize\ttfamily void Fourier\+Transform\+::\+Savefile (\begin{DoxyParamCaption}\item[{string}]{filename }\end{DoxyParamCaption})}
 
-Fucntion for svae result in the separate file 
+Function for save result in the separate file 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Fourier\+Transform.\+hpp\item 
-Fourier\+Transform.\+cpp\end{DoxyCompactItemize}
+\mbox{\hyperlink{_fourier_transform_8hpp}{Fourier\+Transform.\+hpp}}\item 
+\mbox{\hyperlink{_fourier_transform_8cpp}{Fourier\+Transform.\+cpp}}\end{DoxyCompactItemize}

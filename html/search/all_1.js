@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['generatehistogram_2',['GenerateHistogram',['../class_signal_processor.html#a50e7c850c4827d782d63e5cbbd2e618d',1,'SignalProcessor']]],
-  ['getnoiseremovedsignal_3',['getNoiseRemovedSignal',['../class_signal_processor.html#acba1965ca2f20a68de1f7acae911a078',1,'SignalProcessor']]],
-  ['getrawsignal_4',['getRawSignal',['../class_signal_processor.html#a2ea1a19960d257c23aeb49d5907067a3',1,'SignalProcessor']]]
+  ['fastfouriertransform_2',['FastFourierTransform',['../class_fourier_transform.html#a5598333ecfd14499164d91d524f511b5',1,'FourierTransform']]],
+  ['fft_5ffilter_3',['FFT_filter',['../class_fourier_transform.html#aea6397b5500fe9399574977a4fe37f17',1,'FourierTransform']]],
+  ['fouriertransform_4',['FourierTransform',['../class_fourier_transform.html',1,'FourierTransform'],['../class_fourier_transform.html#abd09d37139333d05bb4ddf26dddd7b9a',1,'FourierTransform::FourierTransform()']]],
+  ['fouriertransform_2ecpp_5',['FourierTransform.cpp',['../_fourier_transform_8cpp.html',1,'']]],
+  ['fouriertransform_2ehpp_6',['FourierTransform.hpp',['../_fourier_transform_8hpp.html',1,'']]]
 ];

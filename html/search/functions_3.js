@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['print_23',['Print',['../class_fourier_transform.html#a68980c932d1a66c414d8584293ab1ff5',1,'FourierTransform']]]
+  ['inverse_5ffourier_5ftransform_47',['inverse_fourier_transform',['../class_fourier_transform.html#a6e957ff5a01658650b857e492d6236ec',1,'FourierTransform']]]
 ];

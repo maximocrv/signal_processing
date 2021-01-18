@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['fastfouriertransform_17',['FastFourierTransform',['../class_fourier_transform.html#a34d302b340e6d559109fee87c3a7318c',1,'FourierTransform']]],
-  ['fouriertransform_18',['FourierTransform',['../class_fourier_transform.html#abd09d37139333d05bb4ddf26dddd7b9a',1,'FourierTransform']]]
+  ['conjugate_40',['conjugate',['../_fourier_transform_8cpp.html#abeec10f2f5f122da9c8eee6ded898942',1,'FourierTransform.cpp']]]
 ];
