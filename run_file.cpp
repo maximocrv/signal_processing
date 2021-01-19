@@ -33,45 +33,51 @@ typedef std::complex<double> comp;
 // include a check for whether the command line arguments are valid?...
 
 int main(int argc, char* argv[]){
-
-//    int window_size = atoi(argv[0]);
-//    char* average_mode = argv[1];
-//    int num_fourier_coeffs = atoi(argv[2]);
+    AudioFile<double> audioFile;
+    audioFile.load("CantinaBand3.wav");
 
     int window_size = 100;
     std::string average_mode = "moving_average";
+    int num_bins = 50;
     int num_fourier_coeffs = 10;
 
-    AudioFile<double> audioFile;
+    // keep these for when we make the final executable and actually use command line inputs!
+    // int window_size = atoi(argv[0]);
+    // char* average_mode = argv[1];
+    // int num_bins = atoi(argv[2]);
+    // int num_fourier_coeffs = atoi(argv[3]);
 
-    audioFile.load("CantinaBand3.wav");
+    // following lines define the file names for the plotting
+    const string& original_signal_file = "original_signal.dat";
+    const string& noise_removed_signal_file = "noise_removed_signal.dat";
+    const string& intensity_histogram_file = "intensity_histogram.dat";
+    const string& filtered_fourier_file = "filtered_fourier_file.dat";
 
-//    audioFile.printSummary();
+    // time domain processing and saving files
+    SignalProcessor time_signal(audioFile);
+    time_signal.RemoveNoise(window_size, average_mode, 0.5);
+    time_signal.GenerateHistogram(num_bins, intensity_histogram_file);
+    time_signal.SaveFile(noise_removed_signal_file);
 
-    SignalProcessor test_file(audioFile);
-    test_file.RemoveNoise(window_size, average_mode, 0.5);
-    test_file.GenerateHistogram(50);
-    test_file.SaveFile("noise_removed_signal.dat");
-
-    std::vector<double> raw_signal = test_file.getRawSignal();
-
-    std::cout << raw_signal.size() << "\n";
+    // frequency domain processing and saving files
+    // first we truncate the signal so it's a power of 2
+    std::vector<double> raw_signal = time_signal.getRawSignal();
     auto* signal_cut = new std::vector<double>;
-
     *signal_cut = std::vector<double>(raw_signal.begin(), raw_signal.begin() + pow(2, 14));
 
+    // need your help to get it to work here but you get the idea
     FourierTransform fourier_instance;
-
     auto* random = new vector<comp>;
+//  fourier_instance.FastFourierTransform(signal_cut, random);
+//  fourier_instance.FFT_filter()
+//  fourier_instance.inverse_fourier_transform()
+//  fourier_instance.SaveFile()
 
-//    fourier_instance.FastFourierTransform(signal_cut, random);
 
+//    MISCELLANEOUS. DON'T DELETE FOR NOW.
 //    auto test = fourier_instance.getFTSignal();
 //    fourier_instance.FastFourierTransform(*signal_cut, false);
 //    int window = 10;
-
-//    test_file.getNoiseRemovedSignal();
-
 //    int channel = 0;
 //    int numSamples = audioFile.getNumSamplesPerChannel();
 //    auto* sampleList = new double[numSamples];
@@ -80,13 +86,6 @@ int main(int argc, char* argv[]){
 //        sampleList[i] = audioFile.samples[channel][i];
 //        //std::cout << sampleList[i] << "\n";
 //    }
-//
-//    std::ofstream write_output("output.dat");
-//    assert(write_output.is_open());
-//    for (int i = 0; i < numSamples; i++){
-//        if (i % 100 == 0) {
-//            write_output << i << " " << sampleList[i] << "\n";
-//        }
-//    }
+//    audioFile.printSummary();
 
 }

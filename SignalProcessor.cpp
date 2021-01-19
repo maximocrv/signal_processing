@@ -117,7 +117,7 @@ void SignalProcessor::RemoveNoise(int window, const string& flag, double m) {
  * intensity
  * \param n_bins: number of intervals into the signal
  */
-void SignalProcessor::GenerateHistogram(int n_bins) {
+void SignalProcessor::GenerateHistogram(int n_bins, const string& filename) {
     try {
         if (n_bins<=1){
             throw -1;
@@ -136,47 +136,57 @@ void SignalProcessor::GenerateHistogram(int n_bins) {
     int max = ceil(sorted_signal->back());
     double bin_width = ((double) max - (double) min) / (double) n_bins;
 
-    std::cout << "bin minimum: " << min << "\t bin maximum: " << max << "\n";
+//    std::cout << "bin minimum: " << min << "\t bin maximum: " << max << "\n";
 
     vector<int> bin_frequencies(n_bins);
     int counter = 0;
 
-    for (int bin = 0; bin < n_bins; bin++) {
-        double current = sorted_signal->at(counter);
+    std::ofstream out;
+    out.exceptions(ofstream::badbit);
+    try {
+        out.open(filename);
+        out << "bin_left" << " " << "bin_right" << " " << "frequency" << "\n";
 
-        double lower = min + (double) bin * bin_width;
-        double upper = min + (double) (bin + 1) * bin_width;
+        for (int bin = 0; bin < n_bins; bin++) {
+            double current = sorted_signal->at(counter);
+            double lower = min + (double) bin * bin_width;
+            double upper = min + (double) (bin + 1) * bin_width;
 
-        // int bin_value = 0;
-        while (current > lower && current <= upper && counter < sorted_signal->size() - 1) {
-            bin_frequencies[bin]++;
-            counter++;
-            current = sorted_signal->at(counter);
+            // int bin_value = 0;
+            while (current > lower && current <= upper && counter < sorted_signal->size() - 1) {
+                bin_frequencies[bin]++;
+                counter++;
+                current = sorted_signal->at(counter);
+            }
+            out << min + (double) bin * bin_width << " " << min + (double) (bin + 1) * bin_width << " "
+                << bin_frequencies[bin] << "\n";
         }
-
-        std::cout << "bin start: " << min + (double) bin * bin_width << "\t bin end: "
-                  << min + (double) (bin + 1) * bin_width
-                  << "\t bin frequency: " << bin_frequencies[bin] << "\n";
     }
+    catch (const ofstream::failure& e){
+        cerr << "A file opening error has occurred. Please try again.";
+    }
+
+    out.close();
 
     std::cout << "Vector size" << sorted_signal->size() << "\t sum bin frequencies (should be equal): " <<
               accumulate(bin_frequencies.begin(), bin_frequencies.end(), 0) << "\n";
+
     delete sorted_signal;
 }
 
-void SignalProcessor::SaveFile(string filename) {
+void SignalProcessor::SaveFile(const string& filename) {
     std::ofstream out;
+    out.exceptions(ofstream::badbit);
     try {
         out.open(filename);
-        cout << "Frequency" << " " << "Intensity";
+        out << "index" << " " << "signal_value" << "\n";
         for (int i=0; i < mNoiseRemovedSignal.size(); i++){
             out << i << " " << mNoiseRemovedSignal[i] << '\n';
         }
         cout << std::endl;
-        out.close();
-        throw "File is not open!";
     }
-    catch (const string &str) {
+    catch (const ofstream::failure& e) {
         cerr << "A file opening error has occurred. Please try again.";
     }
+    out.close();
 }

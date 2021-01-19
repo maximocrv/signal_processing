@@ -196,7 +196,7 @@ void FourierTransform::FFT_filter(vector<double>& signals, double percentage){
         percentage = 100;
     }
     else if(percentage < 1){
-        cout<<"Passband is smaller then 1 %. Do you confident, what it is right?";
+        cout << "Passband is smaller than 1 %. Do you confident, what it is right?";
     }
     // compute the amplitudes for each frequency
     for (int i=0; i<signal.size(); i++){

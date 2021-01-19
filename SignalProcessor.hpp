@@ -29,14 +29,14 @@ public:
     void SetSignal(const T& signal);
     void RemoveNoise(int window, const string& flag, double m = 0.5);
 
-    void GenerateHistogram(int n_bins);
+    void GenerateHistogram(int n_bins, const string& filename);
 
     // get methods (const)
     // get
     vector<double> getRawSignal();
     vector<double> getNoiseRemovedSignal();
 
-    void SaveFile(string filename);
+    void SaveFile(const string& filename);
 
 private:
     vector<double> mSignal;

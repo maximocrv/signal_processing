@@ -16,7 +16,7 @@
 using namespace std;
 typedef complex<double> comp;
 /**
- * Class with all functions for Fast Fourier transformation. Consists from main functions for FFT, iFFT and FourierFilter.
+ * Class with all functions for Fast Fourier Transform. Consists of the main functions for FFT, iFFT and FourierFilter.
  * Has a single private field:
  * \param mFourierSignal class vector<comp>*.
  */
