@@ -7,7 +7,16 @@ It is necessary to have `cmake` to make the executable and `python` (in particul
 and `numpy` libraries for generating the plots.
 
 ## User Guide
-In order to set up the project, it is necessary to 'make' the `CmakeLists.txt` files. The run the file as follows:
+In order to set up the project, it is necessary to run the following commands:
+
+```
+git clone *insert_repository_url*
+git submodule init
+cmake CMakeLists.txt
+make Makefile
+```
+
+The run the file as follows:
 
 ```
 ./run_exe window_average average_mode num_fourier_coeffs
@@ -29,9 +38,24 @@ This will generate as output 4 different files: `original_signal.png`, `time_pro
 `intensity_histogram.png`, and `fourier_filtered_signal.png`.
 
 ## Repository Structure
+The repository is structured as follows:
 
+### ```FourierTransform.hpp/cpp```
+Header and source file containing the Fourier transform class. It contains methods to perform the Fast Fourier Transform,
+which are subdivided into further smaller functions, the inverse Fourier transform, and perform filtering in the Fourier
+domain.
 
+### ```SignalProcessor.hpp/cpp```
+Header and source file containing the signal processor class which works with time domain signals. It contains methods
+to perform noise removal (either via the moving average or exponential moving average), and generate intensity 
+histograms.
+
+### ```tests.cpp```
+File containing all the tests performed on the above classes:
+
+- Tests for ....
+- Tests for ....
 
 ## Limitations & Future Improvements
 Currently the code is not set up to deal with signals whose length is not a power of 2 (due to the specific
-implementation of the FFT). Furthermore it is only set up to work with mono signals.
+implementation of the FFT). Furthermore it is only set up to work with mono channel signals.
