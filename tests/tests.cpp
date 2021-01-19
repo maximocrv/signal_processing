@@ -3,46 +3,70 @@
 #include "gtest/gtest.h"
 
 #include "FourierTransform.hpp"
+#include <FourierTransform.cpp>
 #include "SignalProcessor.hpp"
 
 // https://developer.ibm.com/technologies/systems/articles/au-googletestingframework/
 
-double square_root(const double a){
-    return std::sqrt(a);
-};
-
-TEST (SquareRootTest, PositiveNos) {
-    EXPECT_EQ (18.0, square_root(324.0));
-    EXPECT_EQ (25.4, square_root(645.16));
-    EXPECT_EQ (50.3321, square_root(2533.310224));
-}
-
-TEST (SquareRootTest, ZeroAndNegativeNos) {
-    ASSERT_EQ (0.0, square_root(0.0));
-    ASSERT_EQ (-1, square_root(-22.0));
-}
-
-TEST (FourierTransform, butterfly){
-    return;
-}
-
-TEST (FourierTransform, backwards){
-    return;
-}
-
-TEST (FourierTransform, reposition){
-    return;
-}
-
-TEST (FourierTransform, fft){
+TEST (FourierTransform, fft_2){
     // Compare output with that of built in fft class
-    return;
+    FourierTransform fft;
+    vector<double> signals = {0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+    vector <comp> signal = {};
+    fft.FastFourierTransform(signals, signal);
+    vector <comp> tests={comp(1,0), comp(0.707107,0.707107), comp(0.000000,1.000000),\
+    comp(-0.707107,0.707107), comp(-1.000000,0.000000), comp(-0.707107,-0.707107),\
+    comp(0.000000,-1.000000), comp(0.707107,-0.707107)};
+    for (int i=0; i<8; i+=1){
+        ASSERT_EQ (tests[i], signal[i]);
+    }
 }
 
-TEST (FourierTransform, inverse_fft){
-    // Compare inverse output with that of built in fft class
-    return;
+TEST (FourierTransform, fft_1){
+    // Compare output with that of built in fft class
+    FourierTransform fft;
+    vector<double> signals = {1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+    vector <comp> signal = {};
+    fft.FastFourierTransform(signals, signal);
+    vector <comp> tests={};
+    comp c1(1, 0);
+    for (int i=0; i<8; i+=1){
+        tests.push_back(c1);
+    }
+    for (int i=0; i<8; i+=1){
+        ASSERT_EQ (tests[i], signal[i]);
+    }
 }
+
+TEST (FourierTransform, inverse_fft_1){
+    // Compare inverse output with that of built in fft class
+    FourierTransform fft;
+    vector<double> signals = {};
+    vector <comp> signal={comp(1,0), comp(0.707107,0.707107), comp(0.000000,1.000000),\
+    comp(-0.707107,0.707107), comp(-1.000000,0.000000), comp(-0.707107,-0.707107),\
+    comp(0.000000,-1.000000), comp(0.707107,-0.707107)};
+    fft.inverse_fourier_transform(&signals, &signal);
+    vector <comp> tests = {comp(0), comp(1), comp(0), comp(0), comp(0), comp(0), comp(0), comp(0)};
+    for (int i=0; i<8; i+=1){
+        ASSERT_LT ((tests[i]-signal[i]).real(), 0.000001);
+        ASSERT_LT ((tests[i]-signal[i]).imag(), 0.000001);
+    }
+}
+
+TEST (FourierTransform, inverse_fft_2){
+    // Compare inverse output with that of built in fft class
+    FourierTransform fft;
+    vector<double> signals = {};
+    vector <comp> signal={comp(1,0), comp(1,0), comp(1,0), comp(1,0),comp(1,0),\
+                        comp(1,0),comp(1,0), comp(1,0)};
+    fft.inverse_fourier_transform(&signals, &signal);
+    vector <comp> tests = {comp(1), comp(0), comp(0), comp(0), comp(0), comp(0), comp(0), comp(0)};
+    for (int i=0; i<8; i+=1){
+        ASSERT_LT ((tests[i]-signal[i]).real(), 0.000001);
+        ASSERT_LT ((tests[i]-signal[i]).imag(), 0.000001);
+    }
+}
+
 
 TEST (FourierTransform, fft_filter){
     // Construct simple sum of sine waves and add noise terms

@@ -22,14 +22,13 @@ FourierTransform::~FourierTransform()= default;
  * \param:  w - turning factor
  * \return: signal, which has already been converted
 */
-void FourierTransform::butterfly(vector<comp> &signal, comp w)
+void FourierTransform::butterfly(vector<comp> &signal, int step, comp w)
 {
     comp pow(1.0, 0.0);
-    int n = signal.size()/2;
-
+    int n = step/2;
     for(int i = 0; i < n; i++) {
         comp p = signal[i];
-        comp q = signal[i+n]*w;
+        comp q = signal[i+n]*pow;
         signal[i] = p + q;
         signal[i+n] = p - q;
         pow *= w;
@@ -83,16 +82,16 @@ void FourierTransform::reposition(vector<comp> &signal)
  * \param: int n - length of the signal
  * */
 void FourierTransform::checkpower2(int n) {
+    int a=2;
+    while (a<n) {
+        a = a * 2;
+    }
     try {
-        if (((double) ((int) log2(n)) != log2(n))||(n<=1)){
+        if (a != n){
             throw "Length of input signal is not a power of 2. Change it";
         }
     }
     catch (const string &str) {
-        int a=2;
-        while (a<n){
-            a=a*2;
-        }
         cerr<<"Cut the length of signal to the "<<a<<" or increase to the "<<a*2;
     }
 }
@@ -104,15 +103,18 @@ void FourierTransform::checkpower2(int n) {
  *              Transformed signal saved in  mFourierSignal parameter.
  */
 
-void FourierTransform::FastFourierTransform(vector<double>* signals, vector<comp>* signal) {
-    if(signal->empty()) {
-        for (int i = 0; i < signals->size(); i++) {
-            signal->push_back(((*signals)[i], 0.0));
+void FourierTransform::FastFourierTransform(vector<double>& signals, vector<comp>& signal) {
+    if(signal.empty()) {
+        comp elem;
+        for (int i = 0; i < signals.size(); i++) {
+            elem = signals[i];
+            signal.push_back(elem);
         }
     }
-    checkpower2(signals->size());
-    reposition(*signal);
-    int N = signal->size();
+    vector <comp> slice;
+    checkpower2(signal.size());
+    reposition(signal);
+    int N = signal.size();
     comp w = exp(comp(0.0, 2.0 * PI / N));
     stack<comp> ws;
     for (int step = N; step != 1; step /= 2) {
@@ -123,12 +125,20 @@ void FourierTransform::FastFourierTransform(vector<double>* signals, vector<comp
     for (int step = 2; step <= N; step *= 2) {
         w = ws.top();
         ws.pop();
-        for (int i; i <= N; i *= 2) {
-            butterfly(*(signal + i), w);
+        for (int i=0; i < N; i += step) {
+            for (int k= i; k< i+step; k++){
+                slice.push_back(signal[k]);
+            }
+            butterfly(slice,step, w);
+            for (int k= i; k< i+step; k++){
+                signal[k] = slice[k-i];
+            }
+            slice= {};
         }
     }
-
-    mFourierSignal = *signal;
+    for (int i = 0; i < signal.size(); i++)
+        signal[i] = comp(round(signal[i].real()*1000000)/1000000,round(signal[i].imag()*1000000)/1000000);
+    mFourierSignal = signal;
 }
 
 /**
@@ -140,13 +150,13 @@ void FourierTransform::FastFourierTransform(vector<double>* signals, vector<comp
 void FourierTransform::inverse_fourier_transform(vector<double>* signals, vector<comp>* signal)
 {
     if(signal->empty()) {
-        for (int i = 0; i < signals->size(); i++) {
-            signal->push_back(((*signals)[i], 0.0));
+        for (double & i : *signals) {
+            signal->push_back((i, 0.0));
         }
     }
-    checkpower2(signals->size());
+    checkpower2(signal->size());
     conjugate(*signal);
-    FastFourierTransform(signals, signal);
+    FastFourierTransform(*signals, *signal);
     conjugate(*signal);
     int size = signal->size();
     for (int i = 0; i < size; i++)
@@ -186,7 +196,7 @@ bool FourierTransform::pairCompare(const pair<double, int>& firstElem, const pai
  */
 void FourierTransform::FFT_filter(vector<double>& signals, double percentage){
     vector <comp> signal;
-    FastFourierTransform(&signals, &signal);
+    FastFourierTransform(signals, signal);
     vector <double> amplitudes(signal.size());
     vector<pair<double,int>> res;
     if (percentage < 0){
@@ -227,7 +237,7 @@ void FourierTransform::FFT_filter(vector<double>& signals, double percentage){
  * Function for output result on the screen
  */
 void FourierTransform::Print() {
-    cout<<'Frequency'<<' '<<'Intensity';
+    cout<<"Frequency"<<" "<<"Intensity";
     for (int i=0; i<mFourierSignal.size(); i++)
         cout << i << " "<<sqrt(pow(mFourierSignal[i].imag(),2)+pow(mFourierSignal[i].real(),2))<<'\n';
     cout << std::endl;
@@ -238,6 +248,7 @@ void FourierTransform::Print() {
  */
 void FourierTransform::Savefile(string filename) {
     std::ofstream out;
+    out.exceptions(ofstream::badbit);
     try {
         out.open(filename);
         cout << "Frequency" << " " << "Intensity";
@@ -246,9 +257,8 @@ void FourierTransform::Savefile(string filename) {
         }
         cout << std::endl;
         out.close();
-        throw "File is not open!";
     }
-    catch (const string &str) {
+    catch (const ofstream::failure& e) {
         cerr << "A file opening error has occurred. Please try again.";
     }
 }
