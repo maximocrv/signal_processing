@@ -99,7 +99,7 @@ void SignalProcessor::RemoveNoise(int window, const string& flag, double m) {
             }
         }
         catch (int a) {
-            cerr<<"Mixing factor should be between 0 and 1. Change it.";
+            cerr << "Mixing factor should be between 0 and 1. Change it.";
         }
         mNoiseRemovedSignal.push_back(mSignal[0]);
 
