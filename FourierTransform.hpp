@@ -28,7 +28,7 @@ public:
 
     // Methods
     void FastFourierTransform(vector<double>& signals,vector<comp>& signal);
-    void FFT_filter(vector<double>& signals, double percentage);
+    void FFT_filter(vector<double>& signals, double percentage,vector <comp>& signal);
     void inverse_fourier_transform(vector<double>* signals = new vector<double>, vector<comp>* signal = new vector<comp>);
     void Print();
     void Savefile(string filename);

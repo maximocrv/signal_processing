@@ -88,11 +88,12 @@ void FourierTransform::checkpower2(int n) {
     }
     try {
         if (a != n){
-            throw "Length of input signal is not a power of 2. Change it";
+            throw -1;
         }
     }
-    catch (const string &str) {
-        cerr<<"Cut the length of signal to the "<<a<<" or increase to the "<<a*2;
+    catch (int b) {
+        cerr<<"Length of input signal is not a power of 2."\
+        <<" Change it. Cut the length of signal to the "<<double(a)/2<<" or increase to the "<<a;
     }
 }
 
@@ -105,10 +106,8 @@ void FourierTransform::checkpower2(int n) {
 
 void FourierTransform::FastFourierTransform(vector<double>& signals, vector<comp>& signal) {
     if(signal.empty()) {
-        comp elem;
-        for (int i = 0; i < signals.size(); i++) {
-            elem = signals[i];
-            signal.push_back(elem);
+        for (int i=0; i<signals.size(); i+=1) {
+            signal.push_back(comp(signals[i], 0.0));
         }
     }
     vector <comp> slice;
@@ -150,8 +149,8 @@ void FourierTransform::FastFourierTransform(vector<double>& signals, vector<comp
 void FourierTransform::inverse_fourier_transform(vector<double>* signals, vector<comp>* signal)
 {
     if(signal->empty()) {
-        for (double & i : *signals) {
-            signal->push_back((i, 0.0));
+        for (int i=0; i<signals->size(); i+=1) {
+            signal->push_back(comp((*signals)[i], 0.0));
         }
     }
     checkpower2(signal->size());
@@ -194,8 +193,12 @@ bool FourierTransform::pairCompare(const pair<double, int>& firstElem, const pai
  *              \param percentage - passband
  *              \return signal - filtered signal
  */
-void FourierTransform::FFT_filter(vector<double>& signals, double percentage){
-    vector <comp> signal;
+void FourierTransform::FFT_filter(vector<double>& signals, double percentage,vector <comp>& signal){
+    if(signal.empty()) {
+        for (double & i : signals) {
+            signal.emplace_back((i, 0.0));
+        }
+    }
     FastFourierTransform(signals, signal);
     vector <double> amplitudes(signal.size());
     vector<pair<double,int>> res;
@@ -220,8 +223,9 @@ void FourierTransform::FFT_filter(vector<double>& signals, double percentage){
     sort(res.begin(), res.end(), pairCompare);
     double sum = accumulate(amplitudes.begin(), amplitudes.end(), 0.0);
     double sum_final = 0;
+    signals.empty();
     for (int i=0; i<signal.size(); i++){
-        signals[i]=0;
+        signals.push_back(0);
     }
     int i=0;
     while ((((sum_final+res[i].first)/sum)< (percentage/100))&&(i<signals.size())){
@@ -229,6 +233,7 @@ void FourierTransform::FFT_filter(vector<double>& signals, double percentage){
         signals[res[i].second]=res[i].first;
         i+=1;
     }
+    signal = {};
     inverse_fourier_transform(&signals,&signal);
 }
 

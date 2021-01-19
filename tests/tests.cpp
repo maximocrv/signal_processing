@@ -8,7 +8,7 @@
 
 // https://developer.ibm.com/technologies/systems/articles/au-googletestingframework/
 
-TEST (FourierTransform, fft_2){
+TEST (FourierTransform, fft_1){
     // Compare output with that of built in fft class
     FourierTransform fft;
     vector<double> signals = {0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
@@ -22,7 +22,7 @@ TEST (FourierTransform, fft_2){
     }
 }
 
-TEST (FourierTransform, fft_1){
+TEST (FourierTransform, fft_2){
     // Compare output with that of built in fft class
     FourierTransform fft;
     vector<double> signals = {1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
@@ -70,7 +70,19 @@ TEST (FourierTransform, inverse_fft_2){
 
 TEST (FourierTransform, fft_filter){
     // Construct simple sum of sine waves and add noise terms
-    return;
+    FourierTransform fft;
+    vector <double> signal={};
+    vector <comp> signals = {comp(0.250625,0.000000), comp(-0.087946,0.036170), comp(-0.125000,0.124375),\
+    comp(0.087946,-0.213830), comp(-0.000625,0.000000), comp(0.087946,0.213830), \
+    comp(-0.125000,-0.124375), comp(-0.087946,-0.036170)};
+    fft.FFT_filter(signal, 99.8, signals);
+    vector <comp> tests = {comp(0.250000,0.000000), comp(-0.088388,0.036612), comp(-0.125000,0.125000),\
+    comp(0.088388,-0.213388), comp(0.000000,0.000000), comp(0.088388,0.213388), \
+    comp(-0.125000,-0.125000), comp(-0.088388,-0.036612)};
+    for (int i=0; i<8; i+=1){
+        ASSERT_LT ((tests[i]-signals[i]).real(), 0.000001);
+        ASSERT_LT ((tests[i]-signals[i]).imag(), 0.000001);
+    }
 }
 
 int main(int argc, char* argv[]){
