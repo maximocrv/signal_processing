@@ -4,7 +4,7 @@
 
 #include "FourierTransform.hpp"
 #include <FourierTransform.cpp>
-#include "SignalProcessor.hpp"
+#include "TimeSignalProcessor.hpp"
 
 // https://developer.ibm.com/technologies/systems/articles/au-googletestingframework/
 

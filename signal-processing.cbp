@@ -290,16 +290,22 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/Maximocravero/EPFL/MATH-458/signal-processing/BaseSignalProcessor.cpp">
+			<Option target="ex_1"/>
+		</Unit>
+		<Unit filename="/Users/Maximocravero/EPFL/MATH-458/signal-processing/BaseSignalProcessor.hpp">
+			<Option target="ex_1"/>
+		</Unit>
 		<Unit filename="/Users/Maximocravero/EPFL/MATH-458/signal-processing/FourierTransform.cpp">
 			<Option target="ex_1"/>
 		</Unit>
 		<Unit filename="/Users/Maximocravero/EPFL/MATH-458/signal-processing/FourierTransform.hpp">
 			<Option target="ex_1"/>
 		</Unit>
-		<Unit filename="/Users/Maximocravero/EPFL/MATH-458/signal-processing/SignalProcessor.cpp">
+		<Unit filename="/Users/Maximocravero/EPFL/MATH-458/signal-processing/TimeSignalProcessor.cpp">
 			<Option target="ex_1"/>
 		</Unit>
-		<Unit filename="/Users/Maximocravero/EPFL/MATH-458/signal-processing/SignalProcessor.hpp">
+		<Unit filename="/Users/Maximocravero/EPFL/MATH-458/signal-processing/TimeSignalProcessor.hpp">
 			<Option target="ex_1"/>
 		</Unit>
 		<Unit filename="/Users/Maximocravero/EPFL/MATH-458/signal-processing/googletest-src/googlemock/src/gmock-all.cc">

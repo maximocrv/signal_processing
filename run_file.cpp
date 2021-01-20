@@ -16,7 +16,7 @@
 typedef std::complex<double> comp;
 
 #include "AudioFile/AudioFile.h"
-#include "SignalProcessor.hpp"
+#include "TimeSignalProcessor.hpp"
 #include "FourierTransform.hpp"
 
 // Flow
@@ -54,14 +54,14 @@ int main(int argc, char* argv[]){
     const string& filtered_fourier_file = "filtered_fourier_file.dat";
 
     // time domain processing and saving files
-    SignalProcessor time_signal(audioFile);
+    TimeSignalProcessor time_signal(audioFile);
     time_signal.RemoveNoise(window_size, average_mode, 0.5);
     time_signal.GenerateHistogram(num_bins, intensity_histogram_file);
     time_signal.SaveFile(noise_removed_signal_file);
 
     // frequency domain processing and saving files
     // first we truncate the signal so it's a power of 2
-    std::vector<double> raw_signal = time_signal.getRawSignal();
+    std::vector<double> raw_signal = time_signal.getTimeSignal();
     auto* signal_cut = new std::vector<double>;
     *signal_cut = std::vector<double>(raw_signal.begin(), raw_signal.begin() + pow(2, 14));
 
