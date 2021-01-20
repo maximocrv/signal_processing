@@ -5,14 +5,14 @@
 #include <cmath>
 #include <vector>
 #include <algorithm>
-#include "AudioFile/AudioFile.h"
+
+#include "BaseSignalProcessor.hpp"
+#include "../AudioFile/AudioFile.h"
 
 using namespace std;
 
 #ifndef SIGNAL_PROCESSING_SIGNALPROCESSER_H
 #define SIGNAL_PROCESSING_SIGNALPROCESSER_H
-
-#include "BaseSignalProcessor.hpp"
 
 /** Class for signal preprocessing (noise removing and histogram building).
  * \param mSignal: original signal

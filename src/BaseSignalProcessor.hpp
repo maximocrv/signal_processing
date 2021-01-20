@@ -6,7 +6,7 @@
 #include <vector>
 #include <algorithm>
 #include <complex>
-#include "AudioFile/AudioFile.h"
+#include "../AudioFile/AudioFile.h"
 
 using namespace std;
 typedef complex<double> comp;

@@ -16,8 +16,8 @@
 typedef std::complex<double> comp;
 
 #include "AudioFile/AudioFile.h"
-#include "TimeSignalProcessor.hpp"
-#include "FourierTransform.hpp"
+#include "src/TimeSignalProcessor.hpp"
+#include "src/FourierTransform.hpp"
 
 // Flow
 // Read in audio signal

@@ -2,9 +2,9 @@
 #include <cmath>
 #include "gtest/gtest.h"
 
-#include "FourierTransform.hpp"
-#include <FourierTransform.cpp>
-#include "TimeSignalProcessor.hpp"
+#include "../src/FourierTransform.hpp"
+//#include <../src/FourierTransform.cpp>
+#include "../src/TimeSignalProcessor.hpp"
 
 // https://developer.ibm.com/technologies/systems/articles/au-googletestingframework/
 

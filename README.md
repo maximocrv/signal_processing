@@ -11,15 +11,19 @@ In order to set up the project, it is necessary to run the following commands:
 
 ```
 git clone *insert_repository_url*
+git submodule add https://github.com/adamstark/AudioFile.git
+git submodule add https://github.com/google/googletest.git
 git submodule init
-cmake CMakeLists.txt
-make Makefile
+mkdir build
+cd build && cmake ..
+make
 ```
 
-The run the file as follows:
+The from the build directory run the file as follows:
 
 ```
-./run_exe window_average average_mode num_fourier_coeffs
+./test_signal_processor
+./run_signal_processor window_average average_mode num_fourier_coeffs
 ```
 
 Note that `window_average` is an integer representing the moving average window that will be used for the time domain 
@@ -39,6 +43,10 @@ This will generate as output 4 different files: `original_signal.png`, `time_pro
 
 ## Repository Structure
 The repository is structured as follows:
+
+### ```BaseSignalProcessor.hpp/cpp```
+Base class from which the FourierTransform and TimeSignalProcessor classes are derived. Contains custom constructor 
+that sets the time signal to a member variable, as well as saving functionality which are used in both derived classes.
 
 ### ```FourierTransform.hpp/cpp```
 Header and source file containing the Fourier transform class. It contains methods to perform the Fast Fourier Transform,
