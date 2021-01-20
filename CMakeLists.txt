@@ -40,5 +40,5 @@ add_test(NAME example_test COMMAND tests)
 
 # main executable
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
-set(SOURCE_FILES run_file.cpp FourierTransform.hpp FourierTransform.cpp SignalProcessor.hpp SignalProcessor.cpp)
+set(SOURCE_FILES run_file.cpp FourierTransform.hpp FourierTransform.cpp TimeSignalProcessor.hpp TimeSignalProcessor.cpp BaseSignalProcessor.cpp BaseSignalProcessor.hpp)
 add_executable(ex_1 ${SOURCE_FILES})

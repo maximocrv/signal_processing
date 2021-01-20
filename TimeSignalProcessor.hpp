@@ -12,35 +12,23 @@ using namespace std;
 #ifndef SIGNAL_PROCESSING_SIGNALPROCESSER_H
 #define SIGNAL_PROCESSING_SIGNALPROCESSER_H
 
+#include "BaseSignalProcessor.hpp"
+
 /** Class for signal preprocessing (noise removing and histogram building).
  * \param mSignal: original signal
  * \param mNoiseRemovedSignal: processed signal
  */
 
-class SignalProcessor {
+class TimeSignalProcessor : public BaseSignalProcessor {
 public:
     // constructors and destructors
-    SignalProcessor();
-    SignalProcessor(const AudioFile<double>& signal);
-    ~SignalProcessor();
+    TimeSignalProcessor(const AudioFile<double>& signal) : BaseSignalProcessor(signal){};
+    ~TimeSignalProcessor() {};
 
     // set methods
-    template<typename T>
-    void SetSignal(const T& signal);
     void RemoveNoise(int window, const string& flag, double m = 0.5);
 
     void GenerateHistogram(int n_bins, const string& filename);
-
-    // get methods (const)
-    // get
-    vector<double> getRawSignal();
-    vector<double> getNoiseRemovedSignal();
-
-    void SaveFile(const string& filename);
-
-private:
-    vector<double> mSignal;
-    vector<double> mNoiseRemovedSignal;
 };
 
 
