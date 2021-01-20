@@ -28,13 +28,16 @@ public:
 
     // Methods
     void FastFourierTransform(vector<double>& signals,vector<comp>& signal);
-    void FFT_filter(vector<double>& signals, double percentage,vector <comp>& signal);
-    void inverse_fourier_transform(vector<double>* signals = new vector<double>, vector<comp>* signal = new vector<comp>);
+    void FFTFilter(vector<double>& signals, double percentage,vector <comp>& signal);
+    void InverseFourierTransform(vector<double>* signals = new vector<double>, vector<comp>* signal = new vector<comp>);
     void Print();
     void Savefile(string filename);
 
 private:
     vector<comp> mFourierSignal;
+    vector<comp> mFourierSignalClean;
+    vector<comp> mFourierFrequency;
+    vector<comp> mFourierFrequencyClean;
     static bool pairCompare(const pair<double, int>& firstElem, const pair<double, int>& secondElem);
     static void butterfly(vector<comp> &array,int step,  comp w);
     static int backwards(unsigned int x, int length);

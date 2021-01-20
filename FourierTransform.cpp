@@ -114,7 +114,7 @@ void FourierTransform::FastFourierTransform(vector<double>& signals, vector<comp
     checkpower2(signal.size());
     reposition(signal);
     int N = signal.size();
-    comp w = exp(comp(0.0, 2.0 * PI / N));
+    comp w = exp(comp(0.0, -2.0 * PI / N));
     stack<comp> ws;
     for (int step = N; step != 1; step /= 2) {
         ws.push(w);
@@ -137,7 +137,7 @@ void FourierTransform::FastFourierTransform(vector<double>& signals, vector<comp
     }
     for (int i = 0; i < signal.size(); i++)
         signal[i] = comp(round(signal[i].real()*1000000)/1000000,round(signal[i].imag()*1000000)/1000000);
-    mFourierSignal = signal;
+    mFourierFrequency = signal;
 }
 
 /**
@@ -146,7 +146,7 @@ void FourierTransform::FastFourierTransform(vector<double>& signals, vector<comp
  *              \param[out] signal - output time-dependent signal
  *              Transformed signal saved in  mFourierSignal parameter.
  */
-void FourierTransform::inverse_fourier_transform(vector<double>* signals, vector<comp>* signal)
+void FourierTransform::InverseFourierTransform(vector<double>* signals, vector<comp>* signal)
 {
     if(signal->empty()) {
         for (int i=0; i<signals->size(); i+=1) {
@@ -193,12 +193,13 @@ bool FourierTransform::pairCompare(const pair<double, int>& firstElem, const pai
  *              \param percentage - passband
  *              \return signal - filtered signal
  */
-void FourierTransform::FFT_filter(vector<double>& signals, double percentage,vector <comp>& signal){
+void FourierTransform::FFTFilter(vector<double>& signals, double percentage,vector <comp>& signal){
     if(signal.empty()) {
         for (double & i : signals) {
             signal.emplace_back((i, 0.0));
         }
     }
+    mFourierSignal = signal;
     FastFourierTransform(signals, signal);
     vector <double> amplitudes(signal.size());
     vector<pair<double,int>> res;
@@ -211,6 +212,7 @@ void FourierTransform::FFT_filter(vector<double>& signals, double percentage,vec
     else if(percentage < 1){
         cout << "Passband is smaller than 1 %. Do you confident, what it is right?";
     }
+    mFourierFrequency = signal;
     // compute the amplitudes for each frequency
     for (int i=0; i<signal.size(); i++){
         double real_squad = (double)signal[i].real()*(double)signal[i].real();
@@ -234,7 +236,9 @@ void FourierTransform::FFT_filter(vector<double>& signals, double percentage,vec
         i+=1;
     }
     signal = {};
-    inverse_fourier_transform(&signals,&signal);
+    mFourierFrequencyClean = signal;
+    InverseFourierTransform(&signals,&signal);
+    mFourierSignalClean = signal;
 }
 
 
@@ -257,8 +261,8 @@ void FourierTransform::Savefile(string filename) {
     try {
         out.open(filename);
         cout << "Frequency" << " " << "Intensity";
-        for (int i=0; i<mFourierSignal.size(); i++){
-            out << i << " " << sqrt(pow(mFourierSignal[i].imag(),2)+pow(mFourierSignal[i].real(),2)) << '\n';
+        for (int i=0; i<mFourierFrequency.size(); i++){
+            out << i << " " << sqrt(pow(mFourierFrequency[i].imag(),2)+pow(mFourierFrequency[i].real(),2)) << '\n';
         }
         cout << std::endl;
         out.close();
