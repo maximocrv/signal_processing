@@ -3,9 +3,13 @@
 //
 
 #include "BaseSignalProcessor.hpp"
+#include "fstream"
+#include "vector"
+
+using namespace std;
 
 /** Custom constructor */
-BaseSignalProcessor::BaseSignalProcessor(const AudioFile<double> &signal) {
+BaseSignalProcessor::BaseSignalProcessor(const AudioFile<double>& signal) {
     for (int i = 0; i < signal.getNumSamplesPerChannel(); i++) {
         mTimeSignal.push_back(signal.samples[0][i]);
     }
@@ -19,22 +23,31 @@ BaseSignalProcessor::~BaseSignalProcessor() {
 }
 
 /**
- * Methods for setting the time signal (saving)
+ * Overloaded function for setting the time signal (in this case from an AudioFile<double> variable).
  * \param signal: input signal
  */
-template<typename T>
-void BaseSignalProcessor::SetTimeSignal(const T &signal) {
+void BaseSignalProcessor::SetTimeSignal(AudioFile<double>& signal) {
     for (int i = 0; i < signal.getNumSamplesPerChannel(); i++) {
         mTimeSignal.push_back(signal.samples[0][i]);
     }
 }
 
 /**
+ * Overloaded function for setting the time signal (in this case from a vector<double> variable).
+ * \param signal: input signal
+ */
+void BaseSignalProcessor::SetTimeSignal(vector<double>& signal){
+    for (int i = 0; i < signal.size(); i++){
+        mTimeSignal.push_back(signal[i]);
+    }
+};
+
+/**
  * Method for saving a given file.
  * \param filename
  */
 void BaseSignalProcessor::SaveFile(const string& file_name, const string& signal_name) {
-    std::ofstream out;
+    ofstream out;
     out.exceptions(ofstream::badbit);
     try {
         out.open(file_name);
@@ -48,9 +61,9 @@ void BaseSignalProcessor::SaveFile(const string& file_name, const string& signal
                 out << i << " " << mTimeSignal[i] << "\n";
             }
         } else {
-            std::cout << "Please fill in a valid signal to save!";
+            cout << "Please fill in a valid signal to save!";
         }
-        cout << std::endl;
+        cout << endl;
     }
     catch (const ofstream::failure& e) {
         cerr << "A file opening error has occurred. Please try again.";
@@ -74,33 +87,33 @@ void BaseSignalProcessor::GenerateHistogram(int n_bins) {
 
     auto sorted_signal = new vector<double>;
     *sorted_signal = mTimeSignal;
-    std::sort(sorted_signal->begin(), sorted_signal->end());
+    sort(sorted_signal->begin(), sorted_signal->end());
 
-//    mSortedSignal = std::sort(mSignal->begin(), mSignal->end()); check initialization to avoid unnecessarily sorting
-    int min = floor(sorted_signal->front());
-    int max = ceil(sorted_signal->back());
-    double bin_width = ((double) max - (double) min) / (double) n_bins;
-
+    double min = floor(sorted_signal->front()) - 0.1;
+    double max = ceil(sorted_signal->back()) + 0.1;
+    double bin_width = (max - min) / (double) n_bins;
 
     vector<int> bin_frequencies(n_bins);
     int counter = 0;
-
+    double current = sorted_signal->at(counter);
         for (int bin = 0; bin < n_bins; bin++) {
-            double current = sorted_signal->at(counter);
             double lower = min + (double) bin * bin_width;
             double upper = min + (double) (bin + 1) * bin_width;
-
-            // int bin_value = 0;
-            while (current > lower && current <= upper && counter < sorted_signal->size() - 1) {
-                bin_frequencies[bin]++;
-                counter++;
-                current = sorted_signal->at(counter);
+            if (counter < sorted_signal->size()) {
+                while (current >= lower && current < upper && counter < sorted_signal->size()) {
+                    bin_frequencies[bin]++;
+                    counter++;
+                    if (counter < sorted_signal->size()) {
+                        current = sorted_signal->at(counter);
+                    }
+                }
+            } else {
+                bin_frequencies[bin] = 0.0;
             }
-            double lower_bin = min + (double) bin * bin_width;
-            double upper_bin = min + (double) (bin + 1) * bin_width;
 
-            mHistogram.push_back(make_pair(lower_bin, make_pair(upper_bin, bin_frequencies[bin])));
+            mHistogram.push_back(make_pair(lower, make_pair(upper, bin_frequencies[bin])));
         }
+
     delete sorted_signal;
 }
 
@@ -125,5 +138,4 @@ void BaseSignalProcessor::SaveHistogram(const string &file_name) {
     }
 
     out.close();
-
 }
