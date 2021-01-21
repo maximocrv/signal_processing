@@ -34,7 +34,7 @@ public:
     void GenerateHistogram(int n_bins);
 
     // Save the signals into an output file
-    void SaveFile(const string& file_name, const string& signal_name);
+    void SaveTimeSignal(const string& file_name, const string& signal_name);
     void SaveHistogram(const string& file_name);
 
 protected:

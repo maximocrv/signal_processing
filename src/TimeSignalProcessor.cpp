@@ -16,7 +16,6 @@ using namespace std;
  * \param flag: type of Noise removing
  * \param m: mixing parameter
  */
-
 void TimeSignalProcessor::RemoveNoise(int window, const string& flag, double m) {
     try {
         if ((flag != "moving_average") && ((flag != "exponential_average"))) {
@@ -28,15 +27,15 @@ void TimeSignalProcessor::RemoveNoise(int window, const string& flag, double m) 
     }
     if (flag == "moving_average") {
         try {
-            if (window<=1) {
+            if (window <= 1) {
                 throw -1;
             }
         }
         catch (int a) {
-                cerr << "Window can't be smaller than 1. Increase it.";
+                cerr << "Window can't be smaller than 1. Please increase the size.";
         }
 
-        double avg = accumulate(mTimeSignal.begin(), mTimeSignal.begin() + window - 1, 0.0) / (double) window;
+        double avg = accumulate(mTimeSignal.begin(), mTimeSignal.begin() + window, 0.0) / (double) window;
         mFilteredTimeSignal.push_back(avg);
 
         for (int i = window; i < mTimeSignal.size(); i++) {
@@ -54,8 +53,8 @@ void TimeSignalProcessor::RemoveNoise(int window, const string& flag, double m) 
         catch (int a) {
             cerr << "Mixing factor should be between 0 and 1. Change it.";
         }
-        mFilteredTimeSignal.push_back(mTimeSignal[0]);
 
+        mFilteredTimeSignal.push_back(mTimeSignal[0]);
         for (int i = 1; i < mTimeSignal.size(); i++) {
             double EMA = m * mTimeSignal[i] + (1 - m) * mFilteredTimeSignal[i - 1];
             mFilteredTimeSignal.push_back(EMA);

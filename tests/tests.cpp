@@ -3,7 +3,6 @@
 #include "../src/FourierTransform.hpp"
 #include "../src/TimeSignalProcessor.hpp"
 
-// https://developer.ibm.com/technologies/systems/articles/au-googletestingframework/
 
 TEST (FourierTransform, fft_1){
     // Compare output with that of built in fft class
@@ -82,20 +81,23 @@ TEST (FourierTransform, fft_filter){
 }
 
 TEST (TimeSignalProcessor, remove_noise){
+        int window_size = 3;
         vector<double> test_vector = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0};
-        vector<double> correct_output_moving_average = {1.75, 2.5, 3.5, 4.5};
+        vector<double> correct_output_moving_average = {2.0, 3.0, 4.0, 5.0};
+
         TimeSignalProcessor test_signal_processor;
         test_signal_processor.SetTimeSignal(test_vector);
-        test_signal_processor.RemoveNoise(2, "moving_average", 0.5);
+        test_signal_processor.RemoveNoise(window_size, "moving_average", 0.5);
         vector<double> noise_removed_signal = test_signal_processor.getFilteredTimeSignal();
-        for (int i = 0; i < noise_removed_signal.size(); i++){
-            std::cout << noise_removed_signal[i];
+
+        for (int i = 0; i < correct_output_moving_average.size(); i++){
+            ASSERT_EQ (noise_removed_signal[i], correct_output_moving_average[i]);
         }
-        return;
+
+        ASSERT_EQ (test_vector.size() - window_size + 1, noise_removed_signal.size());
     }
 
 TEST (TimeSignalProcessor, histogram_testing){
-        //accumulate(bin_frequencies.begin(), bin_frequencies.end(), 0) << "\n";
         vector<double> test_vector = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0 , 9.0};
 
         TimeSignalProcessor test_signal_processor;
@@ -116,7 +118,6 @@ TEST (TimeSignalProcessor, histogram_testing){
 
 
 int main(int argc, char* argv[]){
-	//make tests
 	::testing::InitGoogleTest(&argc, argv);
 	return RUN_ALL_TESTS();
 }

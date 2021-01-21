@@ -4,9 +4,6 @@
 
 // TODO: Include exceptions, function overloading.
 // TODO: include exception catching!!
-// Function declarations
-//void ReadFile(std::string fileName);fileName
-// Function definitions
 
 #include <iostream>
 #include <fstream>
@@ -44,8 +41,10 @@ int main(int argc, char* argv[]){
     TimeSignalProcessor time_signal(audioFile);
     time_signal.RemoveNoise(window_size, average_mode, 0.5);
     time_signal.GenerateHistogram(num_bins);
+
     time_signal.SaveHistogram(intensity_histogram_file);
-    time_signal.SaveFile(noise_removed_signal_file, "filtered_signal");
+    time_signal.SaveTimeSignal(original_signal_file, "raw_signal");
+    time_signal.SaveTimeSignal(noise_removed_signal_file, "filtered_signal");
 
     // frequency domain processing and saving files
     // first we truncate the signal so it's a power of 2
@@ -53,7 +52,6 @@ int main(int argc, char* argv[]){
     auto* signal_cut = new std::vector<double>;
     *signal_cut = std::vector<double>(raw_signal.begin(), raw_signal.begin() + pow(2, 14));
 
-    // need your help to get it to work here but you get the idea
     FourierTransform fourier_instance;
     auto* random = new vector<comp>;
     fourier_instance.FFTFilter(*signal_cut,100, *random);

@@ -46,12 +46,14 @@ void BaseSignalProcessor::SetTimeSignal(vector<double>& signal){
  * Method for saving a given file.
  * \param filename
  */
-void BaseSignalProcessor::SaveFile(const string& file_name, const string& signal_name) {
+void BaseSignalProcessor::SaveTimeSignal(const string& file_name, const string& signal_name) {
     ofstream out;
     out.exceptions(ofstream::badbit);
     try {
         out.open(file_name);
         out << "index" << " " << "signal_value" << "\n";
+
+        vector<double> output;
         if (signal_name == "filtered_signal"){
             for (int i = 0; i < mFilteredTimeSignal.size(); i++) {
                 out << i << " " << mFilteredTimeSignal[i] << "\n";
