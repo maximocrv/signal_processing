@@ -36,7 +36,7 @@ int main(int argc, char* argv[]){
     AudioFile<double> audioFile;
     audioFile.load("CantinaBand3.wav");
 
-    int window_size = 100;
+    int window_size = 10000;
     std::string average_mode = "moving_average";
     int num_bins = 50;
     int num_fourier_coeffs = 10;
@@ -48,16 +48,17 @@ int main(int argc, char* argv[]){
     // int num_fourier_coeffs = atoi(argv[3]);
 
     // following lines define the file names for the plotting
-    const string& original_signal_file = "original_signal.dat";
-    const string& noise_removed_signal_file = "noise_removed_signal.dat";
-    const string& intensity_histogram_file = "intensity_histogram.dat";
-    const string& filtered_fourier_file = "filtered_fourier_file.dat";
+    const string& original_signal_file = "output_data/original_signal.dat";
+    const string& noise_removed_signal_file = "output_data/noise_removed_signal.dat";
+    const string& intensity_histogram_file = "output_data/intensity_histogram.dat";
+    const string& filtered_fourier_file = "output_data/filtered_fourier_file.dat";
 
     // time domain processing and saving files
     TimeSignalProcessor time_signal(audioFile);
     time_signal.RemoveNoise(window_size, average_mode, 0.5);
-    time_signal.GenerateHistogram(num_bins, intensity_histogram_file);
-    time_signal.SaveFile(noise_removed_signal_file);
+    time_signal.GenerateHistogram(num_bins);
+    time_signal.SaveHistogram(intensity_histogram_file);
+    time_signal.SaveFile(noise_removed_signal_file, "filtered_signal");
 
     // frequency domain processing and saving files
     // first we truncate the signal so it's a power of 2

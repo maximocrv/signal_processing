@@ -67,7 +67,6 @@ TEST (FourierTransform, inverse_fft_2){
     }
 }
 
-
 TEST (FourierTransform, fft_filter){
     // Construct simple sum of sine waves and add noise terms
     FourierTransform fft;
@@ -84,6 +83,16 @@ TEST (FourierTransform, fft_filter){
         ASSERT_LT ((tests[i]-signals[i]).imag(), 0.000001);
     }
 }
+
+TEST (TimeSignalProcessor, remove_noise){
+        return;
+    }
+
+TEST (TimeSignalProcessor, generate_histogram){
+        //accumulate(bin_frequencies.begin(), bin_frequencies.end(), 0) << "\n";
+        return;
+    }
+
 
 int main(int argc, char* argv[]){
 	//make tests

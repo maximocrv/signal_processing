@@ -15,32 +15,33 @@ typedef complex<double> comp;
 #define SIGNAL_PROCESSING_BASESIGNALPROCESSOR_HPP
 
 class BaseSignalProcessor {
-
-    // two private variable - raw and processed signal (add extra for fourier transform class)
-    // saving method - inputs -- column names -- signal -- filename
 public:
     // constructors and destructors
     BaseSignalProcessor() {};
     BaseSignalProcessor(const AudioFile<double>& signal);
     virtual ~BaseSignalProcessor();
 
-    // set methods
+    // Set methods
     template<typename T>
     void SetTimeSignal(const T& signal);
 
-    // get methods (const)
+    // Get methods
     vector<double> getTimeSignal() {return mTimeSignal; };
     vector<double> getFilteredTimeSignal() {return mFilteredTimeSignal; };
-    vector<comp> getFourierSignal() {return mFourierSignal; };
-    vector<comp> getFilteredFourierSignal() {return mFilteredFourierSignal; };
+    vector< pair<double, pair<double, double> > > getHistogram() {return mHistogram; };
 
-    void SaveFile(const string& filename);
+    // Generate the intensity histogram of the processed signal
+    void GenerateHistogram(int n_bins);
+
+    // Save the signals into an output file
+    void SaveFile(const string& file_name, const string& signal_name);
+    void SaveHistogram(const string& file_name);
 
 protected:
     vector<double> mTimeSignal;
     vector<double> mFilteredTimeSignal;
-    vector<comp> mFourierSignal;
-    vector<comp> mFilteredFourierSignal;
+    vector< pair<double, pair<double, double> > > mHistogram;
+
 };
 
 

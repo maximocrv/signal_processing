@@ -27,8 +27,6 @@ public:
 
     // set methods
     void RemoveNoise(int window, const string& flag, double m = 0.5);
-
-    void GenerateHistogram(int n_bins, const string& filename);
 };
 
 
