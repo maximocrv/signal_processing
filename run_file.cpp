@@ -49,9 +49,19 @@ int main(int argc, char* argv[]){
 
     FourierTransform fourier_instance;
     auto* random = new vector<comp>;
-    fourier_instance.FFTFilter(*signal_cut,90, *random);
+    float percentage;
+    string filename;
+    string label;
+    cout<<"Write the percentage for the FFT_Filter, filename and label of saving value:\n";
+    cout<<"Percentage:\n";
+    cin>>percentage;
+    cout<<"\nFilename:\n";
+    cin>>filename;
+    cout<<"\nLabel:\n";
+    cin>>label;
+    fourier_instance.FFTFilter(*signal_cut,percentage, *random);
     //fourier_instance.FastFourierTransform(*signal_cut, *random);
     //fourier_instance.InverseFourierTransform(*signal_cut, *random);
-    fourier_instance.SaveFile("output_data/signal.dat", "signal");
+    fourier_instance.SaveFile(filename, label);
 
 }
