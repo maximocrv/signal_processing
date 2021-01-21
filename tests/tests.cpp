@@ -45,11 +45,11 @@ TEST (FourierTransform, inverse_fft_1){
     vector <comp> signal={comp(1,0), comp(0.707107,-0.707107), comp(0.000000,-1.000000),\
     comp(-0.707107,-0.707107), comp(-1.000000,-0.000000), comp(-0.707107,0.707107),\
     comp(0.000000,1.000000), comp(0.707107,0.707107)};
-    fft.InverseFourierTransform(&signals, &signal);
+    fft.InverseFourierTransform(signals, signal);
     vector <comp> tests = {comp(0), comp(1), comp(0), comp(0), comp(0), comp(0), comp(0), comp(0)};
     for (int i=0; i<8; i+=1){
-        ASSERT_LT ((tests[i]-signal[i]).real(), 0.000001);
-        ASSERT_LT ((tests[i]-signal[i]).imag(), 0.000001);
+        ASSERT_LT (abs((tests[i]-signal[i]).real()), 0.000001);
+        ASSERT_LT (abs((tests[i]-signal[i]).imag()), 0.000001);
     }
 }
 
@@ -59,11 +59,11 @@ TEST (FourierTransform, inverse_fft_2){
     vector<double> signals = {};
     vector <comp> signal={comp(1,0), comp(1,0), comp(1,0), comp(1,0),comp(1,0),\
                         comp(1,0),comp(1,0), comp(1,0)};
-    fft.InverseFourierTransform(&signals, &signal);
+    fft.InverseFourierTransform(signals, signal);
     vector <comp> tests = {comp(1), comp(0), comp(0), comp(0), comp(0), comp(0), comp(0), comp(0)};
     for (int i=0; i<8; i+=1){
-        ASSERT_LT ((tests[i]-signal[i]).real(), 0.000001);
-        ASSERT_LT ((tests[i]-signal[i]).imag(), 0.000001);
+        ASSERT_LT (abs((tests[i]-signal[i]).real()), 0.000001);
+        ASSERT_LT (abs((tests[i]-signal[i]).imag()), 0.000001);
     }
 }
 
@@ -80,8 +80,8 @@ TEST (FourierTransform, fft_filter){
     comp(0.088388,-0.213388), comp(0.000000,0.000000), comp(0.088388,0.213388), \
     comp(-0.125000,-0.125000), comp(-0.088388,-0.036612)};
     for (int i=0; i<8; i+=1){
-        ASSERT_LT ((tests[i]-signals[i]).real(), 0.000001);
-        ASSERT_LT ((tests[i]-signals[i]).imag(), 0.000001);
+        ASSERT_LT (abs((tests[i]-signals[i]).real()), 0.000001);
+        ASSERT_LT (abs((tests[i]-signals[i]).imag()), 0.000001);
     }
 }
 

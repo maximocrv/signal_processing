@@ -112,6 +112,7 @@ void FourierTransform::FastFourierTransform(vector<double>& signals, vector<comp
     }
     vector <comp> slice;
     checkpower2(signal.size());
+    mFourierSignal = signal;
     reposition(signal);
     int N = signal.size();
     comp w = exp(comp(0.0, -2.0 * PI / N));
@@ -146,22 +147,22 @@ void FourierTransform::FastFourierTransform(vector<double>& signals, vector<comp
  *              \param[out] signal - output time-dependent signal
  *              Transformed signal saved in  mFourierSignal parameter.
  */
-void FourierTransform::InverseFourierTransform(vector<double>* signals, vector<comp>* signal)
+void FourierTransform::InverseFourierTransform(vector<double>& signals, vector<comp>& signal)
 {
-    if(signal->empty()) {
-        for (int i=0; i<signals->size(); i+=1) {
-            signal->push_back(comp((*signals)[i], 0.0));
+    if(signal.empty()) {
+        for (int i=0; i<signals.size(); i+=1) {
+            signal.push_back(comp(signals[i], 0.0));
         }
     }
-    checkpower2(signal->size());
-    conjugate(*signal);
-    FastFourierTransform(*signals, *signal);
-    conjugate(*signal);
-    int size = signal->size();
+    checkpower2(signal.size());
+    conjugate(signal);
+    FastFourierTransform(signals, signal);
+    conjugate(signal);
+    int size = signal.size();
     for (int i = 0; i < size; i++)
-        (*signal)[i] = (*signal)[i] / (double) size;
-
-    mFourierSignal = *signal;
+        signal[i] = signal[i] / (double) size;
+    mFourierFrequency = mFourierSignal;
+    mFourierSignal=signal;
 }
 
 
@@ -194,12 +195,7 @@ bool FourierTransform::pairCompare(const pair<double, int>& firstElem, const pai
  *              \return signal - filtered signal
  */
 void FourierTransform::FFTFilter(vector<double>& signals, double percentage,vector <comp>& signal){
-    if(signal.empty()) {
-        for (double & i : signals) {
-            signal.emplace_back((i, 0.0));
-        }
-    }
-    mFourierSignal = signal;
+    vector<comp> input_signal = signal;
     FastFourierTransform(signals, signal);
     vector <double> amplitudes(signal.size());
     vector<pair<double,int>> res;
@@ -212,7 +208,6 @@ void FourierTransform::FFTFilter(vector<double>& signals, double percentage,vect
     else if(percentage < 1){
         cout << "Passband is smaller than 1 %. Do you confident, what it is right?";
     }
-    mFourierFrequency = signal;
     // compute the amplitudes for each frequency
     for (int i=0; i<signal.size(); i++){
         double real_squad = (double)signal[i].real()*(double)signal[i].real();
@@ -225,46 +220,91 @@ void FourierTransform::FFTFilter(vector<double>& signals, double percentage,vect
     sort(res.begin(), res.end(), pairCompare);
     double sum = accumulate(amplitudes.begin(), amplitudes.end(), 0.0);
     double sum_final = 0;
-    signals.empty();
+    vector<comp> out_signal = {};
     for (int i=0; i<signal.size(); i++){
-        signals.push_back(0);
+        out_signal.push_back(comp(0));
     }
     int i=0;
-    while ((((sum_final+res[i].first)/sum)< (percentage/100))&&(i<signals.size())){
+    while ((((sum_final+res[i].first)/sum)< (percentage/100))&&(i<signal.size())){
         sum_final +=res[i].first;
-        signals[res[i].second]=res[i].first;
+        out_signal[res[i].second]=signal[res[i].second];
         i+=1;
     }
-    signal = {};
-    mFourierFrequencyClean = signal;
-    InverseFourierTransform(&signals,&signal);
-    mFourierSignalClean = signal;
+    mFourierFrequencyClean = out_signal;
+    InverseFourierTransform(signals,out_signal);
+    mFourierSignalClean = out_signal;
+    mFourierFrequency = signal;
+    mFourierSignal = input_signal;
+    signal = out_signal;
 }
 
 
 /**
  * Function for output result on the screen
+ * \param label: the parameter, that you want to print:
+ *              clean frequency, frequency, signal, clean signal
+ *
  */
-void FourierTransform::Print() {
-    cout<<"Frequency"<<" "<<"Intensity";
-    for (int i=0; i<mFourierSignal.size(); i++)
-        cout << i << " "<<sqrt(pow(mFourierSignal[i].imag(),2)+pow(mFourierSignal[i].real(),2))<<'\n';
+void FourierTransform::Print(string label) {
+    vector<comp> output;
+    try {
+        if (label == "clean frequency") {
+            output = mFourierFrequencyClean;
+        } else if (label == "frequency") {
+            output = mFourierFrequency;
+        } else if (label == "signal") {
+            output = mFourierSignal;
+        } else if (label == "clean signal") {
+            output = mFourierSignalClean;
+        }
+        else {
+            throw -1;
+        }
+    }
+    catch (int a) {
+            cerr<<"Incorrect label.";
+    }
+    cout << "Frequency" << " " << "Real Part"<<" "<<"Imagine part"<<"\n";
+    for (int i=0; i<output.size(); i++){
+        cout << i << " " << output[i].real()<<" "<<output[i].imag() << '\n';
+    }
     cout << std::endl;
 }
 
 /**
  * Function for save result in the separate file
+ * \param filename: path to the file
+ * \param label: the parameter, that you want to print:
+ *     clean frequency, frequency, signal, clean signal
  */
-void FourierTransform::Savefile(string filename) {
+void FourierTransform::SaveFile(string filename, string label) {
+    vector<comp> output;
+    try {
+        if (label == "clean frequency") {
+            output = mFourierFrequencyClean;
+        } else if (label == "frequency") {
+            output = mFourierFrequency;
+        } else if (label == "signal") {
+            output = mFourierSignal;
+        } else if (label == "clean signal") {
+            output = mFourierSignalClean;
+        }
+        else {
+            throw -1;
+        }
+    }
+    catch (int a) {
+        cerr<<"Incorrect label.";
+    }
     std::ofstream out;
     out.exceptions(ofstream::badbit);
     try {
         out.open(filename);
-        cout << "Frequency" << " " << "Intensity";
-        for (int i=0; i<mFourierFrequency.size(); i++){
-            out << i << " " << sqrt(pow(mFourierFrequency[i].imag(),2)+pow(mFourierFrequency[i].real(),2)) << '\n';
+        out << "Frequency" << " " << "Real Part"<<" "<<"Imagine part"<<"\n";
+        for (int i=0; i<(output.size()); i++){
+            out << i << " " << output[i].real()<<" "<<output[i].imag() << '\n';
         }
-        cout << std::endl;
+        out << std::endl;
         out.close();
     }
     catch (const ofstream::failure& e) {

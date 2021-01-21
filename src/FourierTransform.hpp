@@ -29,9 +29,9 @@ public:
     // Methods
     void FastFourierTransform(vector<double>& signals,vector<comp>& signal);
     void FFTFilter(vector<double>& signals, double percentage,vector <comp>& signal);
-    void InverseFourierTransform(vector<double>* signals = new vector<double>, vector<comp>* signal = new vector<comp>);
-    void Print();
-    void Savefile(string filename);
+    void InverseFourierTransform(vector<double>& signals, vector<comp>& signal);
+    void Print(string label);
+    void SaveFile(string filename, string label);
 
 private:
     vector<comp> mFourierSignal;
