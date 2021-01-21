@@ -19,8 +19,11 @@ typedef complex<double> comp;
 
 /**
  * Class with all functions for Fast Fourier Transform. Consists of the main functions for FFT, iFFT and FourierFilter.
- * Has a single private field:
- * \param mFourierSignal class vector<comp>*.
+ * Has a next private fields:
+ * \param mFourierSignal class vector<comp> - input signal
+ * \param mFourierSignalClean class vector<comp> - input signal after filtering
+ * \param mFourierFrequency class vector<comp> -input frequencies (obtain after transforming)
+ * \param mFourierFrequencyClean class vector<comp> - frequencies after filtering
  */
 class FourierTransform {
 public:

@@ -38,25 +38,26 @@ are already plots present which we have generated from our own test runs).
 ## Repository Structure
 The repository is structured as follows:
 
-### ```BaseSignalProcessor.hpp/cpp```
+### BaseSignalProcessor.hpp/cpp
 Base class from which the FourierTransform and TimeSignalProcessor classes are derived. Contains custom constructor 
 that sets the time signal to a member variable, as well as saving functionality which are used in both derived classes.
 
-### ```FourierTransform.hpp/cpp```
-Header and source file containing the Fourier transform class. It contains methods to perform the Fast Fourier Transform,
-which are subdivided into further smaller functions, the inverse Fourier transform, and perform filtering in the Fourier
+### FourierTransform.hpp/cpp
+Header and source file containing the FourierTransform class. It contains methods to perform the Fast Fourier Transform,
+which are subdivided into further smaller functions, the inverse Fourier Transform, and perform filtering in the Fourier
 domain.
 
-### ```SignalProcessor.hpp/cpp```
+### SignalProcessor.hpp/cpp
 Header and source file containing the signal processor class which works with time domain signals. It contains methods
 to perform noise removal (either via the moving average or exponential moving average), and generate intensity 
 histograms.
 
-### ```tests.cpp```
-File containing all the tests performed on the above classes:
+### tests.cpp
+All the tests performed on the above classes containing into the tests/test.cpp:
 
-- Tests for ....
-- Tests for ....
+- Tests for FourierTransform class - ```fft_1```, ```fft_2```, ```inverse_fft_1```, ```inverse_fft_2``` and 
+```fft_filter```; 
+- Tests for TimeSignalProcessor class - ```remove_noise``` and ```histogram_testing```.
 
 ## Limitations & Future Improvements
 Currently the code is not set up to deal with signals whose length is not a power of 2 (due to the specific

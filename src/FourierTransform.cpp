@@ -36,7 +36,7 @@ void FourierTransform::butterfly(vector<comp> &signal, int step, comp w)
 }
 
 /**
- * Given a number ''x'' returns the number which has the same bits as ''x'',
+ * Given a number "x" returns the number which has the same bits as "x",
  * but in the reverse order
  * \param:  x - number in decimal number system
  * \param:  length - the length of the binary representation of a number
@@ -80,10 +80,10 @@ void FourierTransform::reposition(vector<comp> &signal)
 
 /** Test for the number that it is a power of 2. Auxiliary class function.
  * \param: int n - length of the signal
- * */
+ */
 void FourierTransform::checkpower2(int n) {
-    int a=2;
-    while (a<n) {
+    int a = 2;
+    while (a < n) {
         a = a * 2;
     }
     try {
@@ -101,22 +101,26 @@ void FourierTransform::checkpower2(int n) {
  * Computes the Fourier transform using FFT with some auxiliary functions defined above.
  *              \param[in] signals - input time-dependent signal, which the function should transform
  *              \param[out]  signal - output frequency-dependent signal
- *              Transformed signal saved in  mFourierSignal parameter.
+ *              Input signal saved in mFourierSignal. Transformed signal saved in  mFourierFrequency parameter.
  */
 
 void FourierTransform::FastFourierTransform(vector<double>& signals, vector<comp>& signal) {
+    //reformat our signal into the complex form
     if(signal.empty()) {
-        for (int i=0; i<signals.size(); i+=1) {
+        for (int i = 0; i < signals.size(); i += 1) {
             signal.push_back(comp(signals[i], 0.0));
         }
     }
     vector <comp> slice;
+    //check that we can work with this input
     checkpower2(signal.size());
     mFourierSignal = signal;
+    //permutation into the input signal
     reposition(signal);
     int N = signal.size();
     comp w = exp(comp(0.0, -2.0 * PI / N));
     stack<comp> ws;
+    //fill the array with power of exponent
     for (int step = N; step != 1; step /= 2) {
         ws.push(w);
         w *= w;
@@ -125,12 +129,15 @@ void FourierTransform::FastFourierTransform(vector<double>& signals, vector<comp
     for (int step = 2; step <= N; step *= 2) {
         w = ws.top();
         ws.pop();
-        for (int i=0; i < N; i += step) {
-            for (int k= i; k< i+step; k++){
+        for (int i = 0; i < N; i += step) {
+            //chose the part of input signal with which we work now
+            for (int k = i; k < i+step; k++){
                 slice.push_back(signal[k]);
             }
+            //make a lot of butterfly operation
             butterfly(slice,step, w);
-            for (int k= i; k< i+step; k++){
+            //save changed part of array in the signal
+            for (int k = i; k < i+step; k++){
                 signal[k] = slice[k-i];
             }
             slice= {};
@@ -145,22 +152,26 @@ void FourierTransform::FastFourierTransform(vector<double>& signals, vector<comp
  * Computes the inverse Fourier transform using FFT with some auxiliary functions defined above.
  *              \param[in] signals - input time-dependent signal, which the function should transform
  *              \param[out] signal - output time-dependent signal
- *              Transformed signal saved in  mFourierSignal parameter.
+ *              Input signal saved in mFourierFrequency. Transformed signal saved in  mFourierSignal parameter.
  */
 void FourierTransform::InverseFourierTransform(vector<double>& signals, vector<comp>& signal)
 {
     if(signal.empty()) {
-        for (int i=0; i<signals.size(); i+=1) {
+        for (int i = 0; i < signals.size(); i += 1) {
             signal.push_back(comp(signals[i], 0.0));
         }
     }
+    //check that we can work with this input
     checkpower2(signal.size());
+    //make the FFT over conjugated signal
     conjugate(signal);
     FastFourierTransform(signals, signal);
+    //and conjugate it one another times - it's easy way to make iFFT with using the FFT
     conjugate(signal);
     int size = signal.size();
     for (int i = 0; i < size; i++)
         signal[i] = signal[i] / (double) size;
+    //should make it one another time, because this operation were made in the FFT
     mFourierFrequency = mFourierSignal;
     mFourierSignal=signal;
 }
@@ -193,8 +204,12 @@ bool FourierTransform::pairCompare(const pair<double, int>& firstElem, const pai
  *              \param signal - signal for filtration
  *              \param percentage - passband
  *              \return signal - filtered signal
+ *              Input signal saved in mFourierSignal. Transformed signal saved in  mFourierFrequency parameter.
+ *
+ *              Cleaned signals and frequencies saved in mFourierSignalClean and mFourierFrequencyClean respectively
  */
 void FourierTransform::FFTFilter(vector<double>& signals, double percentage,vector <comp>& signal){
+    //make FFT and save the input signal
     FastFourierTransform(signals, signal);
     vector<comp> input_signal = mFourierSignal;
     vector <double> amplitudes(signal.size());
@@ -209,10 +224,10 @@ void FourierTransform::FFTFilter(vector<double>& signals, double percentage,vect
         cout << "Passband is smaller than 1 %. Do you confident, what it is right?";
     }
     // compute the amplitudes for each frequency
-    for (int i=0; i<signal.size(); i++){
-        double real_squad = (double)signal[i].real()*(double)signal[i].real();
-        double image_squad=(double)signal[i].imag()*(double)signal[i].imag();
-        amplitudes[i] =sqrt(real_squad+image_squad);
+    for (int i = 0; i < signal.size(); i++){
+        double real_squad = (double)signal[i].real() * (double)signal[i].real();
+        double image_squad = (double)signal[i].imag() * (double)signal[i].imag();
+        amplitudes[i] = sqrt(real_squad+image_squad);
         auto p = make_pair(amplitudes[i], i);
         res.push_back(p);
     }
@@ -221,15 +236,17 @@ void FourierTransform::FFTFilter(vector<double>& signals, double percentage,vect
     double sum = accumulate(amplitudes.begin(), amplitudes.end(), 0.0);
     double sum_final = 0;
     vector<comp> out_signal = {};
-    for (int i=0; i<signal.size(); i++){
+    for (int i = 0; i < signal.size(); i++){
         out_signal.push_back(comp(0));
     }
-    int i=0;
-    while ((((sum_final+res[i].first)/sum)< (percentage/100))&&(i<signal.size())){
-        sum_final +=res[i].first;
-        out_signal[res[i].second]=signal[res[i].second];
+    int i = 0;
+    //choose the frequencies in descending order of amplitudes until the passband
+    while ((((sum_final+res[i].first)/sum) < (percentage/100)) && (i<signal.size())){
+        sum_final += res[i].first;
+        out_signal[res[i].second] = signal[res[i].second];
         i+=1;
     }
+    //save all parameters and return our cleaned signal into the time-dependent space
     mFourierFrequencyClean = out_signal;
     InverseFourierTransform(signals,out_signal);
     mFourierSignalClean = out_signal;
@@ -264,7 +281,7 @@ void FourierTransform::Print(string label) {
             cerr<<"Incorrect label.";
     }
     cout << "Index" << " " << "Real_Part"<<" "<<"Imagine_part"<<" "<<"Amplitude"<<"\n";
-    for (int i=0; i<(output.size()); i++){
+    for (int i = 0; i < (output.size()); i++){
         cout << i << " " << output[i].real()<<" "<<output[i].imag()<<" "\
             <<sqrt(pow(output[i].real(),2)+pow(output[i].imag(),2)) << '\n';
     }
@@ -301,7 +318,7 @@ void FourierTransform::SaveFile(string filename, string label) {
     try {
         out.open(filename);
         out << "Index" << " " << "Real_Part"<<" "<<"Imagine_part"<<" "<<"Amplitude"<<"\n";
-        for (int i=0; i<(output.size()); i++){
+        for (int i = 0; i < (output.size()); i++){
             out << i << " " << output[i].real() << " " << output[i].imag() << " " \
             << sqrt(pow(output[i].real(),2) + pow(output[i].imag(),2)) << '\n';
         }
