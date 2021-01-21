@@ -1,0 +1,186 @@
+\hypertarget{class_base_signal_processor}{}\doxysection{Base\+Signal\+Processor Class Reference}
+\label{class_base_signal_processor}\index{BaseSignalProcessor@{BaseSignalProcessor}}
+
+
+{\ttfamily \#include $<$Base\+Signal\+Processor.\+hpp$>$}
+
+
+
+Inheritance diagram for Base\+Signal\+Processor\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{class_base_signal_processor__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Base\+Signal\+Processor\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_base_signal_processor__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_base_signal_processor_a316971289609e527ffb1040125c21411}{Base\+Signal\+Processor}} ()
+\item 
+\mbox{\hyperlink{class_base_signal_processor_aac16a08018d3540fa3012e60e83809a3}{Base\+Signal\+Processor}} (const Audio\+File$<$ double $>$ \&signal)
+\item 
+virtual \mbox{\hyperlink{class_base_signal_processor_a98c337c7282b412327a2087bfb8f845c}{$\sim$\+Base\+Signal\+Processor}} ()
+\item 
+void \mbox{\hyperlink{class_base_signal_processor_a38b0f45ffefd8b2dd301a249859f2292}{Set\+Time\+Signal}} (Audio\+File$<$ double $>$ \&signal)
+\item 
+void \mbox{\hyperlink{class_base_signal_processor_a1c0ba0c415866ed838892a79ed794610}{Set\+Time\+Signal}} (vector$<$ double $>$ \&signal)
+\item 
+vector$<$ double $>$ \mbox{\hyperlink{class_base_signal_processor_a4b29186bddc74be28392de4d2f4ce4d0}{get\+Time\+Signal}} ()
+\item 
+vector$<$ double $>$ \mbox{\hyperlink{class_base_signal_processor_a3b7ba6bc45f481aa72257691807a7b81}{get\+Filtered\+Time\+Signal}} ()
+\item 
+vector$<$ pair$<$ double, pair$<$ double, double $>$ $>$ $>$ \mbox{\hyperlink{class_base_signal_processor_a17ce7e51ff1e3c1affe0b35c79cf5252}{get\+Histogram}} ()
+\item 
+void \mbox{\hyperlink{class_base_signal_processor_a99b9c605c2f85fb62cce4b5a0953107d}{Generate\+Histogram}} (int n\+\_\+bins)
+\item 
+void \mbox{\hyperlink{class_base_signal_processor_ae5c1cccf8e49cffb276f744eb165aa71}{Save\+Time\+Signal}} (const string \&file\+\_\+name, const string \&signal\+\_\+name)
+\item 
+void \mbox{\hyperlink{class_base_signal_processor_abfec51a8696c1eb3a89dc3c8c16c3b1d}{Save\+Histogram}} (const string \&file\+\_\+name)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ double $>$ \mbox{\hyperlink{class_base_signal_processor_aa5e455d6180082f9a1ed82cd0b09253f}{m\+Time\+Signal}}
+\item 
+vector$<$ double $>$ \mbox{\hyperlink{class_base_signal_processor_ad1abaa37f4a223af13acd73661e85963}{m\+Filtered\+Time\+Signal}}
+\item 
+vector$<$ pair$<$ double, pair$<$ double, double $>$ $>$ $>$ \mbox{\hyperlink{class_base_signal_processor_add5ef7c01f2489463d55aef481c7cc02}{m\+Histogram}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_base_signal_processor_a316971289609e527ffb1040125c21411}\label{class_base_signal_processor_a316971289609e527ffb1040125c21411}} 
+\index{BaseSignalProcessor@{BaseSignalProcessor}!BaseSignalProcessor@{BaseSignalProcessor}}
+\index{BaseSignalProcessor@{BaseSignalProcessor}!BaseSignalProcessor@{BaseSignalProcessor}}
+\doxysubsubsection{\texorpdfstring{BaseSignalProcessor()}{BaseSignalProcessor()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Base\+Signal\+Processor\+::\+Base\+Signal\+Processor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_base_signal_processor_aac16a08018d3540fa3012e60e83809a3}\label{class_base_signal_processor_aac16a08018d3540fa3012e60e83809a3}} 
+\index{BaseSignalProcessor@{BaseSignalProcessor}!BaseSignalProcessor@{BaseSignalProcessor}}
+\index{BaseSignalProcessor@{BaseSignalProcessor}!BaseSignalProcessor@{BaseSignalProcessor}}
+\doxysubsubsection{\texorpdfstring{BaseSignalProcessor()}{BaseSignalProcessor()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Base\+Signal\+Processor\+::\+Base\+Signal\+Processor (\begin{DoxyParamCaption}\item[{const Audio\+File$<$ double $>$ \&}]{signal }\end{DoxyParamCaption})}
+
+Custom constructor \mbox{\Hypertarget{class_base_signal_processor_a98c337c7282b412327a2087bfb8f845c}\label{class_base_signal_processor_a98c337c7282b412327a2087bfb8f845c}} 
+\index{BaseSignalProcessor@{BaseSignalProcessor}!````~BaseSignalProcessor@{$\sim$BaseSignalProcessor}}
+\index{````~BaseSignalProcessor@{$\sim$BaseSignalProcessor}!BaseSignalProcessor@{BaseSignalProcessor}}
+\doxysubsubsection{\texorpdfstring{$\sim$BaseSignalProcessor()}{~BaseSignalProcessor()}}
+{\footnotesize\ttfamily Base\+Signal\+Processor\+::$\sim$\+Base\+Signal\+Processor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Destructor, clean field m\+Signal and m\+Noise\+Removed\+Signal 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_base_signal_processor_a99b9c605c2f85fb62cce4b5a0953107d}\label{class_base_signal_processor_a99b9c605c2f85fb62cce4b5a0953107d}} 
+\index{BaseSignalProcessor@{BaseSignalProcessor}!GenerateHistogram@{GenerateHistogram}}
+\index{GenerateHistogram@{GenerateHistogram}!BaseSignalProcessor@{BaseSignalProcessor}}
+\doxysubsubsection{\texorpdfstring{GenerateHistogram()}{GenerateHistogram()}}
+{\footnotesize\ttfamily void Base\+Signal\+Processor\+::\+Generate\+Histogram (\begin{DoxyParamCaption}\item[{int}]{n\+\_\+bins }\end{DoxyParamCaption})}
+
+Method generating output file containing bin intervals and their corresponding bin frequencies for the signal intensity 
+\begin{DoxyParams}{Parameters}
+{\em n\+\_\+bins} & number of intervals into the signal \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_base_signal_processor_a3b7ba6bc45f481aa72257691807a7b81}\label{class_base_signal_processor_a3b7ba6bc45f481aa72257691807a7b81}} 
+\index{BaseSignalProcessor@{BaseSignalProcessor}!getFilteredTimeSignal@{getFilteredTimeSignal}}
+\index{getFilteredTimeSignal@{getFilteredTimeSignal}!BaseSignalProcessor@{BaseSignalProcessor}}
+\doxysubsubsection{\texorpdfstring{getFilteredTimeSignal()}{getFilteredTimeSignal()}}
+{\footnotesize\ttfamily vector$<$double$>$ Base\+Signal\+Processor\+::get\+Filtered\+Time\+Signal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_base_signal_processor_a17ce7e51ff1e3c1affe0b35c79cf5252}\label{class_base_signal_processor_a17ce7e51ff1e3c1affe0b35c79cf5252}} 
+\index{BaseSignalProcessor@{BaseSignalProcessor}!getHistogram@{getHistogram}}
+\index{getHistogram@{getHistogram}!BaseSignalProcessor@{BaseSignalProcessor}}
+\doxysubsubsection{\texorpdfstring{getHistogram()}{getHistogram()}}
+{\footnotesize\ttfamily vector$<$ pair$<$double, pair$<$double, double$>$ $>$ $>$ Base\+Signal\+Processor\+::get\+Histogram (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_base_signal_processor_a4b29186bddc74be28392de4d2f4ce4d0}\label{class_base_signal_processor_a4b29186bddc74be28392de4d2f4ce4d0}} 
+\index{BaseSignalProcessor@{BaseSignalProcessor}!getTimeSignal@{getTimeSignal}}
+\index{getTimeSignal@{getTimeSignal}!BaseSignalProcessor@{BaseSignalProcessor}}
+\doxysubsubsection{\texorpdfstring{getTimeSignal()}{getTimeSignal()}}
+{\footnotesize\ttfamily vector$<$double$>$ Base\+Signal\+Processor\+::get\+Time\+Signal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_base_signal_processor_abfec51a8696c1eb3a89dc3c8c16c3b1d}\label{class_base_signal_processor_abfec51a8696c1eb3a89dc3c8c16c3b1d}} 
+\index{BaseSignalProcessor@{BaseSignalProcessor}!SaveHistogram@{SaveHistogram}}
+\index{SaveHistogram@{SaveHistogram}!BaseSignalProcessor@{BaseSignalProcessor}}
+\doxysubsubsection{\texorpdfstring{SaveHistogram()}{SaveHistogram()}}
+{\footnotesize\ttfamily void Base\+Signal\+Processor\+::\+Save\+Histogram (\begin{DoxyParamCaption}\item[{const string \&}]{file\+\_\+name }\end{DoxyParamCaption})}
+
+Method for saving the histogram bins to an output file
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+name} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_base_signal_processor_ae5c1cccf8e49cffb276f744eb165aa71}\label{class_base_signal_processor_ae5c1cccf8e49cffb276f744eb165aa71}} 
+\index{BaseSignalProcessor@{BaseSignalProcessor}!SaveTimeSignal@{SaveTimeSignal}}
+\index{SaveTimeSignal@{SaveTimeSignal}!BaseSignalProcessor@{BaseSignalProcessor}}
+\doxysubsubsection{\texorpdfstring{SaveTimeSignal()}{SaveTimeSignal()}}
+{\footnotesize\ttfamily void Base\+Signal\+Processor\+::\+Save\+Time\+Signal (\begin{DoxyParamCaption}\item[{const string \&}]{file\+\_\+name,  }\item[{const string \&}]{signal\+\_\+name }\end{DoxyParamCaption})}
+
+Method for saving a given file. 
+\begin{DoxyParams}{Parameters}
+{\em filename} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_base_signal_processor_a38b0f45ffefd8b2dd301a249859f2292}\label{class_base_signal_processor_a38b0f45ffefd8b2dd301a249859f2292}} 
+\index{BaseSignalProcessor@{BaseSignalProcessor}!SetTimeSignal@{SetTimeSignal}}
+\index{SetTimeSignal@{SetTimeSignal}!BaseSignalProcessor@{BaseSignalProcessor}}
+\doxysubsubsection{\texorpdfstring{SetTimeSignal()}{SetTimeSignal()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Base\+Signal\+Processor\+::\+Set\+Time\+Signal (\begin{DoxyParamCaption}\item[{Audio\+File$<$ double $>$ \&}]{signal }\end{DoxyParamCaption})}
+
+Overloaded function for setting the time signal (in this case from an Audio\+File$<$double$>$ variable). 
+\begin{DoxyParams}{Parameters}
+{\em signal} & input signal \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_base_signal_processor_a1c0ba0c415866ed838892a79ed794610}\label{class_base_signal_processor_a1c0ba0c415866ed838892a79ed794610}} 
+\index{BaseSignalProcessor@{BaseSignalProcessor}!SetTimeSignal@{SetTimeSignal}}
+\index{SetTimeSignal@{SetTimeSignal}!BaseSignalProcessor@{BaseSignalProcessor}}
+\doxysubsubsection{\texorpdfstring{SetTimeSignal()}{SetTimeSignal()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Base\+Signal\+Processor\+::\+Set\+Time\+Signal (\begin{DoxyParamCaption}\item[{vector$<$ double $>$ \&}]{signal }\end{DoxyParamCaption})}
+
+Overloaded function for setting the time signal (in this case from a vector$<$double$>$ variable). 
+\begin{DoxyParams}{Parameters}
+{\em signal} & input signal \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_base_signal_processor_ad1abaa37f4a223af13acd73661e85963}\label{class_base_signal_processor_ad1abaa37f4a223af13acd73661e85963}} 
+\index{BaseSignalProcessor@{BaseSignalProcessor}!mFilteredTimeSignal@{mFilteredTimeSignal}}
+\index{mFilteredTimeSignal@{mFilteredTimeSignal}!BaseSignalProcessor@{BaseSignalProcessor}}
+\doxysubsubsection{\texorpdfstring{mFilteredTimeSignal}{mFilteredTimeSignal}}
+{\footnotesize\ttfamily vector$<$double$>$ Base\+Signal\+Processor\+::m\+Filtered\+Time\+Signal\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_base_signal_processor_add5ef7c01f2489463d55aef481c7cc02}\label{class_base_signal_processor_add5ef7c01f2489463d55aef481c7cc02}} 
+\index{BaseSignalProcessor@{BaseSignalProcessor}!mHistogram@{mHistogram}}
+\index{mHistogram@{mHistogram}!BaseSignalProcessor@{BaseSignalProcessor}}
+\doxysubsubsection{\texorpdfstring{mHistogram}{mHistogram}}
+{\footnotesize\ttfamily vector$<$ pair$<$double, pair$<$double, double$>$ $>$ $>$ Base\+Signal\+Processor\+::m\+Histogram\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_base_signal_processor_aa5e455d6180082f9a1ed82cd0b09253f}\label{class_base_signal_processor_aa5e455d6180082f9a1ed82cd0b09253f}} 
+\index{BaseSignalProcessor@{BaseSignalProcessor}!mTimeSignal@{mTimeSignal}}
+\index{mTimeSignal@{mTimeSignal}!BaseSignalProcessor@{BaseSignalProcessor}}
+\doxysubsubsection{\texorpdfstring{mTimeSignal}{mTimeSignal}}
+{\footnotesize\ttfamily vector$<$double$>$ Base\+Signal\+Processor\+::m\+Time\+Signal\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{_base_signal_processor_8hpp}{Base\+Signal\+Processor.\+hpp}}\item 
+src/\mbox{\hyperlink{_base_signal_processor_8cpp}{Base\+Signal\+Processor.\+cpp}}\end{DoxyCompactItemize}
