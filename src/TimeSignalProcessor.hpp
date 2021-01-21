@@ -22,6 +22,7 @@ using namespace std;
 class TimeSignalProcessor : public BaseSignalProcessor {
 public:
     // constructors and destructors
+    TimeSignalProcessor(){};
     TimeSignalProcessor(const AudioFile<double>& signal) : BaseSignalProcessor(signal){};
     ~TimeSignalProcessor() {};
 

@@ -13,24 +13,11 @@
 #include <vector>
 #include <complex>
 
-typedef std::complex<double> comp;
-
 #include "AudioFile/AudioFile.h"
 #include "src/TimeSignalProcessor.hpp"
 #include "src/FourierTransform.hpp"
 
-// Flow
-// Read in audio signal
-// Process signal in time domain (i.e. do a moving average/ exponential moving average, make histogram bins)
-// Return output into a file, use gnuplot to make:
-// histogram plot of intensities
-// plot of original signal
-// plot of moving averaged/ exponential signal
-// process signal in frequency domain, save output into file. Transform back to time domain, save the file
-// plot of fourier domain filtered signal
-// take as input the number of fourier coefficients to use
-
-// include a check for whether the command line arguments are valid?...
+typedef std::complex<double> comp;
 
 int main(int argc, char* argv[]){
     AudioFile<double> audioFile;

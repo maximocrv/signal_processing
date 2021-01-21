@@ -22,8 +22,8 @@ public:
     virtual ~BaseSignalProcessor();
 
     // Set methods
-    template<typename T>
-    void SetTimeSignal(const T& signal);
+    void SetTimeSignal(AudioFile<double>& signal);
+    void SetTimeSignal(vector<double>& signal);
 
     // Get methods
     vector<double> getTimeSignal() {return mTimeSignal; };
