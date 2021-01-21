@@ -1,5 +1,5 @@
 //
-// Created by Maximo Cravero on 19/01/2021.
+// Created by Maximo Cravero and Sergei Kliavinek.
 //
 
 #include "BaseSignalProcessor.hpp"
@@ -40,7 +40,7 @@ void BaseSignalProcessor::SetTimeSignal(vector<double>& signal){
     for (int i = 0; i < signal.size(); i++){
         mTimeSignal.push_back(signal[i]);
     }
-};
+}
 
 /**
  * Method for saving a given file.
@@ -91,8 +91,10 @@ void BaseSignalProcessor::GenerateHistogram(int n_bins) {
     *sorted_signal = mTimeSignal;
     sort(sorted_signal->begin(), sorted_signal->end());
 
-    double min = floor(sorted_signal->front()) - 0.1;
-    double max = ceil(sorted_signal->back()) + 0.1;
+//    double min = floor(sorted_signal->front()) - 0.1;
+//    double max = ceil(sorted_signal->back()) + 0.1;
+    double min = sorted_signal->front() - 0.1;
+    double max = sorted_signal->back() + 0.1;
     double bin_width = (max - min) / (double) n_bins;
 
     vector<int> bin_frequencies(n_bins);

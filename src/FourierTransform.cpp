@@ -1,5 +1,5 @@
 //
-// Created by Sergei Kliavinek & Maximo Cravero on 30/11/2020.
+// Created by Sergei Kliavinek & Maximo Cravero.
 //
 
 #include <fstream>
@@ -238,7 +238,6 @@ void FourierTransform::FFTFilter(vector<double>& signals, double percentage,vect
     signal = out_signal;
 }
 
-
 /**
  * Function for output result on the screen
  * \param label: the parameter, that you want to print:
@@ -295,7 +294,7 @@ void FourierTransform::SaveFile(string filename, string label) {
         }
     }
     catch (int a) {
-        cerr<<"Incorrect label.";
+        cerr << "Incorrect label.";
     }
     std::ofstream out;
     out.exceptions(ofstream::badbit);
@@ -303,8 +302,8 @@ void FourierTransform::SaveFile(string filename, string label) {
         out.open(filename);
         out << "Index" << " " << "Real_Part"<<" "<<"Imagine_part"<<" "<<"Amplitude"<<"\n";
         for (int i=0; i<(output.size()); i++){
-            out << i << " " << output[i].real()<<" "<<output[i].imag()<<" "\
-            <<sqrt(pow(output[i].real(),2)+pow(output[i].imag(),2)) << '\n';
+            out << i << " " << output[i].real() << " " << output[i].imag() << " " \
+            << sqrt(pow(output[i].real(),2) + pow(output[i].imag(),2)) << '\n';
         }
         out.close();
     }

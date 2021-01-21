@@ -1,3 +1,8 @@
+//
+// Created by Sergei Kliavinek & Maximo Cravero on 30/11/2020.
+//
+
+
 #include <iostream>
 #include "gtest/gtest.h"
 #include "../src/FourierTransform.hpp"

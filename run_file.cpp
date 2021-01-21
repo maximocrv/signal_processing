@@ -1,12 +1,7 @@
 //
-// Created by Maximo Cravero on 22/11/2020.
+// Created by Maximo Cravero and Sergei Kliavinek.
 //
 
-// TODO: Include exceptions, function overloading.
-// TODO: include exception catching!!
-
-#include <iostream>
-#include <fstream>
 #include <vector>
 #include <complex>
 
@@ -57,21 +52,6 @@ int main(int argc, char* argv[]){
     fourier_instance.FFTFilter(*signal_cut,90, *random);
     //fourier_instance.FastFourierTransform(*signal_cut, *random);
     //fourier_instance.InverseFourierTransform(*signal_cut, *random);
-    fourier_instance.SaveFile("signal.dat", "signal");
-
-
-//    MISCELLANEOUS. DON'T DELETE FOR NOW.
-//    auto test = fourier_instance.getFTSignal();
-//    fourier_instance.FastFourierTransform(*signal_cut, false);
-//    int window = 10;
-//    int channel = 0;
-//    int numSamples = audioFile.getNumSamplesPerChannel();
-//    auto* sampleList = new double[numSamples];
-//
-//    for (int i=0; i < numSamples; i++){
-//        sampleList[i] = audioFile.samples[channel][i];
-//        //std::cout << sampleList[i] << "\n";
-//    }
-//    audioFile.printSummary();
+    fourier_instance.SaveFile("output_data/signal.dat", "signal");
 
 }

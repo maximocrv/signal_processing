@@ -1,5 +1,5 @@
 //
-// Created by Maximo Cravero on 19/01/2021.
+// Created by Sergei Kliavinek & Maximo Cravero on 30/11/2020.
 //
 
 #include <cmath>
@@ -21,7 +21,7 @@ public:
     BaseSignalProcessor(const AudioFile<double>& signal);
     virtual ~BaseSignalProcessor();
 
-    // Set methods
+    // Set methods - overloaded so that you can load regular vectors as well
     void SetTimeSignal(AudioFile<double>& signal);
     void SetTimeSignal(vector<double>& signal);
 

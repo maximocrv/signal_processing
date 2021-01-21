@@ -1,10 +1,8 @@
 //
-// Created by Maximo Cravero on 27/11/2020.
+// Created by Maximo Cravero and Sergei Kliavinek.
 //
 
-#include <cmath>
 #include <numeric>
-#include <algorithm>
 #include "TimeSignalProcessor.hpp"
 
 using namespace std;

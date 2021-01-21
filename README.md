@@ -1,10 +1,10 @@
 # Signal Processing
-
 Project for the MATH-458 course.
 
 ## Requirements
-It is necessary to have `cmake` to make the executable and `python` (in particular Python 3) with the `matplotlib` 
-and `numpy` libraries for generating the plots.
+It is necessary to have `cmake` to compile the code via the `CMakeLists.txt` file. `jupyter-notebook` is also necessary
+to visualize the plots of the outputted data from the codebase, as well as the libraries `matplotlib`, `pandas`, and 
+`numpy`  for generating the plots.
 
 ## User Guide
 In order to set up the project, it is necessary to run the following commands:
@@ -32,14 +32,8 @@ averaging, `average_mode` is a string which determines the type of averaging tha
 coefficients that will be used for the filtering in the Fourier domain (i.e. we consider the ones with the largest
 magnitude for reconstructing the signal in the time domain).
 
-Once you have run this, run the following in the command line to generate the plots:
-
-```
-python plots.py
-```
-
-This will generate as output 4 different files: `original_signal.png`, `time_processed_signal.png`, 
-`intensity_histogram.png`, and `fourier_filtered_signal.png`.
+Once you have run this, you can run open the jupyter notebook `plots.ipynb` to visualize the results (note that there
+are already plots present which we have generated from our own test runs).
 
 ## Repository Structure
 The repository is structured as follows:

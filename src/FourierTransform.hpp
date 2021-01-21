@@ -1,5 +1,5 @@
 //
-// Created by Sergei Kliavinek & Maximo Cravero on 30/11/2020.
+// Created by Sergei Kliavinek & Maximo Cravero.
 //
 
 
@@ -13,8 +13,10 @@
 #include <numeric>
 #include <algorithm>
 #include <iostream>
+
 using namespace std;
 typedef complex<double> comp;
+
 /**
  * Class with all functions for Fast Fourier Transform. Consists of the main functions for FFT, iFFT and FourierFilter.
  * Has a single private field:

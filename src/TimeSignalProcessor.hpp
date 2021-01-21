@@ -1,5 +1,5 @@
 //
-// Created by Maximo Cravero on 27/11/2020.
+// Created by Maximo Cravero and Sergei Kliavinek.
 //
 
 #include <cmath>
@@ -26,7 +26,7 @@ public:
     TimeSignalProcessor(const AudioFile<double>& signal) : BaseSignalProcessor(signal){};
     ~TimeSignalProcessor() {};
 
-    // set methods
+    // noise removal method
     void RemoveNoise(int window, const string& flag, double m = 0.5);
 };
 
