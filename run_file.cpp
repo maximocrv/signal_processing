@@ -69,10 +69,10 @@ int main(int argc, char* argv[]){
     // need your help to get it to work here but you get the idea
     FourierTransform fourier_instance;
     auto* random = new vector<comp>;
-    fourier_instance.FFTFilter(*signal_cut,100, *random);
-    fourier_instance.FastFourierTransform(*signal_cut, *random);
-    fourier_instance.InverseFourierTransform(*signal_cut, *random);
-    fourier_instance.SaveFile("signal_filter", "signal");
+    fourier_instance.FFTFilter(*signal_cut,90, *random);
+    //fourier_instance.FastFourierTransform(*signal_cut, *random);
+    //fourier_instance.InverseFourierTransform(*signal_cut, *random);
+    fourier_instance.SaveFile("signal.dat", "signal");
 
 
 //    MISCELLANEOUS. DON'T DELETE FOR NOW.

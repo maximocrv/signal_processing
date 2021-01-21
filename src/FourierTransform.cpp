@@ -195,8 +195,8 @@ bool FourierTransform::pairCompare(const pair<double, int>& firstElem, const pai
  *              \return signal - filtered signal
  */
 void FourierTransform::FFTFilter(vector<double>& signals, double percentage,vector <comp>& signal){
-    vector<comp> input_signal = signal;
     FastFourierTransform(signals, signal);
+    vector<comp> input_signal = mFourierSignal;
     vector <double> amplitudes(signal.size());
     vector<pair<double,int>> res;
     if (percentage < 0){
@@ -264,9 +264,10 @@ void FourierTransform::Print(string label) {
     catch (int a) {
             cerr<<"Incorrect label.";
     }
-    cout << "Frequency" << " " << "Real Part"<<" "<<"Imagine part"<<"\n";
-    for (int i=0; i<output.size(); i++){
-        cout << i << " " << output[i].real()<<" "<<output[i].imag() << '\n';
+    cout << "Index" << " " << "Real_Part"<<" "<<"Imagine_part"<<" "<<"Amplitude"<<"\n";
+    for (int i=0; i<(output.size()); i++){
+        cout << i << " " << output[i].real()<<" "<<output[i].imag()<<" "\
+            <<sqrt(pow(output[i].real(),2)+pow(output[i].imag(),2)) << '\n';
     }
     cout << std::endl;
 }
@@ -300,11 +301,11 @@ void FourierTransform::SaveFile(string filename, string label) {
     out.exceptions(ofstream::badbit);
     try {
         out.open(filename);
-        out << "Frequency" << " " << "Real Part"<<" "<<"Imagine part"<<"\n";
+        out << "Index" << " " << "Real_Part"<<" "<<"Imagine_part"<<" "<<"Amplitude"<<"\n";
         for (int i=0; i<(output.size()); i++){
-            out << i << " " << output[i].real()<<" "<<output[i].imag() << '\n';
+            out << i << " " << output[i].real()<<" "<<output[i].imag()<<" "\
+            <<sqrt(pow(output[i].real(),2)+pow(output[i].imag(),2)) << '\n';
         }
-        out << std::endl;
         out.close();
     }
     catch (const ofstream::failure& e) {
