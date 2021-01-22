@@ -11,7 +11,7 @@ Collaboration diagram for Fourier\+Transform\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=218pt]{class_fourier_transform__coll__graph}
+\includegraphics[width=262pt]{class_fourier_transform__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
@@ -30,6 +30,32 @@ void \mbox{\hyperlink{class_fourier_transform_ad376059412636e4bdfddf3d6f4ee4879}
 void \mbox{\hyperlink{class_fourier_transform_a5ec4544748b7931663d31a6ff1aca7ee}{Print}} (string label)
 \item 
 void \mbox{\hyperlink{class_fourier_transform_af55008c0c7700bdb2b4e68d90d018b60}{Save\+File}} (string filename, string label)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{class_fourier_transform_a5ea48fa313b0c402dcef6c584f41264c}{pair\+Compare}} (const pair$<$ double, int $>$ \&first\+Elem, const pair$<$ double, int $>$ \&second\+Elem)
+\item 
+static void \mbox{\hyperlink{class_fourier_transform_aacd3d3eaeaad6e5f8859c704d2ebf618}{butterfly}} (vector$<$ \mbox{\hyperlink{_base_signal_processor_8hpp_a98af8d54ee0a6d3cf15fe87b208f0fa9}{comp}} $>$ \&array, int step, \mbox{\hyperlink{_base_signal_processor_8hpp_a98af8d54ee0a6d3cf15fe87b208f0fa9}{comp}} w)
+\item 
+static int \mbox{\hyperlink{class_fourier_transform_a7c98d85eb4ce69fe5c3227d72c23bea7}{backwards}} (unsigned int x, int length)
+\item 
+static void \mbox{\hyperlink{class_fourier_transform_a83b3a5974655dacce34073f439cbc0ee}{reposition}} (vector$<$ \mbox{\hyperlink{_base_signal_processor_8hpp_a98af8d54ee0a6d3cf15fe87b208f0fa9}{comp}} $>$ \&array)
+\item 
+static void \mbox{\hyperlink{class_fourier_transform_a729d5093847f6d6cc6ce01fe8c86b3e8}{conjugate}} (vector$<$ \mbox{\hyperlink{_base_signal_processor_8hpp_a98af8d54ee0a6d3cf15fe87b208f0fa9}{comp}} $>$ \&signal)
+\item 
+static void \mbox{\hyperlink{class_fourier_transform_a8faf2f6bd81d8fd4cb25d5f2f9d9d1d3}{checkpower2}} (int n)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ \mbox{\hyperlink{_base_signal_processor_8hpp_a98af8d54ee0a6d3cf15fe87b208f0fa9}{comp}} $>$ \mbox{\hyperlink{class_fourier_transform_a138868208c9ed085e4c1411db4c61b0b}{m\+Fourier\+Signal}}
+\item 
+vector$<$ \mbox{\hyperlink{_base_signal_processor_8hpp_a98af8d54ee0a6d3cf15fe87b208f0fa9}{comp}} $>$ \mbox{\hyperlink{class_fourier_transform_ad8f291166c66c5e79d6b18ce7c196956}{m\+Fourier\+Signal\+Clean}}
+\item 
+vector$<$ \mbox{\hyperlink{_base_signal_processor_8hpp_a98af8d54ee0a6d3cf15fe87b208f0fa9}{comp}} $>$ \mbox{\hyperlink{class_fourier_transform_ac1052017d414427fed64dceb6f391a5c}{m\+Fourier\+Frequency}}
+\item 
+vector$<$ \mbox{\hyperlink{_base_signal_processor_8hpp_a98af8d54ee0a6d3cf15fe87b208f0fa9}{comp}} $>$ \mbox{\hyperlink{class_fourier_transform_a664ca5ae636baa5336a7bec9d3aeac30}{m\+Fourier\+Frequency\+Clean}}
 \end{DoxyCompactItemize}
 
 
@@ -63,6 +89,60 @@ Default constructor of class instance \mbox{\Hypertarget{class_fourier_transform
 Default destructor of class instance 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_fourier_transform_a7c98d85eb4ce69fe5c3227d72c23bea7}\label{class_fourier_transform_a7c98d85eb4ce69fe5c3227d72c23bea7}} 
+\index{FourierTransform@{FourierTransform}!backwards@{backwards}}
+\index{backwards@{backwards}!FourierTransform@{FourierTransform}}
+\doxysubsubsection{\texorpdfstring{backwards()}{backwards()}}
+{\footnotesize\ttfamily int Fourier\+Transform\+::backwards (\begin{DoxyParamCaption}\item[{unsigned int}]{x,  }\item[{int}]{length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Given a number \char`\"{}x\char`\"{} returns the number which has the same bits as \char`\"{}x\char`\"{}, but in the reverse order 
+\begin{DoxyParams}{Parameters}
+{\em } & x -\/ number in decimal number system \\
+\hline
+{\em } & length -\/ the length of the binary representation of a number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\+: result -\/ binary representation of the \char`\"{}reverse\char`\"{} number 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_fourier_transform_aacd3d3eaeaad6e5f8859c704d2ebf618}\label{class_fourier_transform_aacd3d3eaeaad6e5f8859c704d2ebf618}} 
+\index{FourierTransform@{FourierTransform}!butterfly@{butterfly}}
+\index{butterfly@{butterfly}!FourierTransform@{FourierTransform}}
+\doxysubsubsection{\texorpdfstring{butterfly()}{butterfly()}}
+{\footnotesize\ttfamily void Fourier\+Transform\+::butterfly (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{_base_signal_processor_8hpp_a98af8d54ee0a6d3cf15fe87b208f0fa9}{comp}} $>$ \&}]{signal,  }\item[{int}]{step,  }\item[{\mbox{\hyperlink{_base_signal_processor_8hpp_a98af8d54ee0a6d3cf15fe87b208f0fa9}{comp}}}]{w }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+A set of butterfly transformations that occur during a Fourier transform. 
+\begin{DoxyParams}{Parameters}
+{\em } & signal -\/ the vector in which we perform permutations \\
+\hline
+{\em } & w -\/ turning factor \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\+: signal, which has already been converted 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_fourier_transform_a8faf2f6bd81d8fd4cb25d5f2f9d9d1d3}\label{class_fourier_transform_a8faf2f6bd81d8fd4cb25d5f2f9d9d1d3}} 
+\index{FourierTransform@{FourierTransform}!checkpower2@{checkpower2}}
+\index{checkpower2@{checkpower2}!FourierTransform@{FourierTransform}}
+\doxysubsubsection{\texorpdfstring{checkpower2()}{checkpower2()}}
+{\footnotesize\ttfamily void Fourier\+Transform\+::checkpower2 (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Test for the number that it is a power of 2. Auxiliary class function. 
+\begin{DoxyParams}{Parameters}
+{\em } & int n -\/ length of the signal \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_fourier_transform_a729d5093847f6d6cc6ce01fe8c86b3e8}\label{class_fourier_transform_a729d5093847f6d6cc6ce01fe8c86b3e8}} 
+\index{FourierTransform@{FourierTransform}!conjugate@{conjugate}}
+\index{conjugate@{conjugate}!FourierTransform@{FourierTransform}}
+\doxysubsubsection{\texorpdfstring{conjugate()}{conjugate()}}
+{\footnotesize\ttfamily void Fourier\+Transform\+::conjugate (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{_base_signal_processor_8hpp_a98af8d54ee0a6d3cf15fe87b208f0fa9}{comp}} $>$ \&}]{signal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Replaces every element of the vector by its complex conjugate. 
+\begin{DoxyParams}{Parameters}
+{\em signal} & -\/ input array for complex conjugation \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_fourier_transform_a66cc2183738939df895fafd87ef66bcc}\label{class_fourier_transform_a66cc2183738939df895fafd87ef66bcc}} 
 \index{FourierTransform@{FourierTransform}!FastFourierTransform@{FastFourierTransform}}
 \index{FastFourierTransform@{FastFourierTransform}!FourierTransform@{FourierTransform}}
@@ -105,30 +185,84 @@ Computes the inverse Fourier transform using FFT with some auxiliary functions d
 \mbox{\texttt{ out}}  & {\em signal} & -\/ output time-\/dependent signal Input signal saved in m\+Fourier\+Frequency. Transformed signal saved in m\+Fourier\+Signal parameter. \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{class_fourier_transform_a5ea48fa313b0c402dcef6c584f41264c}\label{class_fourier_transform_a5ea48fa313b0c402dcef6c584f41264c}} 
+\index{FourierTransform@{FourierTransform}!pairCompare@{pairCompare}}
+\index{pairCompare@{pairCompare}!FourierTransform@{FourierTransform}}
+\doxysubsubsection{\texorpdfstring{pairCompare()}{pairCompare()}}
+{\footnotesize\ttfamily bool Fourier\+Transform\+::pair\+Compare (\begin{DoxyParamCaption}\item[{const pair$<$ double, int $>$ \&}]{first\+Elem,  }\item[{const pair$<$ double, int $>$ \&}]{second\+Elem }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Auxiliary function for comparing 2 pairs of elements by the first element. 
+\begin{DoxyParams}{Parameters}
+{\em first\+Elem} & -\/ first pair for comparison \\
+\hline
+{\em second\+Elem} & -\/ second pair for comparison \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_fourier_transform_a5ec4544748b7931663d31a6ff1aca7ee}\label{class_fourier_transform_a5ec4544748b7931663d31a6ff1aca7ee}} 
 \index{FourierTransform@{FourierTransform}!Print@{Print}}
 \index{Print@{Print}!FourierTransform@{FourierTransform}}
 \doxysubsubsection{\texorpdfstring{Print()}{Print()}}
-{\footnotesize\ttfamily void Fourier\+Transform\+::\+Print (\begin{DoxyParamCaption}\item[{string}]{label }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Fourier\+Transform\+::\+Print (\begin{DoxyParamCaption}\item[{string}]{output\+\_\+param }\end{DoxyParamCaption})}
 
 Function for output result on the screen 
 \begin{DoxyParams}{Parameters}
-{\em label} & the parameter, that you want to print\+: clean frequency, frequency, signal, clean signal \\
+{\em output\+\_\+param} & the parameter, that you want to print\+: clean frequency, frequency, signal, clean signal \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{class_fourier_transform_a83b3a5974655dacce34073f439cbc0ee}\label{class_fourier_transform_a83b3a5974655dacce34073f439cbc0ee}} 
+\index{FourierTransform@{FourierTransform}!reposition@{reposition}}
+\index{reposition@{reposition}!FourierTransform@{FourierTransform}}
+\doxysubsubsection{\texorpdfstring{reposition()}{reposition()}}
+{\footnotesize\ttfamily void Fourier\+Transform\+::reposition (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{_base_signal_processor_8hpp_a98af8d54ee0a6d3cf15fe87b208f0fa9}{comp}} $>$ \&}]{signal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Permutes elements in an array using the \char`\"{}backward\char`\"{} function 
+\begin{DoxyParams}{Parameters}
+{\em } & signal -\/ array, where we permute the elements \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\+: signal -\/ same array with rearranged elements 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_fourier_transform_af55008c0c7700bdb2b4e68d90d018b60}\label{class_fourier_transform_af55008c0c7700bdb2b4e68d90d018b60}} 
 \index{FourierTransform@{FourierTransform}!SaveFile@{SaveFile}}
 \index{SaveFile@{SaveFile}!FourierTransform@{FourierTransform}}
 \doxysubsubsection{\texorpdfstring{SaveFile()}{SaveFile()}}
-{\footnotesize\ttfamily void Fourier\+Transform\+::\+Save\+File (\begin{DoxyParamCaption}\item[{string}]{filename,  }\item[{string}]{label }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Fourier\+Transform\+::\+Save\+File (\begin{DoxyParamCaption}\item[{string}]{filename,  }\item[{string}]{output\+\_\+param }\end{DoxyParamCaption})}
 
 Function for save result in the separate file 
 \begin{DoxyParams}{Parameters}
 {\em filename} & path to the file \\
 \hline
-{\em label} & the parameter, that you want to print\+: clean frequency, frequency, signal, clean signal \\
+{\em output\+\_\+param} & the parameter, that you want to print\+: clean frequency, frequency, signal, clean signal \\
 \hline
 \end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_fourier_transform_ac1052017d414427fed64dceb6f391a5c}\label{class_fourier_transform_ac1052017d414427fed64dceb6f391a5c}} 
+\index{FourierTransform@{FourierTransform}!mFourierFrequency@{mFourierFrequency}}
+\index{mFourierFrequency@{mFourierFrequency}!FourierTransform@{FourierTransform}}
+\doxysubsubsection{\texorpdfstring{mFourierFrequency}{mFourierFrequency}}
+{\footnotesize\ttfamily vector$<$\mbox{\hyperlink{_base_signal_processor_8hpp_a98af8d54ee0a6d3cf15fe87b208f0fa9}{comp}}$>$ Fourier\+Transform\+::m\+Fourier\+Frequency\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_fourier_transform_a664ca5ae636baa5336a7bec9d3aeac30}\label{class_fourier_transform_a664ca5ae636baa5336a7bec9d3aeac30}} 
+\index{FourierTransform@{FourierTransform}!mFourierFrequencyClean@{mFourierFrequencyClean}}
+\index{mFourierFrequencyClean@{mFourierFrequencyClean}!FourierTransform@{FourierTransform}}
+\doxysubsubsection{\texorpdfstring{mFourierFrequencyClean}{mFourierFrequencyClean}}
+{\footnotesize\ttfamily vector$<$\mbox{\hyperlink{_base_signal_processor_8hpp_a98af8d54ee0a6d3cf15fe87b208f0fa9}{comp}}$>$ Fourier\+Transform\+::m\+Fourier\+Frequency\+Clean\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_fourier_transform_a138868208c9ed085e4c1411db4c61b0b}\label{class_fourier_transform_a138868208c9ed085e4c1411db4c61b0b}} 
+\index{FourierTransform@{FourierTransform}!mFourierSignal@{mFourierSignal}}
+\index{mFourierSignal@{mFourierSignal}!FourierTransform@{FourierTransform}}
+\doxysubsubsection{\texorpdfstring{mFourierSignal}{mFourierSignal}}
+{\footnotesize\ttfamily vector$<$\mbox{\hyperlink{_base_signal_processor_8hpp_a98af8d54ee0a6d3cf15fe87b208f0fa9}{comp}}$>$ Fourier\+Transform\+::m\+Fourier\+Signal\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_fourier_transform_ad8f291166c66c5e79d6b18ce7c196956}\label{class_fourier_transform_ad8f291166c66c5e79d6b18ce7c196956}} 
+\index{FourierTransform@{FourierTransform}!mFourierSignalClean@{mFourierSignalClean}}
+\index{mFourierSignalClean@{mFourierSignalClean}!FourierTransform@{FourierTransform}}
+\doxysubsubsection{\texorpdfstring{mFourierSignalClean}{mFourierSignalClean}}
+{\footnotesize\ttfamily vector$<$\mbox{\hyperlink{_base_signal_processor_8hpp_a98af8d54ee0a6d3cf15fe87b208f0fa9}{comp}}$>$ Fourier\+Transform\+::m\+Fourier\+Signal\+Clean\hspace{0.3cm}{\ttfamily [private]}}
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

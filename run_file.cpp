@@ -52,12 +52,12 @@ int main(int argc, char* argv[]){
     float percentage;
     string filename;
     string label;
-    cout << "Write the percentage for the FFT_Filter, filename and label of saving value:\n";
+    cout << "Write the percentage for the FFT_Filter, filename and name of saving parameter:\n";
     cout << "Percentage (as %):";
     cin >> percentage;
     cout << "\nFilename:\n";
     cin >> filename;
-    cout << "\nLabel:\n";
+    cout << "\nLabel of saving parameter:\n";
     cin >> label;
 
     auto* random = new vector<comp>;

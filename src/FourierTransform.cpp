@@ -257,20 +257,20 @@ void FourierTransform::FFTFilter(vector<double>& signals, double percentage,vect
 
 /**
  * Function for output result on the screen
- * \param label: the parameter, that you want to print:
+ * \param output_param: the parameter, that you want to print:
  *              clean frequency, frequency, signal, clean signal
  *
  */
-void FourierTransform::Print(string label) {
+void FourierTransform::Print(string output_param) {
     vector<comp> output;
     try {
-        if (label == "clean frequency") {
+        if (output_param == "clean frequency") {
             output = mFourierFrequencyClean;
-        } else if (label == "frequency") {
+        } else if (output_param == "frequency") {
             output = mFourierFrequency;
-        } else if (label == "signal") {
+        } else if (output_param == "signal") {
             output = mFourierSignal;
-        } else if (label == "clean signal") {
+        } else if (output_param == "clean signal") {
             output = mFourierSignalClean;
         }
         else {
@@ -291,19 +291,19 @@ void FourierTransform::Print(string label) {
 /**
  * Function for save result in the separate file
  * \param filename: path to the file
- * \param label: the parameter, that you want to print:
+ * \param output_param: the parameter, that you want to print:
  *     clean frequency, frequency, signal, clean signal
  */
-void FourierTransform::SaveFile(string filename, string label) {
+void FourierTransform::SaveFile(string filename, string output_param) {
     vector<comp> output;
     try {
-        if (label == "clean frequency") {
+        if (output_param == "clean frequency") {
             output = mFourierFrequencyClean;
-        } else if (label == "frequency") {
+        } else if (output_param == "frequency") {
             output = mFourierFrequency;
-        } else if (label == "signal") {
+        } else if (output_param == "signal") {
             output = mFourierSignal;
-        } else if (label == "clean signal") {
+        } else if (output_param == "clean signal") {
             output = mFourierSignalClean;
         }
         else {

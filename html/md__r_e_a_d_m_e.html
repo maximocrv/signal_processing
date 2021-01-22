@@ -73,8 +73,8 @@ Requirements</h1>
 <p>It is necessary to have <code>cmake</code> to compile the code via the <code>CMakeLists.txt</code> file. <code>jupyter-notebook</code> is also necessary to visualize the plots of the outputted data from the codebase, as well as the libraries <code>matplotlib</code>, <code>pandas</code>, and <code>numpy</code> for generating the plots.</p>
 <h1><a class="anchor" id="autotoc_md2"></a>
 User Guide</h1>
-<p>In order to set up the project, it is necessary to run the following commands:</p>
-<div class="fragment"><div class="line">git clone *insert_repository_url*</div>
+<p>In order to set up the project, first clone the repository and then run the following commands:</p>
+<div class="fragment"><div class="line">cd signal-processing</div>
 <div class="line">git submodule add https://github.com/adamstark/AudioFile.git</div>
 <div class="line">git submodule add https://github.com/google/googletest.git</div>
 <div class="line">git submodule init</div>
@@ -83,31 +83,32 @@ User Guide</h1>
 <div class="line">make</div>
 </div><!-- fragment --><p>The from the build directory run the file as follows:</p>
 <div class="fragment"><div class="line">./test_signal_processor</div>
-<div class="line">./run_signal_processor window_average average_mode num_fourier_coeffs</div>
-</div><!-- fragment --><p>Note that <code>window_average</code> is an integer representing the moving average window that will be used for the time domain averaging, <code>average_mode</code> is a string which determines the type of averaging that will be applied (the two options are "moving_average" and "exponential_moving_average"), and <code>num_fourier_coeffs</code> represents the number of Fourier coefficients that will be used for the filtering in the Fourier domain (i.e. we consider the ones with the largest magnitude for reconstructing the signal in the time domain).</p>
+<div class="line">./run_signal_processor</div>
+</div><!-- fragment --><p>You will be prompted to input a number of parameters. Note that <code>window_average</code> is an integer representing the moving average window that will be used for the time domain averaging, <code>average_mode</code> is a string which determines the type of averaging that will be applied (the two options are "moving_average" and "exponential_moving_average"), and <code>num_fourier_coeffs</code> represents the number of Fourier coefficients that will be used for the filtering in the Fourier domain (i.e. we consider the ones with the largest magnitude for reconstructing the signal in the time domain).</p>
 <p>Once you have run this, you can run open the jupyter notebook <code>plots.ipynb</code> to visualize the results (note that there are already plots present which we have generated from our own test runs).</p>
 <h1><a class="anchor" id="autotoc_md3"></a>
 Repository Structure</h1>
 <p>The repository is structured as follows:</p>
-<h2><a class="anchor" id="autotoc_md4"></a>
-BaseSignalProcessor.hpp/cpp</h2>
+<p><code><a class="el" href="_base_signal_processor_8hpp.html">BaseSignalProcessor.hpp</a>/cpp</code></p>
 <p>Base class from which the <a class="el" href="class_fourier_transform.html">FourierTransform</a> and <a class="el" href="class_time_signal_processor.html">TimeSignalProcessor</a> classes are derived. Contains custom constructor that sets the time signal to a member variable, as well as saving functionality which are used in both derived classes.</p>
-<h2><a class="anchor" id="autotoc_md5"></a>
-FourierTransform.hpp/cpp</h2>
+<p><code><a class="el" href="_fourier_transform_8hpp.html">FourierTransform.hpp</a>/cpp</code></p>
 <p>Header and source file containing the <a class="el" href="class_fourier_transform.html">FourierTransform</a> class. It contains methods to perform the Fast Fourier Transform, which are subdivided into further smaller functions, the inverse Fourier Transform, and perform filtering in the Fourier domain.</p>
-<h2><a class="anchor" id="autotoc_md6"></a>
-SignalProcessor.hpp/cpp</h2>
+<p><code><a class="el" href="_time_signal_processor_8hpp.html">TimeSignalProcessor.hpp</a>/cpp</code></p>
 <p>Header and source file containing the signal processor class which works with time domain signals. It contains methods to perform noise removal (either via the moving average or exponential moving average), and generate intensity histograms.</p>
-<h2><a class="anchor" id="autotoc_md7"></a>
+<h2><a class="anchor" id="autotoc_md4"></a>
 tests.cpp</h2>
 <p>All the tests performed on the above classes containing into the tests/test.cpp:</p>
 <ul>
-<li>Tests for <a class="el" href="class_fourier_transform.html">FourierTransform</a> class - <code>fft_1</code>, <code>fft_2</code>, <code>inverse_fft_1</code>, <code>inverse_fft_2</code> and <code>fft_filter</code>;</li>
+<li>Tests for <a class="el" href="class_fourier_transform.html">FourierTransform</a> class - <code>fft_1</code>, <code>fft_2</code>, <code>inverse_fft_1</code>, <code>inverse_fft_2</code> and <code>fft_filter</code></li>
 <li>Tests for <a class="el" href="class_time_signal_processor.html">TimeSignalProcessor</a> class - <code>remove_noise</code> and <code>histogram_testing</code>.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md8"></a>
+<h1><a class="anchor" id="autotoc_md5"></a>
 Limitations &amp; Future Improvements</h1>
-<p>Currently the code is not set up to deal with signals whose length is not a power of 2 (due to the specific implementation of the FFT). Furthermore it is only set up to work with mono channel signals. </p>
+<p>Currently the code is not set up to deal with signals whose length is not a power of 2 (due to the specific implementation of the FFT). Furthermore it is only set up to work with mono channel signals.</p>
+<h1><a class="anchor" id="autotoc_md6"></a>
+External Libraries</h1>
+<p>AudioFile <a href="https://github.com/adamstark/AudioFile.git">[1]</a> - used for loading in wav files.</p>
+<p>GoogleTest <a href="https://github.com/google/googletest.git">[2]</a> - testing suite. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->
