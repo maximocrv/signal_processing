@@ -65,6 +65,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_fourier_transform-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">FourierTransform Class Reference</div>  </div>
@@ -77,7 +79,8 @@ Collaboration diagram for FourierTransform:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_fourier_transform__coll__graph.png" border="0" usemap="#a_fourier_transform_coll__map" alt="Collaboration graph"/></div>
 <map name="a_fourier_transform_coll__map" id="a_fourier_transform_coll__map">
-<area shape="rect" title=" " alt="" coords="5,5,189,171"/>
+<area shape="rect" title=" " alt="" coords="5,189,189,443"/>
+<area shape="rect" title=" " alt="" coords="40,5,155,83"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -97,6 +100,32 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a5ec4544748b7931663d31a6ff1aca7ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af55008c0c7700bdb2b4e68d90d018b60"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fourier_transform.html#af55008c0c7700bdb2b4e68d90d018b60">SaveFile</a> (string filename, string label)</td></tr>
 <tr class="separator:af55008c0c7700bdb2b4e68d90d018b60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
+<tr class="memitem:a5ea48fa313b0c402dcef6c584f41264c"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fourier_transform.html#a5ea48fa313b0c402dcef6c584f41264c">pairCompare</a> (const pair&lt; double, int &gt; &amp;firstElem, const pair&lt; double, int &gt; &amp;secondElem)</td></tr>
+<tr class="separator:a5ea48fa313b0c402dcef6c584f41264c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacd3d3eaeaad6e5f8859c704d2ebf618"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fourier_transform.html#aacd3d3eaeaad6e5f8859c704d2ebf618">butterfly</a> (vector&lt; <a class="el" href="_base_signal_processor_8hpp.html#a98af8d54ee0a6d3cf15fe87b208f0fa9">comp</a> &gt; &amp;array, int step, <a class="el" href="_base_signal_processor_8hpp.html#a98af8d54ee0a6d3cf15fe87b208f0fa9">comp</a> w)</td></tr>
+<tr class="separator:aacd3d3eaeaad6e5f8859c704d2ebf618"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c98d85eb4ce69fe5c3227d72c23bea7"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fourier_transform.html#a7c98d85eb4ce69fe5c3227d72c23bea7">backwards</a> (unsigned int x, int length)</td></tr>
+<tr class="separator:a7c98d85eb4ce69fe5c3227d72c23bea7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83b3a5974655dacce34073f439cbc0ee"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fourier_transform.html#a83b3a5974655dacce34073f439cbc0ee">reposition</a> (vector&lt; <a class="el" href="_base_signal_processor_8hpp.html#a98af8d54ee0a6d3cf15fe87b208f0fa9">comp</a> &gt; &amp;array)</td></tr>
+<tr class="separator:a83b3a5974655dacce34073f439cbc0ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a729d5093847f6d6cc6ce01fe8c86b3e8"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fourier_transform.html#a729d5093847f6d6cc6ce01fe8c86b3e8">conjugate</a> (vector&lt; <a class="el" href="_base_signal_processor_8hpp.html#a98af8d54ee0a6d3cf15fe87b208f0fa9">comp</a> &gt; &amp;signal)</td></tr>
+<tr class="separator:a729d5093847f6d6cc6ce01fe8c86b3e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8faf2f6bd81d8fd4cb25d5f2f9d9d1d3"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fourier_transform.html#a8faf2f6bd81d8fd4cb25d5f2f9d9d1d3">checkpower2</a> (int n)</td></tr>
+<tr class="separator:a8faf2f6bd81d8fd4cb25d5f2f9d9d1d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a138868208c9ed085e4c1411db4c61b0b"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="_base_signal_processor_8hpp.html#a98af8d54ee0a6d3cf15fe87b208f0fa9">comp</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fourier_transform.html#a138868208c9ed085e4c1411db4c61b0b">mFourierSignal</a></td></tr>
+<tr class="separator:a138868208c9ed085e4c1411db4c61b0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8f291166c66c5e79d6b18ce7c196956"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="_base_signal_processor_8hpp.html#a98af8d54ee0a6d3cf15fe87b208f0fa9">comp</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fourier_transform.html#ad8f291166c66c5e79d6b18ce7c196956">mFourierSignalClean</a></td></tr>
+<tr class="separator:ad8f291166c66c5e79d6b18ce7c196956"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1052017d414427fed64dceb6f391a5c"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="_base_signal_processor_8hpp.html#a98af8d54ee0a6d3cf15fe87b208f0fa9">comp</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fourier_transform.html#ac1052017d414427fed64dceb6f391a5c">mFourierFrequency</a></td></tr>
+<tr class="separator:ac1052017d414427fed64dceb6f391a5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a664ca5ae636baa5336a7bec9d3aeac30"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="_base_signal_processor_8hpp.html#a98af8d54ee0a6d3cf15fe87b208f0fa9">comp</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fourier_transform.html#a664ca5ae636baa5336a7bec9d3aeac30">mFourierFrequencyClean</a></td></tr>
+<tr class="separator:a664ca5ae636baa5336a7bec9d3aeac30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class with all functions for Fast Fourier Transform. Consists of the main functions for FFT, iFFT and FourierFilter. Has a next private fields: </p><dl class="params"><dt>Parameters</dt><dd>
@@ -162,6 +191,164 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a7c98d85eb4ce69fe5c3227d72c23bea7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c98d85eb4ce69fe5c3227d72c23bea7">&#9670;&nbsp;</a></span>backwards()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FourierTransform::backwards </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Given a number "x" returns the number which has the same bits as "x", but in the reverse order </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"></td><td>x - number in decimal number system </td></tr>
+    <tr><td class="paramname"></td><td>length - the length of the binary representation of a number </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>: result - binary representation of the "reverse" number </dd></dl>
+
+</div>
+</div>
+<a id="aacd3d3eaeaad6e5f8859c704d2ebf618"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacd3d3eaeaad6e5f8859c704d2ebf618">&#9670;&nbsp;</a></span>butterfly()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FourierTransform::butterfly </td>
+          <td>(</td>
+          <td class="paramtype">vector&lt; <a class="el" href="_base_signal_processor_8hpp.html#a98af8d54ee0a6d3cf15fe87b208f0fa9">comp</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>signal</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>step</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_base_signal_processor_8hpp.html#a98af8d54ee0a6d3cf15fe87b208f0fa9">comp</a>&#160;</td>
+          <td class="paramname"><em>w</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>A set of butterfly transformations that occur during a Fourier transform. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"></td><td>signal - the vector in which we perform permutations </td></tr>
+    <tr><td class="paramname"></td><td>w - turning factor </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>: signal, which has already been converted </dd></dl>
+
+</div>
+</div>
+<a id="a8faf2f6bd81d8fd4cb25d5f2f9d9d1d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8faf2f6bd81d8fd4cb25d5f2f9d9d1d3">&#9670;&nbsp;</a></span>checkpower2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FourierTransform::checkpower2 </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Test for the number that it is a power of 2. Auxiliary class function. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"></td><td>int n - length of the signal </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a729d5093847f6d6cc6ce01fe8c86b3e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a729d5093847f6d6cc6ce01fe8c86b3e8">&#9670;&nbsp;</a></span>conjugate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FourierTransform::conjugate </td>
+          <td>(</td>
+          <td class="paramtype">vector&lt; <a class="el" href="_base_signal_processor_8hpp.html#a98af8d54ee0a6d3cf15fe87b208f0fa9">comp</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>signal</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Replaces every element of the vector by its complex conjugate. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">signal</td><td>- input array for complex conjugation </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a66cc2183738939df895fafd87ef66bcc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a66cc2183738939df895fafd87ef66bcc">&#9670;&nbsp;</a></span>FastFourierTransform()</h2>
 
@@ -275,6 +462,49 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a5ea48fa313b0c402dcef6c584f41264c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ea48fa313b0c402dcef6c584f41264c">&#9670;&nbsp;</a></span>pairCompare()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool FourierTransform::pairCompare </td>
+          <td>(</td>
+          <td class="paramtype">const pair&lt; double, int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>firstElem</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const pair&lt; double, int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>secondElem</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Auxiliary function for comparing 2 pairs of elements by the first element. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">firstElem</td><td>- first pair for comparison </td></tr>
+    <tr><td class="paramname">secondElem</td><td>- second pair for comparison </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a5ec4544748b7931663d31a6ff1aca7ee"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5ec4544748b7931663d31a6ff1aca7ee">&#9670;&nbsp;</a></span>Print()</h2>
 
@@ -285,17 +515,50 @@ Public Member Functions</h2></td></tr>
           <td class="memname">void FourierTransform::Print </td>
           <td>(</td>
           <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>label</em></td><td>)</td>
+          <td class="paramname"><em>output_param</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>Function for output result on the screen </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">label</td><td>the parameter, that you want to print: clean frequency, frequency, signal, clean signal </td></tr>
+    <tr><td class="paramname">output_param</td><td>the parameter, that you want to print: clean frequency, frequency, signal, clean signal </td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a83b3a5974655dacce34073f439cbc0ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83b3a5974655dacce34073f439cbc0ee">&#9670;&nbsp;</a></span>reposition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FourierTransform::reposition </td>
+          <td>(</td>
+          <td class="paramtype">vector&lt; <a class="el" href="_base_signal_processor_8hpp.html#a98af8d54ee0a6d3cf15fe87b208f0fa9">comp</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>signal</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Permutes elements in an array using the "backward" function </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"></td><td>signal - array, where we permute the elements </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>: signal - same array with rearranged elements </dd></dl>
 
 </div>
 </div>
@@ -315,7 +578,7 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>label</em>&#160;</td>
+          <td class="paramname"><em>output_param</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -327,10 +590,99 @@ Public Member Functions</h2></td></tr>
 <p>Function for save result in the separate file </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">filename</td><td>path to the file </td></tr>
-    <tr><td class="paramname">label</td><td>the parameter, that you want to print: clean frequency, frequency, signal, clean signal </td></tr>
+    <tr><td class="paramname">output_param</td><td>the parameter, that you want to print: CleanFrequency, Frequency, Signal, CleanSignal </td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ac1052017d414427fed64dceb6f391a5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1052017d414427fed64dceb6f391a5c">&#9670;&nbsp;</a></span>mFourierFrequency</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;<a class="el" href="_base_signal_processor_8hpp.html#a98af8d54ee0a6d3cf15fe87b208f0fa9">comp</a>&gt; FourierTransform::mFourierFrequency</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a664ca5ae636baa5336a7bec9d3aeac30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a664ca5ae636baa5336a7bec9d3aeac30">&#9670;&nbsp;</a></span>mFourierFrequencyClean</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;<a class="el" href="_base_signal_processor_8hpp.html#a98af8d54ee0a6d3cf15fe87b208f0fa9">comp</a>&gt; FourierTransform::mFourierFrequencyClean</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a138868208c9ed085e4c1411db4c61b0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a138868208c9ed085e4c1411db4c61b0b">&#9670;&nbsp;</a></span>mFourierSignal</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;<a class="el" href="_base_signal_processor_8hpp.html#a98af8d54ee0a6d3cf15fe87b208f0fa9">comp</a>&gt; FourierTransform::mFourierSignal</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad8f291166c66c5e79d6b18ce7c196956"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8f291166c66c5e79d6b18ce7c196956">&#9670;&nbsp;</a></span>mFourierSignalClean</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;<a class="el" href="_base_signal_processor_8hpp.html#a98af8d54ee0a6d3cf15fe87b208f0fa9">comp</a>&gt; FourierTransform::mFourierSignalClean</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
