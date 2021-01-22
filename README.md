@@ -29,7 +29,7 @@ The from the build directory run the file as follows:
 You will be prompted to input a number of parameters. These include the `window_average`, which is an integer 
 representing the moving average window that will be used for the time domain averaging, `average_mode`, which is a flag
 denoting the type of averaging that will be applied (the two options are "moving_average" and 
-"exponential_moving_average", but input them without the quotation marks). Lastly you will be asked to provide an input
+"exponential_average", but input them without the quotation marks). Lastly you will be asked to provide an input
 for `n_bins`, which is the integer representing the number of bins used to generate the histogram.
 
 Second set of parameters for the Fourier filtered signal. First, a number (as a `percentage`) must be entered 
