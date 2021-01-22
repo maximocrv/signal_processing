@@ -33,9 +33,9 @@ int main(int argc, char* argv[]){
     time_signal.RemoveNoise(window_size, average_mode, 0.5);
     time_signal.GenerateHistogram(num_bins);
 
-    const string& original_signal_file = "output_data/original_signal.dat";
-    const string& noise_removed_signal_file = "output_data/noise_removed_signal.dat";
-    const string& intensity_histogram_file = "output_data/intensity_histogram.dat";
+    const string& original_signal_file = "../output_data/original_signal.dat";
+    const string& noise_removed_signal_file = "../output_data/noise_removed_signal.dat";
+    const string& intensity_histogram_file = "../output_data/intensity_histogram.dat";
 
     // saving time domain files
     time_signal.SaveHistogram(intensity_histogram_file);
@@ -65,7 +65,7 @@ int main(int argc, char* argv[]){
     //fourier_instance.FastFourierTransform(*signal_cut, *random);
     //fourier_instance.InverseFourierTransform(*signal_cut, *random);
 
-    const string& filtered_fourier_file = "output_data/filtered_fourier_file.dat";
+    const string& filtered_fourier_file = "../output_data/filtered_fourier_file.dat";
     // saving frequency domain files
     fourier_instance.SaveFile(filename, label);
 

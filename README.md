@@ -10,6 +10,7 @@ to visualize the plots of the outputted data from the codebase, as well as the l
 In order to set up the project, first clone the repository and then run the following commands:
 
 ```
+cd signal-processing
 git submodule add https://github.com/adamstark/AudioFile.git
 git submodule add https://github.com/google/googletest.git
 git submodule init
