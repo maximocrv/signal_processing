@@ -24,7 +24,7 @@ BaseSignalProcessor::~BaseSignalProcessor() {
 
 /**
  * Overloaded function for setting the time signal (in this case from an AudioFile<double> variable).
- * \param signal: input signal
+ * \param signal: input signal as an AudioFile object
  */
 void BaseSignalProcessor::SetTimeSignal(AudioFile<double>& signal) {
     for (int i = 0; i < signal.getNumSamplesPerChannel(); i++) {
@@ -34,7 +34,7 @@ void BaseSignalProcessor::SetTimeSignal(AudioFile<double>& signal) {
 
 /**
  * Overloaded function for setting the time signal (in this case from a vector<double> variable).
- * \param signal: input signal
+ * \param signal: input signal as a vector<double>
  */
 void BaseSignalProcessor::SetTimeSignal(vector<double>& signal){
     for (int i = 0; i < signal.size(); i++){
@@ -44,7 +44,7 @@ void BaseSignalProcessor::SetTimeSignal(vector<double>& signal){
 
 /**
  * Method for saving a given file.
- * \param filename
+ * \param filename: target directory for saving the time signal.
  */
 void BaseSignalProcessor::SaveTimeSignal(const string& file_name, const string& signal_name) {
     ofstream out;
@@ -91,8 +91,6 @@ void BaseSignalProcessor::GenerateHistogram(int n_bins) {
     *sorted_signal = mTimeSignal;
     sort(sorted_signal->begin(), sorted_signal->end());
 
-//    double min = floor(sorted_signal->front()) - 0.1;
-//    double max = ceil(sorted_signal->back()) + 0.1;
     double min = sorted_signal->front() - 0.1;
     double max = sorted_signal->back() + 0.1;
     double bin_width = (max - min) / (double) n_bins;
@@ -123,7 +121,7 @@ void BaseSignalProcessor::GenerateHistogram(int n_bins) {
 
 /** Method for saving the histogram bins to an output file
  *
- * \param file_name
+ * \param file_name: target directory for saving the histogram.
  */
 void BaseSignalProcessor::SaveHistogram(const string &file_name) {
     std::ofstream out;

@@ -1,5 +1,5 @@
 //
-// Created by Sergei Kliavinek & Maximo Cravero on 30/11/2020.
+// Created by Sergei Kliavinek & Maximo Cravero.
 //
 
 #include <cmath>
