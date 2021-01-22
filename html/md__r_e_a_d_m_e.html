@@ -84,7 +84,8 @@ User Guide</h1>
 </div><!-- fragment --><p>The from the build directory run the file as follows:</p>
 <div class="fragment"><div class="line">./test_signal_processor</div>
 <div class="line">./run_signal_processor</div>
-</div><!-- fragment --><p>You will be prompted to input a number of parameters. Note that <code>window_average</code> is an integer representing the moving average window that will be used for the time domain averaging, <code>average_mode</code> is a string which determines the type of averaging that will be applied (the two options are "moving_average" and "exponential_moving_average"), and <code>num_fourier_coeffs</code> represents the number of Fourier coefficients that will be used for the filtering in the Fourier domain (i.e. we consider the ones with the largest magnitude for reconstructing the signal in the time domain).</p>
+</div><!-- fragment --><p>You will be prompted to input a number of parameters. Note that <code>window_average</code> is an integer representing the moving average window that will be used for the time domain averaging, <code>average_mode</code> is a string which determines the type of averaging that will be applied (the two options are "moving_average" and "exponential_moving_average").</p>
+<p>Second set of parameters for the Fourier filtered signal. First, a number (as a <code>percentage</code>) must be entered indicating which part of the signal we consider to be the main and which part to be noise. After that you should enter a <code>filename</code> and type of signal to be saved (<code>label</code>) (<code>Signal</code>, <code>Frequency</code>, <code>CleanSignal</code>, <code>CleanFrequency</code> ).</p>
 <p>Once you have run this, you can run open the jupyter notebook <code>plots.ipynb</code> to visualize the results (note that there are already plots present which we have generated from our own test runs).</p>
 <h1><a class="anchor" id="autotoc_md3"></a>
 Repository Structure</h1>

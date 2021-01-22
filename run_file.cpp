@@ -57,7 +57,7 @@ int main(int argc, char* argv[]){
     cin >> percentage;
     cout << "\nFilename: ";
     cin >> filename;
-    cout << "\nLabel of saving parameter:\n";
+    cout << "\nLabel of saving parameter:";
     cin >> label;
 
     auto* random = new vector<comp>;
@@ -66,7 +66,8 @@ int main(int argc, char* argv[]){
     //fourier_instance.InverseFourierTransform(*signal_cut, *random);
 
     const string& filtered_fourier_file = "../output_data/filtered_fourier_file.dat";
+    string file_path = "../output_data/" + filename;
     // saving frequency domain files
-    fourier_instance.SaveFile(filename, label);
+    fourier_instance.SaveFile(file_path, label);
 
 }

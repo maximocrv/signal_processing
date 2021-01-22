@@ -25,7 +25,9 @@ The from the build directory run the file as follows\+:
 \end{DoxyCode}
 
 
-You will be prompted to input a number of parameters. Note that {\ttfamily window\+\_\+average} is an integer representing the moving average window that will be used for the time domain averaging, {\ttfamily average\+\_\+mode} is a string which determines the type of averaging that will be applied (the two options are \char`\"{}moving\+\_\+average\char`\"{} and \char`\"{}exponential\+\_\+moving\+\_\+average\char`\"{}), and {\ttfamily num\+\_\+fourier\+\_\+coeffs} represents the number of Fourier coefficients that will be used for the filtering in the Fourier domain (i.\+e. we consider the ones with the largest magnitude for reconstructing the signal in the time domain).
+You will be prompted to input a number of parameters. Note that {\ttfamily window\+\_\+average} is an integer representing the moving average window that will be used for the time domain averaging, {\ttfamily average\+\_\+mode} is a string which determines the type of averaging that will be applied (the two options are \char`\"{}moving\+\_\+average\char`\"{} and \char`\"{}exponential\+\_\+moving\+\_\+average\char`\"{}).
+
+Second set of parameters for the Fourier filtered signal. First, a number (as a {\ttfamily percentage}) must be entered indicating which part of the signal we consider to be the main and which part to be noise. After that you should enter a {\ttfamily filename} and type of signal to be saved ({\ttfamily label}) ({\ttfamily Signal}, {\ttfamily Frequency}, {\ttfamily Clean\+Signal}, {\ttfamily Clean\+Frequency} ).
 
 Once you have run this, you can run open the jupyter notebook {\ttfamily plots.\+ipynb} to visualize the results (note that there are already plots present which we have generated from our own test runs).\hypertarget{md__r_e_a_d_m_e_autotoc_md3}{}\doxysection{Repository Structure}\label{md__r_e_a_d_m_e_autotoc_md3}
 The repository is structured as follows\+:

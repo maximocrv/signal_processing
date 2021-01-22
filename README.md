@@ -28,9 +28,11 @@ The from the build directory run the file as follows:
 
 You will be prompted to input a number of parameters. Note that `window_average` is an integer representing the moving 
 average window that will be used for the time domain averaging, `average_mode` is a string which determines the type of 
-averaging that will be applied (the two options are "moving_average" and "exponential_moving_average"), and 
-`num_fourier_coeffs` represents the number of Fourier coefficients that will be used for the filtering in the Fourier 
-domain (i.e. we consider the ones with the largest magnitude for reconstructing the signal in the time domain).
+averaging that will be applied (the two options are "moving_average" and "exponential_moving_average")
+
+Second set of parameters for the Fourier filtered signal. First, a number (as a `percentage`) must be entered 
+indicating which part of the signal we consider to be the main and which part to be noise. After that you should enter 
+a `filename`  and type of signal to be saved (`label`) (```Signal```, ```Frequency```, ```CleanSignal```, ```CleanFrequency``` ).
 
 Once you have run this, you can run open the jupyter notebook `plots.ipynb` to visualize the results (note that there
 are already plots present which we have generated from our own test runs).
