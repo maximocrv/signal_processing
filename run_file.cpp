@@ -14,7 +14,7 @@ typedef std::complex<double> comp;
 int main(int argc, char* argv[]){
     // loading in audiofile
     AudioFile<double> audioFile;
-    audioFile.load("CantinaBand3.wav");
+    audioFile.load("../CantinaBand3.wav");
 
     // defining variables for time signal processing
     string average_mode;

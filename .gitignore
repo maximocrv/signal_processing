@@ -13,7 +13,6 @@ cmake_install.cmake
 *googletest-build
 *googletest-download
 *googletest-src
-*googletest
 noise_removed_signal.dat
 intensity_histogram.dat
 signal-processing.cbp
