@@ -2,7 +2,6 @@
 // Created by Sergei Kliavinek & Maximo Cravero on 30/11/2020.
 //
 
-
 #include <iostream>
 #include "gtest/gtest.h"
 #include "../src/FourierTransform.hpp"
@@ -86,6 +85,8 @@ TEST (FourierTransform, fft_filter){
 }
 
 TEST (TimeSignalProcessor, remove_noise){
+        // simple test to check the moving average generates the correct output, and has the correct size (i.e. taking
+        // into account the fact that we will lose some elements due to the initialization of the moving average)
         int window_size = 3;
         vector<double> test_vector = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0};
         vector<double> correct_output_moving_average = {2.0, 3.0, 4.0, 5.0};
@@ -103,6 +104,8 @@ TEST (TimeSignalProcessor, remove_noise){
     }
 
 TEST (TimeSignalProcessor, histogram_testing){
+        // simple test to check that the histogram outputs the correct bin frequencies and that their sum is equal to
+        // the total number of samples provided in the input
         vector<double> test_vector = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0 , 9.0};
 
         TimeSignalProcessor test_signal_processor;

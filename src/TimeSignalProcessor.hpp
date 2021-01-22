@@ -14,11 +14,10 @@ using namespace std;
 #ifndef SIGNAL_PROCESSING_SIGNALPROCESSER_H
 #define SIGNAL_PROCESSING_SIGNALPROCESSER_H
 
-/** Class for signal preprocessing (noise removing and histogram building).
+/** Class for signal preprocessing (noise removing and histogram building). Derived from the BaseSignalProcessor class.
  * \param mSignal: original signal
  * \param mNoiseRemovedSignal: processed signal
  */
-
 class TimeSignalProcessor : public BaseSignalProcessor {
 public:
     // constructors and destructors

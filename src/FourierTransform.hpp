@@ -32,8 +32,8 @@ public:
     ~FourierTransform();
 
     // Methods
-    void FastFourierTransform(vector<double>& signals,vector<comp>& signal);
-    void FFTFilter(vector<double>& signals, double percentage,vector <comp>& signal);
+    void FastFourierTransform(vector<double>& signals, vector<comp>& signal);
+    void FFTFilter(vector<double>& signals, double percentage, vector <comp>& signal);
     void InverseFourierTransform(vector<double>& signals, vector<comp>& signal);
     void Print(string label);
     void SaveFile(string filename, string label);
@@ -44,7 +44,7 @@ private:
     vector<comp> mFourierFrequency;
     vector<comp> mFourierFrequencyClean;
     static bool pairCompare(const pair<double, int>& firstElem, const pair<double, int>& secondElem);
-    static void butterfly(vector<comp> &array,int step,  comp w);
+    static void butterfly(vector<comp> &array,int step, comp w);
     static int backwards(unsigned int x, int length);
     static void reposition(vector<comp> &array);
     static void conjugate(vector<comp> &signal);

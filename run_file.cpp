@@ -55,9 +55,9 @@ int main(int argc, char* argv[]){
     cout << "Write the percentage for the FFT_Filter, filename and label of saving value:\n";
     cout << "Percentage (as %):";
     cin >> percentage;
-    cout << "\nFilename:\n";
+    cout << "\nFilename: ";
     cin >> filename;
-    cout << "\nLabel:\n";
+    cout << "\nLabel: ";
     cin >> label;
 
     auto* random = new vector<comp>;
