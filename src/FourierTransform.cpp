@@ -292,18 +292,18 @@ void FourierTransform::Print(string output_param) {
  * Function for save result in the separate file
  * \param filename: path to the file
  * \param output_param: the parameter, that you want to print:
- *     clean frequency, frequency, signal, clean signal
+ *     CleanFrequency, Frequency, Signal, CleanSignal
  */
 void FourierTransform::SaveFile(string filename, string output_param) {
     vector<comp> output;
     try {
-        if (output_param == "clean frequency") {
+        if (output_param == "CleanFrequency") {
             output = mFourierFrequencyClean;
-        } else if (output_param == "frequency") {
+        } else if (output_param == "Frequency") {
             output = mFourierFrequency;
-        } else if (output_param == "signal") {
+        } else if (output_param == "Signal") {
             output = mFourierSignal;
-        } else if (output_param == "clean signal") {
+        } else if (output_param == "CleanSignal") {
             output = mFourierSignalClean;
         }
         else {
