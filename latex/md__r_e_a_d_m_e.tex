@@ -25,7 +25,7 @@ The from the build directory run the file as follows\+:
 \end{DoxyCode}
 
 
-You will be prompted to input a number of parameters. Note that {\ttfamily window\+\_\+average} is an integer representing the moving average window that will be used for the time domain averaging, {\ttfamily average\+\_\+mode} is a string which determines the type of averaging that will be applied (the two options are \char`\"{}moving\+\_\+average\char`\"{} and \char`\"{}exponential\+\_\+moving\+\_\+average\char`\"{})
+You will be prompted to input a number of parameters. These include the {\ttfamily window\+\_\+average}, which is an integer representing the moving average window that will be used for the time domain averaging, {\ttfamily average\+\_\+mode}, which is a flag denoting the type of averaging that will be applied (the two options are \char`\"{}moving\+\_\+average\char`\"{} and \char`\"{}exponential\+\_\+moving\+\_\+average\char`\"{}, but input them without the quotation marks). Lastly you will be asked to provide an input for {\ttfamily n\+\_\+bins}, which is the integer representing the number of bins used to generate the histogram.
 
 Second set of parameters for the Fourier filtered signal. First, a number (as a {\ttfamily percentage}) must be entered indicating which part of the signal we consider to be the main and which part to be noise. After that you should enter a {\ttfamily filename} and type of signal to be saved ({\ttfamily label}) ({\ttfamily Signal}, {\ttfamily Frequency}, {\ttfamily Clean\+Signal}, {\ttfamily Clean\+Frequency} ).
 
@@ -34,7 +34,7 @@ The repository is structured as follows\+:
 
 {\ttfamily \mbox{\hyperlink{_base_signal_processor_8hpp}{Base\+Signal\+Processor.\+hpp}}/cpp}
 
-Base class from which the \mbox{\hyperlink{class_fourier_transform}{Fourier\+Transform}} and \mbox{\hyperlink{class_time_signal_processor}{Time\+Signal\+Processor}} classes are derived. Contains custom constructor that sets the time signal to a member variable, as well as saving functionality which are used in both derived classes.
+Base class from which the \mbox{\hyperlink{class_time_signal_processor}{Time\+Signal\+Processor}} class is derived. Contains custom constructor that sets the time signal to a member variable, as well as saving functionality which is used in the derived processor class. Contains method for saving and generating the histogram.
 
 {\ttfamily \mbox{\hyperlink{_fourier_transform_8hpp}{Fourier\+Transform.\+hpp}}/cpp}
 
@@ -42,13 +42,18 @@ Header and source file containing the \mbox{\hyperlink{class_fourier_transform}{
 
 {\ttfamily \mbox{\hyperlink{_time_signal_processor_8hpp}{Time\+Signal\+Processor.\+hpp}}/cpp}
 
-Header and source file containing the signal processor class which works with time domain signals. It contains methods to perform noise removal (either via the moving average or exponential moving average), and generate intensity histograms.\hypertarget{md__r_e_a_d_m_e_autotoc_md4}{}\doxysubsection{tests.\+cpp}\label{md__r_e_a_d_m_e_autotoc_md4}
+Header and source file containing the derived signal processor class which works with time domain signals. It contains methods to perform noise removal (either via the moving average or exponential moving average), and generate intensity histograms (the latter of which comes from the \mbox{\hyperlink{class_base_signal_processor}{Base\+Signal\+Processor}} class).\hypertarget{md__r_e_a_d_m_e_autotoc_md4}{}\doxysubsection{tests.\+cpp}\label{md__r_e_a_d_m_e_autotoc_md4}
 All the tests performed on the above classes containing into the tests/test.\+cpp\+:
 
 
 \begin{DoxyItemize}
-\item Tests for \mbox{\hyperlink{class_fourier_transform}{Fourier\+Transform}} class -\/ {\ttfamily fft\+\_\+1}, {\ttfamily fft\+\_\+2}, {\ttfamily inverse\+\_\+fft\+\_\+1}, {\ttfamily inverse\+\_\+fft\+\_\+2} and {\ttfamily fft\+\_\+filter}
-\item Tests for \mbox{\hyperlink{class_time_signal_processor}{Time\+Signal\+Processor}} class -\/ {\ttfamily remove\+\_\+noise} and {\ttfamily histogram\+\_\+testing}.
+\item Tests for \mbox{\hyperlink{class_fourier_transform}{Fourier\+Transform}} class -\/ {\ttfamily fft\+\_\+1}, {\ttfamily fft\+\_\+2}, {\ttfamily inverse\+\_\+fft\+\_\+1}, {\ttfamily inverse\+\_\+fft\+\_\+2} and 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ \{fft\_filter```\}}
+\DoxyCodeLine{-\/ Tests for TimeSignalProcessor class -\/ ```remove\_noise``` and ```histogram\_testing}
+
+\end{DoxyCode}
+
 \end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md5}{}\doxysection{Limitations \& Future Improvements}\label{md__r_e_a_d_m_e_autotoc_md5}
 Currently the code is not set up to deal with signals whose length is not a power of 2 (due to the specific implementation of the FFT). Furthermore it is only set up to work with mono channel signals.\hypertarget{md__r_e_a_d_m_e_autotoc_md6}{}\doxysection{External Libraries}\label{md__r_e_a_d_m_e_autotoc_md6}
 Audio\+File \href{https://github.com/adamstark/AudioFile.git}{\texttt{ \mbox{[}1\mbox{]}}} -\/ used for loading in wav files.

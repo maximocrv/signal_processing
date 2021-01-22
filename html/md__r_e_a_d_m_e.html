@@ -84,24 +84,25 @@ User Guide</h1>
 </div><!-- fragment --><p>The from the build directory run the file as follows:</p>
 <div class="fragment"><div class="line">./test_signal_processor</div>
 <div class="line">./run_signal_processor</div>
-</div><!-- fragment --><p>You will be prompted to input a number of parameters. Note that <code>window_average</code> is an integer representing the moving average window that will be used for the time domain averaging, <code>average_mode</code> is a string which determines the type of averaging that will be applied (the two options are "moving_average" and "exponential_moving_average")</p>
+</div><!-- fragment --><p>You will be prompted to input a number of parameters. These include the <code>window_average</code>, which is an integer representing the moving average window that will be used for the time domain averaging, <code>average_mode</code>, which is a flag denoting the type of averaging that will be applied (the two options are "moving_average" and "exponential_moving_average", but input them without the quotation marks). Lastly you will be asked to provide an input for <code>n_bins</code>, which is the integer representing the number of bins used to generate the histogram.</p>
 <p>Second set of parameters for the Fourier filtered signal. First, a number (as a <code>percentage</code>) must be entered indicating which part of the signal we consider to be the main and which part to be noise. After that you should enter a <code>filename</code> and type of signal to be saved (<code>label</code>) (<code>Signal</code>, <code>Frequency</code>, <code>CleanSignal</code>, <code>CleanFrequency</code> ).</p>
 <p>Once you have run this, you can run open the jupyter notebook <code>plots.ipynb</code> to visualize the results (note that there are already plots present which we have generated from our own test runs).</p>
 <h1><a class="anchor" id="autotoc_md3"></a>
 Repository Structure</h1>
 <p>The repository is structured as follows:</p>
 <p><code><a class="el" href="_base_signal_processor_8hpp.html">BaseSignalProcessor.hpp</a>/cpp</code></p>
-<p>Base class from which the <a class="el" href="class_fourier_transform.html">FourierTransform</a> and <a class="el" href="class_time_signal_processor.html">TimeSignalProcessor</a> classes are derived. Contains custom constructor that sets the time signal to a member variable, as well as saving functionality which are used in both derived classes.</p>
+<p>Base class from which the <a class="el" href="class_time_signal_processor.html">TimeSignalProcessor</a> class is derived. Contains custom constructor that sets the time signal to a member variable, as well as saving functionality which is used in the derived processor class. Contains method for saving and generating the histogram.</p>
 <p><code><a class="el" href="_fourier_transform_8hpp.html">FourierTransform.hpp</a>/cpp</code></p>
 <p>Header and source file containing the <a class="el" href="class_fourier_transform.html">FourierTransform</a> class. It contains methods to perform the Fast Fourier Transform, which are subdivided into further smaller functions, the inverse Fourier Transform, and perform filtering in the Fourier domain.</p>
 <p><code><a class="el" href="_time_signal_processor_8hpp.html">TimeSignalProcessor.hpp</a>/cpp</code></p>
-<p>Header and source file containing the signal processor class which works with time domain signals. It contains methods to perform noise removal (either via the moving average or exponential moving average), and generate intensity histograms.</p>
+<p>Header and source file containing the derived signal processor class which works with time domain signals. It contains methods to perform noise removal (either via the moving average or exponential moving average), and generate intensity histograms (the latter of which comes from the <a class="el" href="class_base_signal_processor.html">BaseSignalProcessor</a> class).</p>
 <h2><a class="anchor" id="autotoc_md4"></a>
 tests.cpp</h2>
 <p>All the tests performed on the above classes containing into the tests/test.cpp:</p>
 <ul>
-<li>Tests for <a class="el" href="class_fourier_transform.html">FourierTransform</a> class - <code>fft_1</code>, <code>fft_2</code>, <code>inverse_fft_1</code>, <code>inverse_fft_2</code> and <code>fft_filter</code></li>
-<li>Tests for <a class="el" href="class_time_signal_processor.html">TimeSignalProcessor</a> class - <code>remove_noise</code> and <code>histogram_testing</code>.</li>
+<li>Tests for <a class="el" href="class_fourier_transform.html">FourierTransform</a> class - <code>fft_1</code>, <code>fft_2</code>, <code>inverse_fft_1</code>, <code>inverse_fft_2</code> and <div class="fragment"><div class="line"> {fft_filter```}</div>
+<div class="line">- Tests for TimeSignalProcessor class - ```remove_noise``` and ```histogram_testing</div>
+</div><!-- fragment --></li>
 </ul>
 <h1><a class="anchor" id="autotoc_md5"></a>
 Limitations &amp; Future Improvements</h1>
