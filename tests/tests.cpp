@@ -9,7 +9,9 @@
 
 
 TEST (FourierTransform, fft_1){
-    // Compare output with that of built in fft class
+    // Compare output with that of built in fft class. Input (vector <double> signals)- simple signal length eight.
+    // Output(vector <comp> signal) - Fourier transformation of signal.
+    // vector <comp> tests - "ideal" output, that should be.
     FourierTransform fft;
     vector<double> signals = {0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
     vector <comp> signal = {};
@@ -23,7 +25,9 @@ TEST (FourierTransform, fft_1){
 }
 
 TEST (FourierTransform, fft_2){
-    // Compare output with that of built in fft class
+    // Compare output with that of built in fft class. Input (vector <double> signals) -
+    // simple signal length eight. Output(vector <comp> signal) - Fourier
+    // transformation of signal. vector <comp> tests - "ideal" output, that should be.
     FourierTransform fft;
     vector<double> signals = {1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
     vector <comp> signal = {};
@@ -39,7 +43,9 @@ TEST (FourierTransform, fft_2){
 }
 
 TEST (FourierTransform, inverse_fft_1){
-    // Compare inverse output with that of built in fft class
+    // Compare inverse output with that of built in fft class. Input (vector <comp> signal)- simple signal length eight.
+    // Output(vector <comp> signal) - Fourier transformation of signal. vector <comp> tests -
+    // "ideal" output, that should be.
     FourierTransform fft;
     vector<double> signals = {};
     vector <comp> signal={comp(1,0), comp(0.707107,-0.707107), comp(0.000000,-1.000000),\
@@ -54,7 +60,9 @@ TEST (FourierTransform, inverse_fft_1){
 }
 
 TEST (FourierTransform, inverse_fft_2){
-    // Compare inverse output with that of built in fft class
+    // Compare inverse output with that of built in fft class. Input (vector <comp> signal)- simple signal length eight.
+    // Output(vector <comp> signal) - Fourier transformation of signal. vector <comp> tests -
+    // "ideal" output, that should be.
     FourierTransform fft;
     vector<double> signals = {};
     vector <comp> signal={comp(1,0), comp(1,0), comp(1,0), comp(1,0),comp(1,0),\
@@ -68,7 +76,9 @@ TEST (FourierTransform, inverse_fft_2){
 }
 
 TEST (FourierTransform, fft_filter){
-    // Construct simple sum of sine waves and add noise terms
+    // Compare ideal fourier filter results with that of built in fft class. Input (vector <comp> signals)-
+    // simple signal length eight with a little noise.
+    // Output(vector <comp> signal) - Fourier Filtered signal vector <comp> tests -"ideal" output, that should be.
     FourierTransform fft;
     vector <double> signal={};
     vector <comp> signals = {comp(0.250625,0.000000), comp(-0.087946,0.036170), comp(-0.125000,0.124375),\
