@@ -60,6 +60,11 @@ Header and source file containing the derived signal processor class which works
 methods to perform noise removal (either via the moving average or exponential moving average), and generate intensity 
 histograms (the latter of which comes from the BaseSignalProcessor class).
 
+`run_file.cpp`
+
+Contains the implementation of the methods implemented in this class, as described above in the user guide.
+
+
 ### tests.cpp
 All the tests performed on the above classes containing into the tests/test.cpp:
 
