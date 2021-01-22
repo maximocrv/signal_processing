@@ -26,9 +26,11 @@ The from the build directory run the file as follows:
 ./run_signal_processor
 ```
 
-You will be prompted to input a number of parameters. Note that `window_average` is an integer representing the moving 
-average window that will be used for the time domain averaging, `average_mode` is a string which determines the type of 
-averaging that will be applied (the two options are "moving_average" and "exponential_moving_average")
+You will be prompted to input a number of parameters. These include the `window_average`, which is an integer 
+representing the moving average window that will be used for the time domain averaging, `average_mode`, which is a flag
+denoting the type of averaging that will be applied (the two options are "moving_average" and 
+"exponential_moving_average", but input them without the quotation marks). Lastly you will be asked to provide an input
+for `n_bins`, which is the integer representing the number of bins used to generate the histogram.
 
 Second set of parameters for the Fourier filtered signal. First, a number (as a `percentage`) must be entered 
 indicating which part of the signal we consider to be the main and which part to be noise. After that you should enter 
@@ -42,8 +44,9 @@ The repository is structured as follows:
 
 `BaseSignalProcessor.hpp/cpp`
 
-Base class from which the FourierTransform and TimeSignalProcessor classes are derived. Contains custom constructor 
-that sets the time signal to a member variable, as well as saving functionality which are used in both derived classes.
+Base class from which the TimeSignalProcessor class is derived. Contains custom constructor that sets the time signal 
+to a member variable, as well as saving functionality which is used in the derived processor class. Contains method for
+saving and generating the histogram. 
 
 `FourierTransform.hpp/cpp`
 
@@ -53,16 +56,16 @@ domain.
 
 `TimeSignalProcessor.hpp/cpp`
 
-Header and source file containing the signal processor class which works with time domain signals. It contains methods
-to perform noise removal (either via the moving average or exponential moving average), and generate intensity 
-histograms.
+Header and source file containing the derived signal processor class which works with time domain signals. It contains 
+methods to perform noise removal (either via the moving average or exponential moving average), and generate intensity 
+histograms (the latter of which comes from the BaseSignalProcessor class).
 
 ### tests.cpp
 All the tests performed on the above classes containing into the tests/test.cpp:
 
 - Tests for FourierTransform class - ```fft_1```, ```fft_2```, ```inverse_fft_1```, ```inverse_fft_2``` and 
 ```fft_filter```
-- Tests for TimeSignalProcessor class - ```remove_noise``` and ```histogram_testing```.
+- Tests for TimeSignalProcessor class - ```remove_noise``` and ```histogram_testing```
 
 ## Limitations & Future Improvements
 Currently the code is not set up to deal with signals whose length is not a power of 2 (due to the specific
